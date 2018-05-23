@@ -1,6 +1,6 @@
 package com.eesilife.lib;
 
-public class L771_JewelsandStones {
+public class L771_JewelSandStones {
     public int numJewelsInStones(String J, String S) {
         int sum = 0;
         if (null == J || J.length() == 0
@@ -15,7 +15,7 @@ public class L771_JewelsandStones {
     }
 
     public static void main(String[] args){
-        L771_JewelsandStones c = new L771_JewelsandStones();
+        L771_JewelSandStones c = new L771_JewelSandStones();
         String J = "aA", S = "aAAbbbb";
         System.out.print(c.numJewelsInStones(J, S));
     }

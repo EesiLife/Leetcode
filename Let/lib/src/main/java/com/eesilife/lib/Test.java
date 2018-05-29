@@ -7,10 +7,9 @@ import java.util.Arrays;
  */
 public class Test {
     public static void main(String[] args) {
-        String S = "loveleetcode";
-        char C = 'e';
-        String[] ss = S.split(String.valueOf(C));
-        System.out.println(ss.length);
-        System.out.println(Arrays.toString(ss));
+        String s = "discuss.leetcode.com";
+        String[] a = s.split("\\.");
+        System.out.println(s);
+        System.out.println(Arrays.toString(a));
     }
 }

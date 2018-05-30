@@ -16,6 +16,7 @@ public class L118_PascalsTriangle {
                 }
             }
         }
+        return null;
     }
 
 }

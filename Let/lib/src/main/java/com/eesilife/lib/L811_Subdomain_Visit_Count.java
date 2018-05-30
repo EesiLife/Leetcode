@@ -5,8 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class L811_Subdomain_Visit_Count {
-    HashMap<String, Integer> map = new HashMap<>();
+
     public List<String> subdomainVisits(String[] cpdomains) {
+        HashMap<String, Integer> map = new HashMap<>();
         for (int i = 0; i < cpdomains.length; i++){
             String[] s = cpdomains[i].split(" ");
             int index = Integer.parseInt(s[0]);
@@ -15,33 +16,34 @@ public class L811_Subdomain_Visit_Count {
                 a1 += map.get(s[1]);
             }
             map.put(s[1], a1);
-            String[] s1 = s[1].split("\\.");
-            if (s1.length == 2) {
+            String[] ss = s[1].split("\\.");
+            if (ss.length == 2) {
                 int a2= index;
-                if (null != map.get(s1[1])) {
-                    a2 += map.get(s1[1]);
+                if (null != map.get(ss[1])) {
+                    a2 += map.get(ss[1]);
                 }
-                map.put(s1[1], a2);
+                map.put(ss[1], a2);
             } else {
                 int a3= index;
-                if (null != map.get(s1[2])) {
-                    a3 += map.get(s1[2]);
+                String b = String.format("%s.%s",ss[1], ss[2]);
+                if (null != map.get(b)) {
+                    a3 += map.get(b);
                 }
-                map.put(s1[2], a3);
+                map.put(b, a3);
                 int a4 = index;
-                if (null != map.get(s1[2]+ s1[1])) {
-                    a4 += map.get(s1[2]+ s1[1]);
+                if (null != map.get(ss[2])) {
+                    a4 += map.get(ss[2]);
                 }
-                map.put(s1[2]+ s1[1], a4);
+                map.put(ss[2], a4);
             }
         }
         List<String> result = new ArrayList<>();
         for (String key : map.keySet()) {
             int index = map.get(key);
-            result.add(key + " " + index);
+            result.add( index+ " " + key);
         }
 
-        return null;
+        return result;
     }
     public static void main(String[] args){
         L811_Subdomain_Visit_Count c = new L811_Subdomain_Visit_Count();

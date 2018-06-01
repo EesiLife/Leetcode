@@ -18,7 +18,7 @@ public class L119_PascalsTriangleII {
                     m[j] = m[i - j] = 1;
                 } else{
                     m[j] = m[i -j] = pre.get(j - 1) + pre.get(j);
-
+                }
             }
             pre.clear();
             for (int index :m){

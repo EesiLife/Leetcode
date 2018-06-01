@@ -56,3 +56,15 @@ freeline_project_description.json
 *.egg-info
 dist
 build
+
+#Android Studio:
+*.iml
+.gradle
+/local.properties
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild

@@ -1,6 +1,6 @@
 package com.eesilife.lib;
 
-public class L844 {
+public class L844_BackspaceStringCompare {
 
     public boolean backspaceCompare(String S, String T) {
         String s1 = "";
@@ -35,7 +35,7 @@ public class L844 {
 //        String S = "ab##", T = "c#d#";
 //        String S="a##c", T= "#a#c";
         String S= "hd#dp#czsp#####", T= "hd#dp#cs#zspj######";
-        L844 c = new L844();
+        L844_BackspaceStringCompare c = new L844_BackspaceStringCompare();
         System.out.print(c.backspaceCompare(S, T));
     }
 

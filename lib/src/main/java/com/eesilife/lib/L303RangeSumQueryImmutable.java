@@ -10,28 +10,26 @@ import java.util.HashMap;
 public class L303RangeSumQueryImmutable {
 
     public class NumArray {
-        private HashMap<String, Integer> map = new HashMap<>();
         private int[] arr;
-        private int sum;
+
         public NumArray(int[] nums) {
-            arr  = nums;
+            arr = nums;
+            for (int i = 1; i < nums.length; i++) {
+                arr[i] = arr[i - 1] + nums[i];
+            }
         }
 
         public int sumRange(int i, int j) {
-            sum = 0;
-            if (i > j)return 0;
-            for (int k = i; k < j+1 ; k++){
-                sum+= arr[k];
-            }
-            return sum;
+            if (i > j || i < 0 || j < 0 || j >= arr.length) return 0;
+            return i == 0 ? arr[j] : (arr[j] - arr[i - 1]);
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 //        int[] a = new int[]{0,1,2,3,4,5,6};
         int[] a = new int[]{-2, 0, 3, -5, 2, -1};
         L303RangeSumQueryImmutable c = new L303RangeSumQueryImmutable();
         L303RangeSumQueryImmutable.NumArray n = c.new NumArray(a);
-        System.out.println(n.sumRange(2, 5));
+        System.out.println(n.sumRange(0, 5));
     }
 }

@@ -1,12 +1,9 @@
 package com.eesilife.lib;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by siy on 18-5-31.
  */
-public class L9_PalindromeNumber {
+public class L009_PalindromeNumber {
     public boolean isPalindrome(int x) {
         if (x < 0) return false;
         int sum = 0;
@@ -30,7 +27,7 @@ public class L9_PalindromeNumber {
     }
 
     public static void main(String[] args) {
-        L9_PalindromeNumber c = new L9_PalindromeNumber();
+        L009_PalindromeNumber c = new L009_PalindromeNumber();
         System.out.println(c.isPalindrome(121121));
     }
 }

@@ -8,17 +8,27 @@ public class L463_IslandPerimeter {
         int m = grid[0].length;
         int n = grid.length;
         int sum = 0;
-        for (int i = 0; i < n; i ++) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (grid[i][j] == 1) {
-                    sum++;
+                    int temp = 4;
+                    if (i - 1 >= 0 && grid[i - 1][j] == 1) {
+                        temp--;
+                    }
+                    if (j - 1 >= 0 && grid[i][j - 1] == 1) {
+                        temp--;
+                    }
+                    if (i + 1 < n && grid[i + 1][j] == 1) {
+                        temp--;
+                    }
+                    if (j + 1 < m && grid[i][j + 1] == 1) {
+                        temp--;
+                    }
+                    sum+=temp;
                 }
             }
         }
-        if (sum == m * n){
-            return 2*(m + n);
-        }
-        return 2 * sum + 2;
+        return sum;
     }
 
     public static void main(String[] args) {

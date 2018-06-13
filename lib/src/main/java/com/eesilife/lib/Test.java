@@ -2,6 +2,7 @@ package com.eesilife.lib;
 
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -20,7 +21,14 @@ public class Test {
         int[][] points = new int[][]{
                 {0, 0}, {1, 0}, {2, 0}
         };
-        System.out.println(t.numberOfBoomerangs(points));
+//        System.out.println(Arrays.toString(t.numberOfBoomerangs(points)));
+
+        //
+        int[] num1= new int[]{1, 2, 2, 1};
+        int[] nums2 = new int[]{2, 2};
+        int[] result = t.intersection(num1, nums2);
+        for (int i = 0; i <result.length; i++)
+            System.out.println(result[i]);
     }
 
     public int numberOfBoomerangs(int[][] points) {
@@ -85,5 +93,30 @@ public class Test {
             }
         }
         return sum;
+    }
+
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums1.length; i++) {
+            int n1 = nums1[i];
+            if(set.contains(n1))continue;
+            for (int j = 0; j < nums2.length; j++) {
+                if (n1 == nums2[j]) {
+                    set.add(n1);
+                    break;
+                }
+            }
+        }
+        if (set.size() >0) {
+            Integer[] temp = set.toArray(new Integer[] {});
+            int[] result = new int[temp.length];
+            for (int i = 0; i < temp.length; i++) {
+                result[i] = temp[i].intValue();
+            }
+            return result;
+        }else {
+            return new int[]{};
+        }
+
     }
 }

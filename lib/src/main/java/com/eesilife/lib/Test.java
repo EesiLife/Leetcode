@@ -24,11 +24,46 @@ public class Test {
 //        System.out.println(Arrays.toString(t.numberOfBoomerangs(points)));
 
         //
-        int[] num1= new int[]{1, 2, 2, 1};
-        int[] nums2 = new int[]{2, 2};
-        int[] result = t.intersection(num1, nums2);
-        for (int i = 0; i <result.length; i++)
-            System.out.println(result[i]);
+//        int[] num1= new int[]{1, 2, 2, 1};
+//        int[] nums2 = new int[]{2, 2};
+//        int[] result = t.intersection(num1, nums2);
+//        for (int i = 0; i <result.length; i++)
+//            System.out.println(result[i]);
+
+        //598
+        t.maxCount(3, 3, new int[][]{{2,2},{3,3}});
+
+    }
+
+    public int maxCount(int m, int n, int[][] ops) {
+        if (null == ops || ops.length == 0)return m*n;
+        int len = ops.length;
+        int maxA = ops[0][0];
+        int maxB = ops[0][1];
+        for (int i = 0; i < len; i++) {
+            int a = ops[i][0];
+            int b = ops[i][1];
+            if ( a <= maxA){
+                maxA = a;
+            }
+            if (b <= maxB){
+                maxB = b;
+            }
+        }
+        return maxA * maxB;
+    }
+
+    public int maxArea(int[] height) {
+        int max = 0;
+        for (int i = 0; i < height.length; i++) {
+            for(int j = i; j < height.length; j++ ){
+                int x = j - i;
+                int y = height[i] > height[j] ? height[j] : height[i];
+                int area = x * y;
+                if (area > max) max = area;
+            }
+        }
+        return max;
     }
 
     public int numberOfBoomerangs(int[][] points) {

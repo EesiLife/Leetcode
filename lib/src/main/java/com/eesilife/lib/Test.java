@@ -33,13 +33,40 @@ public class Test {
 //        for (int i = 0; i <result.length; i++)
 //            System.out.println(result[i]);
 
-        //598
-        t.maxCount(3, 3, new int[][]{{2,2},{3,3}});
+//        //598
+//        t.maxCount(3, 3, new int[][]{{2,2},{3,3}});
+//
+//        //599
+//        String[] list1 = new String[]{"Shogun","Tapioca Express","Burger King","KFC"};
+//        String[] list2 = new String[]{"Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"};
+//        System.out.println(Arrays.toString(t.findRestaurant(list1,list2)));
 
-        //599
-        String[] list1 = new String[]{"Shogun","Tapioca Express","Burger King","KFC"};
-        String[] list2 = new String[]{"Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"};
-        System.out.println(Arrays.toString(t.findRestaurant(list1,list2)));
+        //633
+//        int c = 2147482647;
+        int c = 2;
+//        int c = 18;
+        System.out.println(t.judgeSquareSum(c));
+    }
+
+    //633
+    public boolean judgeSquareSum(int c) {
+        if (c < 0)return false;
+        long a = System.currentTimeMillis();
+        int sqrt = (int)Math.sqrt(c);
+        for (int i = 0; i <= sqrt; i++) {
+            int as = i * i;
+            for (int j = sqrt; j >= sqrt/2; j--) {
+                int bs = j * j;
+                if (c == as + bs) {
+                    System.out.println("i: " + i + ", j: " + j);
+                    long s = (System.currentTimeMillis() - a);
+                    System.out.println(s);
+                    return true;
+                }
+            }
+        }long s = (System.currentTimeMillis() - a);
+        System.out.println("false: " + s);
+        return false;
     }
 
     //599

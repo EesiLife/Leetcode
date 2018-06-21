@@ -58,8 +58,27 @@ public class Test {
 //        System.out.println(t.peakIndexInMountainArray(A));
 
         //
-        int[] nums = new int[]{10,6,7,9,11,5,4,3,2};
-        System.out.println(Arrays.toString(t.findRelativeRanks(nums)));
+//        int[] nums = new int[]{10,6,7,9,11,5,4,3,2};
+//        System.out.println(Arrays.toString(t.findRelativeRanks(nums)));
+
+        //788
+        System.out.println(t.rotatedDigits(10));
+    }
+
+    //788
+    public int rotatedDigits(int N) {
+        int result = 0;
+        if (N <= 1 || N > 10000 )return result;
+        for (int i = 1; i <  N + 1; i++) {
+            String s = String.valueOf(i);
+            if (s.contains("3") || s.contains("4") || s.contains("7"))continue;
+            String a = s.replaceAll("1", "");
+            String b = a.replaceAll("0", "");
+            String c = b.replaceAll("8", "");
+            if(c.length() == 0 || c.equals(""))continue;
+            result++;
+        }
+        return result;
     }
     //506
     public String[] findRelativeRanks(int[] nums) {

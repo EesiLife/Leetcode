@@ -74,8 +74,9 @@ public class Test {
             if (s.contains("3") || s.contains("4") || s.contains("7"))continue;
             String a = s.replaceAll("1", "");
             String b = a.replaceAll("0", "");
-            String c = b.replaceAll("8", "");
-            if(c.length() == 0 || c.equals(""))continue;
+            String c = a.replaceAll("0", "");
+            if(b.length() == 0 || b.equals(""))continue;
+            System.out.println(i + "  ");
             result++;
         }
         return result;

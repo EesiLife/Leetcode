@@ -62,7 +62,20 @@ public class Test {
 //        System.out.println(Arrays.toString(t.findRelativeRanks(nums)));
 
         //788
-        System.out.println(t.rotatedDigits(10));
+//        System.out.println(t.rotatedDigits(10));
+        System.out.println(Integer.toBinaryString(5));
+        System.out.println(t.hammingWeight(5));
+    }
+    //
+    public int hammingWeight(int n) {
+        String s = Integer.toBinaryString(n);
+        int result = 0;
+        for (int i = 0; i < s.length(); i++){
+            if (s.charAt(i) == '1'){
+                result++;
+            }
+        }
+        return result;
     }
 
     //788

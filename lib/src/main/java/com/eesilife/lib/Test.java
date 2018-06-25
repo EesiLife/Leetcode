@@ -63,10 +63,54 @@ public class Test {
 
         //788
 //        System.out.println(t.rotatedDigits(10));
-        System.out.println(Integer.toBinaryString(5));
-        System.out.println(t.hammingWeight(5));
+        System.out.println(t.reverseBits(0));
     }
-    //
+    //190
+    public int reverseBits(int n) {
+        //00000010100101000001111010011100
+        //00111001011110000010100101000000
+        String s = Integer.toBinaryString(n);
+        String result = "";
+        if (n > 0) {
+            String a = "";
+            String b = "";
+            for (int i = 0; i < s.length(); i++){
+                if (s.charAt(i) == '1'){
+                    a+= "0";
+                } else {
+                    a+="1";
+                }
+            }
+
+            for (int j = 0; j < 32 - s.length(); j++) {
+                if (j == 0 || j == 1){
+                    b+="0";
+                } else {
+                    b+="1";
+                }
+            }
+            result = b + a;
+            return Integer.valueOf(result, 2);
+        } else if (n < 0){
+            String a = "";
+            String b = "";
+            for (int i = 0; i < s.length(); i++){
+                if (s.charAt(i) == '1'){
+                    a+= "0";
+                } else {
+                    a+="1";
+                }
+            }
+
+            for (int j = 0; j < 32 - s.length(); j++) {
+                b+="1";
+            }
+            result = b + a;
+            return Integer.valueOf(result, 2);
+        }
+        return 0;
+    }
+    //191
     public int hammingWeight(int n) {
         String s = Integer.toBinaryString(n);
         int result = 0;

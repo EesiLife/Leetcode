@@ -1,5 +1,12 @@
 package com;
 
+import com.eesilif.lib.entity.Employee;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 
 public class T2 {
@@ -38,14 +45,20 @@ public class T2 {
 
     public static void main(String[] args) {
         T2 c = new T2();
-        long time = System.currentTimeMillis();
-//        System.out.println(c.myPow(0.00001, 2147483647));
-//        System.out.println(c.myPow(-2.00000, 2));
-//        System.out.println(c.myPow3(2.00000, -2147483648));
-//        System.out.println((System.currentTimeMillis() - time) / 1000);
 
-        System.out.println(c.isAnagram("", ""));
-//        System.out.println(c.isAnagram("aab", "aac"));
+//        char[] letters = new char[]{'c', 'f', 'j'};
+//        char target = 'a';
+//        char[] letters = new char[]{'c', 'f', 'j'};
+//        char target = 'a';//c
+//        char target = 'c';//f
+//        char target = 'd';//f
+//        char target = 'g';//j
+//        char target = 'j';//c
+//        char target = 'k';//c
+
+        char[] letters = new char[]{'e','e','e','k','q','q','q','v','v','v','y'};
+        char target = 'k';//n
+        System.out.println(c.nextGreatestLetter(letters, target));
     }
 
     public int findContentChildren(int[] g, int[] s) {
@@ -66,5 +79,56 @@ public class T2 {
                 return true;
         }
         return false;
+    }
+
+    int sum = 0;
+    //690
+    public int getImportance(List<Employee> employees, int id) {
+        List<Integer> list = new ArrayList<>();
+        for (Employee e: employees) {
+            if (e.id == id) {
+                sum += e.importance;
+                list.addAll(e.subordinates);
+                break;
+            }
+        }
+        for (Employee e : employees){
+
+        }
+        return 0;
+    }
+
+    //744
+    public char nextGreatestLetter(char[] letters, char target) {
+        List<Character> list = new ArrayList<>();
+        for (char c : letters){
+            if (!list.contains(c))
+                list.add(c);
+        }
+        char[] arr = new char[list.size()];
+        for(int i = 0; i < list.size(); i++){
+            arr[i] = list.get(i);
+        }
+        char min = arr[0], max = arr[arr.length - 1];
+        if (target < min || target >= max) return min;
+        int mid = -1;
+        int len = arr.length;
+        int lo = 0;
+        int hi = len - 1;
+        while (lo < hi) {
+            mid = lo + (hi - lo) / 2;
+            char key = arr[mid];
+            if (lo + 1 == hi) {
+                return arr[hi];
+            }
+            if (key > target) {
+                hi = mid;
+            } else if (key < target) {
+                lo = mid ;
+            } else {
+                return arr[mid + 1];
+            }
+        }
+        return arr[mid];
     }
 }

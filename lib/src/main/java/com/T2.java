@@ -45,20 +45,48 @@ public class T2 {
 
     public static void main(String[] args) {
         T2 c = new T2();
+        int[] nums = new int[]{0, 0,3,4};
+        int target = 0;
+        int[] re = c.twoSum(nums, target);
+        for (int i: re){
+            System.out.println(i);
+        }
+    }
 
-//        char[] letters = new char[]{'c', 'f', 'j'};
-//        char target = 'a';
-//        char[] letters = new char[]{'c', 'f', 'j'};
-//        char target = 'a';//c
-//        char target = 'c';//f
-//        char target = 'd';//f
-//        char target = 'g';//j
-//        char target = 'j';//c
-//        char target = 'k';//c
-
-        char[] letters = new char[]{'e','e','e','k','q','q','q','v','v','v','y'};
-        char target = 'k';//n
-        System.out.println(c.nextGreatestLetter(letters, target));
+    public int[] twoSum(int[] numbers, int target) {
+        int[] result = new int[2];
+        int len = numbers.length;
+        HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
+        for(int i = 0; i < len; i++) {
+            ArrayList<Integer> list = new ArrayList<>();
+            if (map.containsKey(numbers[i])){
+                list.addAll(map.get(numbers[i]));
+            }
+            if (list.size() <= 1) {
+                list.add(i);
+                map.put(numbers[i], list);
+            }
+        }
+        int temp;
+        int t1 = -1;
+        int t2 = -2;
+        for (int i = 0; i < len - 1; i++) {
+            if (target < numbers[i])break;
+            temp = target - numbers[i];
+            t1 = i + 1;
+            if(map.containsKey(temp)){
+                List<Integer> list = map.get(temp);
+                if (list.size() == 1){
+                    t2 = list.get(0) + 1;
+                } else {
+                    t2 = list.get(1) + 1;
+                }
+                break;
+            }
+        }
+        result[0] = t1;
+        result[1] = t2;
+        return result;
     }
 
     public int findContentChildren(int[] g, int[] s) {

@@ -3,9 +3,11 @@ package com;
 import com.eesilif.lib.entity.Employee;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
@@ -44,13 +46,46 @@ public class T2 {
     }
 
     public static void main(String[] args) {
+       int[] num1 = new int[]{1, 2, 2, 1};
+       int[] num2 = new int[]{2,2 };
         T2 c = new T2();
-        int[] nums = new int[]{0, 0,3,4};
-        int target = 0;
-        int[] re = c.twoSum(nums, target);
-        for (int i: re){
-            System.out.println(i);
+        int[] re = c.intersect(num1, num2);
+        System.out.println(Arrays.toString(re));
+    }
+
+    //350.
+    public int[] intersect(int[] nums1, int[] nums2) {
+        List<Integer> l2 = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        int len2 = nums2.length;
+        for(int i = 0; i < len2; i++){
+            l2.add(nums2[i]);
         }
+        int len1 = nums1.length;
+        for (int i = 0; i < len1; i++){
+            if (l2.contains(nums1[i])){
+                int temp = 0;
+                if (null != map.get(nums1[i])){
+                    temp = map.get(nums1[i]);
+
+                }
+                temp++;
+                map.put(nums1[i], temp);
+                l2.remove(new Integer(nums1[i]));
+            }
+        }
+        List<Integer> result = new ArrayList<>();
+        for(Integer key : map.keySet()){
+            System.out.println(String.format("key: %d , value = %d", key, map.get(key) ));
+            for (int i = 0; i < map.get(key); i++) {
+                result.add(key);
+            }
+        }
+        int[] re = new int[result.size()];
+        for (int i = 0; i < re.length; i++){
+            re[i] = result.get(i);
+        }
+        return re;
     }
 
     public int[] twoSum(int[] numbers, int target) {

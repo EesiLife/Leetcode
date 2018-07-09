@@ -46,11 +46,64 @@ public class T2 {
     }
 
     public static void main(String[] args) {
-       int[] num1 = new int[]{1, 2, 2, 1};
-       int[] num2 = new int[]{2,2 };
+//       int[] num1 = new int[]{1,2,3,0,0,0};//6
+//       int[] num2 = new int[]{2,5,6};//3
+//        int[] num1 = new int[]{0};//0
+//        int[] num2 = new int[]{1};//1
+//        T2 c = new T2();
+//        c.merge(num1,0, num2, 1);
+
         T2 c = new T2();
-        int[] re = c.intersect(num1, num2);
-        System.out.println(Arrays.toString(re));
+        int x = 2147395599;
+        System.out.println(c.mySqrt(x));
+        for(int i = 0; i < 170; i++){
+            System.out.println("i= " + (i) + " -- " + c.mySqrt(i));
+        }
+    }
+
+    //69
+    public int mySqrt(int x) {
+        if(x == 0 || x == 1)return x;
+        int lo = 1;
+        int hi = x;
+        int middle = 0;
+        while(lo<=hi) {
+            middle = lo + (hi - lo)/2;
+            if(middle == x/middle) {
+                return middle;
+            } else {
+                if (middle < x/middle) {
+                    lo = middle + 1;
+                } else {
+                    hi = middle - 1;
+                }
+            }
+
+        }
+        return hi;
+    }
+    //88
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int len = nums1.length;
+        List<Integer> list = new ArrayList<>();
+        for(int i = 0; i< n; i++){
+            list.add(nums2[i]);
+        }
+        if (nums1.length == 0) {
+            len = nums2.length;
+            nums1 = new int[len];
+            n = 0;
+        } else {
+
+        }
+        for(int i = n; i< len; i++){
+            if(list.size() > 0){
+                nums1[i] = list.get(0);
+                list.remove(0);
+            } else break;
+        }
+        Arrays.sort(nums1);
+        System.out.println(Arrays.toString(nums1));
     }
 
     //350.

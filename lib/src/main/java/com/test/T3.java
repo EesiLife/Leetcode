@@ -1,10 +1,21 @@
 package com.test;
 
+import java.util.Arrays;
+
 public class T3 {
     public static void main(String[] args) {
         T3 c = new T3();
-        int[] n = new int[]{2,3,4,5,1};
-        System.out.println(c.findMin(n));
+        int[] n = new int[]{1,2,3,4,5};
+        System.out.println(c.minMoves(n));
+    }
+
+    //453.
+    public int minMoves(int[] nums) {
+        Arrays.sort(nums);
+        int max = nums[nums.length - 1];
+        int min = nums[0];
+        if(max == min)return 0;
+        else return max - min + 1;
     }
 
     //153

@@ -45,6 +45,11 @@ public class T2 {
         return t;
     }
 
+    public static void test(){
+        int onoff = 3;
+        System.out.println(onoff & ~2);
+    }
+
     public static void main(String[] args) {
 //       int[] num1 = new int[]{1,2,3,0,0,0};//6
 //       int[] num2 = new int[]{2,5,6};//3
@@ -54,14 +59,20 @@ public class T2 {
 //        c.merge(num1,0, num2, 1);
 
         T2 c = new T2();
-//        for (int i = 0; i < 100; i++){
-//            System.out.println("I: " + (i+1) + "  -- " +c.arrangeCoins(i + 1));
-//        }
-        //2147483648
-        //1804289383
-        System.out.println(c.arrangeCoins(6));//60070
+        test();
+        test();
+        test();
+        test();
     }
 
+    //475
+    public int findRadius(int[] houses, int[] heaters) {
+        int hL = heaters.length;
+        for(int i = 0; i < hL; i++){
+
+        }
+        return 0;
+    }
 
     //441. 排列硬币
     public int arrangeCoins(int n) {

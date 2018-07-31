@@ -7,8 +7,29 @@
  * Created by siy on 18-7-24.
  */
 public class T4 {
+    //868. 二进制间距
+    public int binaryGap(int N) {
+        if(N < 1 || N > 1E9)return 0;
+        String s = Integer.toBinaryString(N);
+        int tep = -1;
+        int max = 0;
+        for (int i = 0; i< s.length(); i++ ){
+            if (tep == -1 && s.charAt(i) == '1'){
+                tep = i;
+            }
+            if(s.charAt(i) == '1'){
+                max = Math.max(i - tep, max);
+                tep = i;
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         T4 c = new T4();
+        //868. 二进制间距
+        System.out.println(c.binaryGap(512));
+        //compareVersion
 //        System.out.println(c.compareVersion1("0.1", "1.1"));
 //        System.out.println(c.compareVersion1("1.0.1", "1"));
 //        System.out.println(c.compareVersion1("7.5.2.4", "7.5.3"));

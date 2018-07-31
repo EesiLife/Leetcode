@@ -27,8 +27,9 @@ public class T4 {
 
     public static void main(String[] args) {
         T4 c = new T4();
-        //868. 二进制间距
-        System.out.println(c.binaryGap(512));
+//        //868. 二进制间距
+//        System.out.println(c.binaryGap(512));
+
         //compareVersion
 //        System.out.println(c.compareVersion1("0.1", "1.1"));
 //        System.out.println(c.compareVersion1("1.0.1", "1"));
@@ -44,7 +45,55 @@ public class T4 {
         //"4.08.01"
 //        System.out.println(c.compareVersion1("4.08", "4.08.01"));
         //"19.8.3.17.5.01.0.0.4.0.0.0.0.0.0.0.0.0.0.0.0.0.00.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.000000.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.000000"
+
+        // //860. 柠檬水找零
+//        int[] a = new int[]{5,5,5,10,20};
+//        System.out.println(c.lemonadeChange(a));
+//        int[] b = new int[]{5,5,10};
+//        System.out.println(c.lemonadeChange(b));
+//        int[] d = new int[]{10,10};
+//        System.out.println(c.lemonadeChange(d));
+//        int[] e = new int[]{5,5,10,10,20};
+//        System.out.println(c.lemonadeChange(e));
+//        int[] f = new int[]{5,5,10,20,5,5,5,5,5,5,5,5,5,10,5,5,20,5,20,5};
+//        System.out.println(c.lemonadeChange(f));
+        int[] g = new int[]{5,5,5,5,20,20,5,5,20,5};
+        System.out.println(c.lemonadeChange(g));
     }
+
+        //860. 柠檬水找零
+        public boolean lemonadeChange(int[] bills) {
+            int n5 = 0;
+            int n10 = 0;
+            if(bills.length > 10000)return false;
+            for(int i = 0; i < bills.length; i++){
+                int current = bills[i];
+                if(current == 5){
+                    n5++;
+                } else if (current == 10){
+                    if(n5 == 0){
+                        return false;
+                    } else {
+                        n5--;
+                        n10++;
+                    }
+                } else if (current == 20){
+                    if(n5 == 0){
+                        return false;
+                    } else if(n10 == 0){
+                        if (n5 < 3){
+                            return false;
+                        } else {
+                            n5-=3;
+                        }
+                    }else {
+                        n5--;
+                        n10--;
+                    }
+                }
+            }
+            return  true;
+        }
 
     public int compareVersion(String version1, String version2) {
         String v11 = "";

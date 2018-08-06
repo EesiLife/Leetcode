@@ -5,10 +5,8 @@ import com.eesilif.lib.entity.Employee;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Stack;
 
 public class T2 {
@@ -51,18 +49,9 @@ public class T2 {
     }
 
     public static void main(String[] args) {
-//       int[] num1 = new int[]{1,2,3,0,0,0};//6
-//       int[] num2 = new int[]{2,5,6};//3
-//        int[] num1 = new int[]{0};//0
-//        int[] num2 = new int[]{1};//1
-//        T2 c = new T2();
-//        c.merge(num1,0, num2, 1);
-
-        T2 c = new T2();
-        test();
-        test();
-        test();
-        test();
+      String s = "https://www.techwalker.com/special/show/page/Di9ePvYr3zbIXN_b5RRwJ0r0dIkToRFi1f0JYBA";
+      String out = s.replace("https://www.techwalker.com/special/show/page/", "");
+      System.out.println(out);
     }
 
     //475

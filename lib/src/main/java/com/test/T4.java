@@ -1,5 +1,8 @@
 package com.test;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -27,7 +30,7 @@ public class T4 {
         return max;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         T4 c = new T4();
 //        //868. 二进制间距
 //        System.out.println(c.binaryGap(512));
@@ -61,9 +64,18 @@ public class T4 {
 //        System.out.println(c.lemonadeChange(f));
 //        int[] g = new int[]{5,5,5,5,20,20,5,5,20,5};
 //        System.out.println(c.lemonadeChange(g));
-        System.out.println(c.isHappy(19));
-        System.out.println(c.isHappy(7));
-        System.out.println(c.isHappy(2));
+//        System.out.println(c.isHappy(19));
+//        System.out.println(c.isHappy(7));
+//        System.out.println(c.isHappy(2));
+
+
+        //
+        String ur = "https://www.techwalker.com/special/show/page/Di9ePvYr3zbIXN_b5RRwJ0r0dIkToRFi1f0JYBA?is_app=1";
+        URL url = new URL(ur);
+        System.out.println(url.getHost());
+        System.out.println(url.getAuthority());
+        System.out.println(url.getPath());
+        System.out.println(url.getQuery());
     }
 
     //202.

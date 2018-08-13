@@ -50,6 +50,27 @@ public class T2 {
         System.out.println(onoff & ~2);
     }
 
+    public static void p(char[] array, int index){
+        char temp;
+        if(index==array.length){
+            System.out.println(array);
+            return;
+        }
+        if(array.length==0||index<0||index>array.length){
+            return;
+        }
+        for(int j=index;j<array.length;j++){
+            temp=array[j];
+            array[j]=array[index];
+            array[index]=temp;
+            p(array, index+1);
+            temp=array[j];
+            array[j]=array[index];
+            array[index]=temp;
+        }
+
+    }
+
     public static void main(String[] args) {
 //       int[] num1 = new int[]{1,2,3,0,0,0};//6
 //       int[] num2 = new int[]{2,5,6};//3
@@ -58,11 +79,9 @@ public class T2 {
 //        T2 c = new T2();
 //        c.merge(num1,0, num2, 1);
 
-        T2 c = new T2();
-        test();
-        test();
-        test();
-        test();
+        char[] chars={'a','b','c'};
+
+        p(chars,0);
     }
 
     //475

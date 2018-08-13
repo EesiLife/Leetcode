@@ -79,9 +79,31 @@ public class T2 {
 //        T2 c = new T2();
 //        c.merge(num1,0, num2, 1);
 
-        char[] chars={'a','b','c'};
+        String s = "PPALLL";
+        T2 t = new T2();
+        t.checkRecord(s);
+    }
 
-        p(chars,0);
+    //551
+    public boolean checkRecord(String s) {
+        int a = 0; boolean li = false;
+        int l = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char index = s.charAt(i);
+            if (index == 'A'){
+                a++;
+                l = 0;
+                if (a > 2)break;
+            } else if (index == 'L') {
+                l++;
+                if (l > 2){
+                    break;
+                }
+            } else {
+                l = 0;
+            }
+        }
+        return a <= 2 && l <=2;
     }
 
     //475

@@ -48,10 +48,60 @@ public class T2 {
         System.out.println(onoff & ~2);
     }
 
+    public static void p(char[] array, int index){
+        char temp;
+        if(index==array.length){
+            System.out.println(array);
+            return;
+        }
+        if(array.length==0||index<0||index>array.length){
+            return;
+        }
+        for(int j=index;j<array.length;j++){
+            temp=array[j];
+            array[j]=array[index];
+            array[index]=temp;
+            p(array, index+1);
+            temp=array[j];
+            array[j]=array[index];
+            array[index]=temp;
+        }
+
+    }
+
     public static void main(String[] args) {
-      String s = "https://www.techwalker.com/special/show/page/Di9ePvYr3zbIXN_b5RRwJ0r0dIkToRFi1f0JYBA";
-      String out = s.replace("https://www.techwalker.com/special/show/page/", "");
-      System.out.println(out);
+//       int[] num1 = new int[]{1,2,3,0,0,0};//6
+//       int[] num2 = new int[]{2,5,6};//3
+//        int[] num1 = new int[]{0};//0
+//        int[] num2 = new int[]{1};//1
+//        T2 c = new T2();
+//        c.merge(num1,0, num2, 1);
+
+        String s = "AA";
+        T2 t = new T2();
+        t.checkRecord(s);
+    }
+
+    //551
+    public boolean checkRecord(String s) {
+        int a = 0; boolean li = false;
+        int l = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char index = s.charAt(i);
+            if (index == 'A'){
+                a++;
+                l = 0;
+                if (a > 2)break;
+            } else if (index == 'L') {
+                l++;
+                if (l > 2){
+                    break;
+                }
+            } else {
+                l = 0;
+            }
+        }
+        return a <= 2 && l <=2;
     }
 
     //475

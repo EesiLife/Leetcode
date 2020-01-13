@@ -76,10 +76,9 @@ public class T2 {
 //        int[] num2 = new int[]{1};//1
 //        T2 c = new T2();
 //        c.merge(num1,0, num2, 1);
-
-        String s = "AA";
-        T2 t = new T2();
-        t.checkRecord(s);
+        int size = 1, completeSize = 100;
+        String saveMsg = String.format("%d %d", size, completeSize);
+        System.out.print(saveMsg);
     }
 
     //551

@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Test",
+            "request": "launch",
+            "mainClass": "com.eesilife.lib.Test",
+            "projectName": "lib"
+        }
+    ]
+}

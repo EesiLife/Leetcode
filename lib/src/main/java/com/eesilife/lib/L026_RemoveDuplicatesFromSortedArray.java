@@ -29,4 +29,16 @@ public class L026_RemoveDuplicatesFromSortedArray {
         int[] nums = new int[]{-3,-1,0,0};
         System.out.println(c.removeDuplicates(nums));
     }
+
+//    public static int removeDuplicates(int[] nums) {
+//        if (null == nums || nums.length == 0) return 0;
+//        int j = 1;
+//        for (int i = 1; i < nums.length; i++) {
+//            if (nums[i] != nums[i - 1]) {
+//                nums[j] = nums[i];
+//                j++;
+//            }
+//        }
+//        return j;
+//    }
 }

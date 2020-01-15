@@ -39,4 +39,16 @@ public class L027_RemoveElement {
         System.out.println(c.removeElement(nums, 4));
 
     }
+
+//    public static int removeElement(int[] nums, int val) {
+//        if (null == nums || nums.length == 0) return 0;
+//        int j = 0;
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] != val) {
+//                nums[j] = nums[i];
+//                j++;
+//            }
+//        }
+//        return j;
+//    }
 }

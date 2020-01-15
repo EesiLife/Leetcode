@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T5",
+            "request": "launch",
+            "mainClass": "com.test.T5",
+            "projectName": "lib"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Test",
             "request": "launch",
             "mainClass": "com.eesilife.lib.Test",

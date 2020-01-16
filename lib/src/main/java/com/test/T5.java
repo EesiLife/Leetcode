@@ -23,32 +23,109 @@ import java.util.Stack;
  * 致谢:
  */
 public class T5 {
-
-    //611
-    public int triangleNumber(int[] nums) {
-        if (null == nums || nums.length <= 2)return 0;
-        int result = 0;
-        Arrays.sort(nums);
-        System.out.println(Arrays.toString(nums));
-        int len = nums.length;
-        for (int i = 0; i < len -2; i++) {
-            for (int j = i + 1; j < len -1; j++) {
-                for (int k = j + 1; k < len; k++) {
-                    if (nums[i] + nums[j] > nums[k]) {
-                        System.out.println("{"+ i + ","+ j + "," + k + "},"+"{"+ nums[i] + ","+ nums[j] + "," + nums[k] + "}");
-                        result++;
-                    }
+    public int[] plusOne(int[] digits) {
+        int len = digits.length;
+        boolean plus = false;
+        for (int i = len -1; i >=0; i--) {
+            int a = digits[i];
+            if (a + 1 < 10) {
+                digits[i] = a + 1;
+                break;
+            } else {
+                digits[i] = 0;
+                if (i == 0) {
+                    plus = true;
                 }
             }
         }
-        return result;
+        if (plus) {
+            int[] res = new int[len+1];
+            for (int i = 0; i < len + 1; i ++) {
+                if (i == 0) {
+                    res[i] = 1;
+                } else {
+                    res[i] = digits[i -1];
+                }
+            }
+            return res;
+        }
+        return digits;
     }
 
-    public static void main(String[] args){
-        int[] nums = new int[]{5,4,4,6,2,3,1};
-//        int[] nums = new int[]{2,2,3,4};
-        System.out.println(new T5().triangleNumber(nums));
+    public static void main(String[] args) {
+//        int[] nums = new int[]{1,2,3};
+        int[] nums = new int[]{4,3,2,1};
+//        int[] nums = new int[]{9,9,9,9};
+        System.out.println(Arrays.toString(new T5().plusOne(nums)));
     }
+
+    //673
+//    public int findNumberOfLIS(int[] nums) {
+//        if (null == nums || nums.length == 0) return 0;
+//        int len = nums.length;
+//        int max = 1;
+//        int set = 0;//0表示相等,1递增,2递减
+//        HashMap<Integer, Integer> map = new HashMap<>();
+//        map.put(max, 1);
+//        for (int i = 1; i < len; i++) {
+//            if (nums[i] > nums[i - 1]) {
+//                if (set <= 0) {
+//                    set = 2;
+//                } else if (set > 0) {
+//                    set++;
+//                }
+//            } else if (nums[i] < nums[i - 1]) {
+//                if (set >= 0) {
+//                    set = -2;
+//                } else if (set < 0) {
+//                    set--;
+//                }
+//            } else {
+//                set = 0;
+//            }
+//            if (set > max) {
+//                max = set;
+//                map.put(set, 1);
+//            } else if (set == max) {
+//                int temp = map.get(max);
+//                map.put(max, temp+1);
+//            }
+//        }
+//        System.out.println(max);
+//        return map.get(max);
+//    }
+//    public static void main(String[] args) {
+////        int[] nums = new int[]{5,4,4,6,2,3,1};
+//        int[] nums = new int[]{1,3,5,4,7};
+////        int[] nums = new int[]{2,2,2,2,2};
+//        System.out.println(new T5().findNumberOfLIS(nums));
+//    }
+
+//    //611
+//    public int triangleNumber(int[] nums) {
+//        if (null == nums || nums.length <= 2)return 0;
+//        int result = 0;
+//        Arrays.sort(nums);
+//        System.out.println(Arrays.toString(nums));
+//        int len = nums.length;
+//        for (int i = 0; i < len -2; i++) {
+//            for (int j = i + 1; j < len -1; j++) {
+//                for (int k = j + 1; k < len; k++) {
+//                    if (nums[i] + nums[j] > nums[k]) {
+//                        System.out.println("{"+ i + ","+ j + "," + k + "},"+"{"+ nums[i] + ","+ nums[j] + "," + nums[k] + "}");
+//                        result++;
+//                    }
+//                }
+//            }
+//        }
+//        return result;
+//    }
+//
+//    public static void main(String[] args){
+//        int[] nums = new int[]{5,4,4,6,2,3,1};
+////        int[] nums = new int[]{2,2,3,4};
+//        System.out.println(new T5().triangleNumber(nums));
+//    }
 
 //    public int findLengthOfLCIS(int[] nums) {
 //        if (null == nums || nums.length == 0) return 0;

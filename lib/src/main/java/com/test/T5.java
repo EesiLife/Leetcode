@@ -23,41 +23,63 @@ import java.util.Stack;
  * 致谢:
  */
 public class T5 {
-    public int[] plusOne(int[] digits) {
-        int len = digits.length;
-        boolean plus = false;
-        for (int i = len -1; i >=0; i--) {
-            int a = digits[i];
-            if (a + 1 < 10) {
-                digits[i] = a + 1;
-                break;
-            } else {
-                digits[i] = 0;
-                if (i == 0) {
-                    plus = true;
-                }
-            }
-        }
-        if (plus) {
-            int[] res = new int[len+1];
-            for (int i = 0; i < len + 1; i ++) {
-                if (i == 0) {
-                    res[i] = 1;
-                } else {
-                    res[i] = digits[i -1];
-                }
-            }
-            return res;
-        }
-        return digits;
-    }
 
-    public static void main(String[] args) {
-//        int[] nums = new int[]{1,2,3};
-        int[] nums = new int[]{4,3,2,1};
-//        int[] nums = new int[]{9,9,9,9};
-        System.out.println(Arrays.toString(new T5().plusOne(nums)));
+    //67
+    public String addBinary(String a, String b) {
+        StringBuilder ans = new StringBuilder();
+        int ca = 0;
+        int lenA = a.length();
+        int lenB = b.length();
+        for (int i = lenA -1, j = lenB -1; i >=0 || j >= 0; i--, j--) {
+            int sum = ca;
+            sum += i >= 0 ? a.charAt(i) - '0' : 0;
+            sum += j >= 0 ? b.charAt(j) - '0' : 0;
+            ans.append(sum % 2);
+            ca = sum / 2;
+        }
+        ans.append(ca == 1 ? ca : "");
+        return ans.reverse().toString();
     }
+    public static void main(String[] args) {
+        String a = "1010", b = "1011";
+        System.out.println(new T5().addBinary(a, b));
+    }
+//    //66
+//    public int[] plusOne(int[] digits) {
+//        int len = digits.length;
+//        boolean plus = false;
+//        for (int i = len -1; i >=0; i--) {
+//            int a = digits[i];
+//            if (a + 1 < 10) {
+//                digits[i] = a + 1;
+//                break;
+//            } else {
+//                digits[i] = 0;
+//                if (i == 0) {
+//                    plus = true;
+//                }
+//            }
+//        }
+//        if (plus) {
+//            int[] res = new int[len+1];
+//            for (int i = 0; i < len + 1; i ++) {
+//                if (i == 0) {
+//                    res[i] = 1;
+//                } else {
+//                    res[i] = digits[i -1];
+//                }
+//            }
+//            return res;
+//        }
+//        return digits;
+//    }
+//
+//    public static void main(String[] args) {
+////        int[] nums = new int[]{1,2,3};
+//        int[] nums = new int[]{4,3,2,1};
+////        int[] nums = new int[]{9,9,9,9};
+//        System.out.println(Arrays.toString(new T5().plusOne(nums)));
+//    }
 
     //673
 //    public int findNumberOfLIS(int[] nums) {

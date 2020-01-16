@@ -23,27 +23,60 @@ import java.util.Stack;
  */
 public class T5 {
 
+    public int findLengthOfLCIS(int[] nums) {
+        if (null == nums || nums.length == 0) return 0;
+        int len = nums.length;
+        int max = 1;
+        int set = 0;//0表示相等,1递增,2递减
+        for (int i = 1; i < len; i++) {
+            if (nums[i] > nums[i -1]) {
+                if (set <= 0) {
+                    set = 2;
+                } else if (set > 0) {
+                    set++;
+                }
+            } else if (nums[i] < nums[i -1]) {
+                if (set >= 0) {
+                    set = -2;
+                } else if (set < 0) {
+                    set--;
+                }
+            } else {
+                set = 0;
+            }
+            max = Math.max(max, set);
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+//        int[] nums = new int[]{1,3,5,4,7};
+//        int[] nums = new int[]{2,2,2,2,2};
+//        int[] nums = new int[]{1,3,5,4,2,3,4,5};
+        int[] nums = new int[]{2,1};
+        System.out.println(new T5().findLengthOfLCIS(nums));
+    }
+
     //dp[i]表示以nums[i]结尾时,最大子数组和
     //dp[i] = max(dp[i-1]+nums[i],nums[i])
-    public int maxSubArray(int[] nums) {
-        if (nums.length ==0){
-            return 0;
-        }
-
-        int []dp=new int[nums.length];
-        dp[0]=nums[0];
-        int ans = dp[0];
-        for (int i=1,len=nums.length;i<len;i++){
-            dp[i]=Math.max(dp[i-1]+nums[i],nums[i]);
-            ans=Math.max(ans,dp[i]);
-        }
-        return ans;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{-2,1,-3,4,-1,2,1,-5,4};
-        System.out.println(new T5().maxSubArray(nums));
-    }
+//    public int maxSubArray(int[] nums) {
+//        if (nums.length == 0) {
+//            return 0;
+//        }
+//
+//        int[] dp = new int[nums.length];
+//        dp[0] = nums[0];
+//        int ans = dp[0];
+//        for (int i = 1, len = nums.length; i < len; i++) {
+//            dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+//            ans = Math.max(ans, dp[i]);
+//        }
+//        return ans;
+//    }
+//
+//    public static void main(String[] args) {
+//        int[] nums = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+//        System.out.println(new T5().maxSubArray(nums));
+//    }
 
 
 //    public boolean isMonotonic(int[] A) {
@@ -259,31 +292,31 @@ public class T5 {
 //    }
 
     //80. 删除排序数组中的重复项 II
-    public int aremoveDuplicates(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
-        }
-        int p1 = 0;
-        int p2 = 1;
-        int len = nums.length;
-        while (p2 < len) {
-            if (nums[p1] == nums[p2]) {
-                if (p1 == 0 || nums[p1 - 1] != nums[p2]) {
-                    p1++;
-                    nums[p1] = nums[p2];
-                    p2++;
-                } else {
-                    p2++;
-                }
-
-            } else {
-                p1++;
-                nums[p1] = nums[p2];
-                p2++;
-            }
-        }
-        return p1 + 1;
-    }
+//    public int aremoveDuplicates(int[] nums) {
+//        if (nums.length == 0) {
+//            return 0;
+//        }
+//        int p1 = 0;
+//        int p2 = 1;
+//        int len = nums.length;
+//        while (p2 < len) {
+//            if (nums[p1] == nums[p2]) {
+//                if (p1 == 0 || nums[p1 - 1] != nums[p2]) {
+//                    p1++;
+//                    nums[p1] = nums[p2];
+//                    p2++;
+//                } else {
+//                    p2++;
+//                }
+//
+//            } else {
+//                p1++;
+//                nums[p1] = nums[p2];
+//                p2++;
+//            }
+//        }
+//        return p1 + 1;
+//    }
 
 
 //    public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package com.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,38 +24,64 @@ import java.util.Stack;
  */
 public class T5 {
 
-    public int findLengthOfLCIS(int[] nums) {
-        if (null == nums || nums.length == 0) return 0;
+    //611
+    public int triangleNumber(int[] nums) {
+        if (null == nums || nums.length <= 2)return 0;
+        int result = 0;
+        Arrays.sort(nums);
+        System.out.println(Arrays.toString(nums));
         int len = nums.length;
-        int max = 1;
-        int set = 0;//0表示相等,1递增,2递减
-        for (int i = 1; i < len; i++) {
-            if (nums[i] > nums[i -1]) {
-                if (set <= 0) {
-                    set = 2;
-                } else if (set > 0) {
-                    set++;
+        for (int i = 0; i < len -2; i++) {
+            for (int j = i + 1; j < len -1; j++) {
+                for (int k = j + 1; k < len; k++) {
+                    if (nums[i] + nums[j] > nums[k]) {
+                        System.out.println("{"+ i + ","+ j + "," + k + "},"+"{"+ nums[i] + ","+ nums[j] + "," + nums[k] + "}");
+                        result++;
+                    }
                 }
-            } else if (nums[i] < nums[i -1]) {
-                if (set >= 0) {
-                    set = -2;
-                } else if (set < 0) {
-                    set--;
-                }
-            } else {
-                set = 0;
             }
-            max = Math.max(max, set);
         }
-        return max;
+        return result;
     }
-    public static void main(String[] args) {
-//        int[] nums = new int[]{1,3,5,4,7};
-//        int[] nums = new int[]{2,2,2,2,2};
-//        int[] nums = new int[]{1,3,5,4,2,3,4,5};
-        int[] nums = new int[]{2,1};
-        System.out.println(new T5().findLengthOfLCIS(nums));
+
+    public static void main(String[] args){
+        int[] nums = new int[]{5,4,4,6,2,3,1};
+//        int[] nums = new int[]{2,2,3,4};
+        System.out.println(new T5().triangleNumber(nums));
     }
+
+//    public int findLengthOfLCIS(int[] nums) {
+//        if (null == nums || nums.length == 0) return 0;
+//        int len = nums.length;
+//        int max = 1;
+//        int set = 0;//0表示相等,1递增,2递减
+//        for (int i = 1; i < len; i++) {
+//            if (nums[i] > nums[i -1]) {
+//                if (set <= 0) {
+//                    set = 2;
+//                } else if (set > 0) {
+//                    set++;
+//                }
+//            } else if (nums[i] < nums[i -1]) {
+//                if (set >= 0) {
+//                    set = -2;
+//                } else if (set < 0) {
+//                    set--;
+//                }
+//            } else {
+//                set = 0;
+//            }
+//            max = Math.max(max, set);
+//        }
+//        return max;
+//    }
+//    public static void main(String[] args) {
+////        int[] nums = new int[]{1,3,5,4,7};
+////        int[] nums = new int[]{2,2,2,2,2};
+////        int[] nums = new int[]{1,3,5,4,2,3,4,5};
+//        int[] nums = new int[]{2,1};
+//        System.out.println(new T5().findLengthOfLCIS(nums));
+//    }
 
     //dp[i]表示以nums[i]结尾时,最大子数组和
     //dp[i] = max(dp[i-1]+nums[i],nums[i])

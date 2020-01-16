@@ -72,11 +72,4 @@ public class L989_add_to_array_form_of_integer {
         }
         return ans;
     }
-    public static void main(String[] args) {
-//        int[] A = new int[]{1,2,0,0};int  K = 34;
-//        int[] A = new int[]{2,7,4};int K = 181;
-//        int[] A = new int[]{2,1,5};int K = 806;
-        int[] A = new int[]{9,9,9,9,9,9,9,9,9,9};int K = 1;
-        System.out.println(new T5().addToArrayForm2(A,K));
-    }
 }

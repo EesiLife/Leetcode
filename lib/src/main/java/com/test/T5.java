@@ -1,5 +1,9 @@
 package com.test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -19,37 +23,169 @@ import java.util.Stack;
  */
 public class T5 {
 
-    public static void main(String[] args) {
-//        int[] nums = new int[]{1, 3, 5, 6};
-//        int target = 5;
-
-//        int[] nums = new int[]{1,3,5,6};
-//        int target = 2;
-
-//        int[] nums = new int[]{1,3,5,6};
-//        int target = 7;
-
-        int[] nums = new int[]{1, 3, 5, 6};
-        int target = 0;
-
-        int result = new T5().searchInsert(nums, target);
-        System.out.println(result);
+    static class Item {
+        int startIndex;
+        int endIndex;
+        int cnt;
     }
 
-    public int searchInsert(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length - 1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (nums[mid] > target)
-                high = mid - 1;
-            else if (nums[mid] < target)
-                low = mid + 1;
-            else
-                return mid;
+    public int findShortestSubArray1(int[] nums) {
+        Map<Integer, Item> map = new HashMap<>();
+        int arrDu = 0;
+        for (int i = 0, len = nums.length; i < len; i++) {
+            Item item = map.get(nums[i]);
+            if (item == null) {
+                item = new Item();
+                item.startIndex = item.endIndex = i;
+                item.cnt = 1;
+                map.put(nums[i], item);
+            } else {
+                item.endIndex = i;
+                item.cnt++;
+            }
+            arrDu = Math.max(arrDu, item.cnt);
         }
-        return low;
+
+        int ans = nums.length;
+        for (Map.Entry<Integer, Item> entry : map.entrySet()) {
+            Item item = entry.getValue();
+            if (item.cnt == arrDu) {
+                ans = Math.min(item.endIndex - item.startIndex + 1, ans);
+            }
+        }
+        return ans;
     }
+
+    public int findShortestSubArray(int[] nums) {
+        HashMap<Integer, Integer> list = new HashMap<>();
+        HashMap<Integer, Integer[]> ll = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (null == list.get(nums[i])) {
+                list.put(nums[i], 1);
+            } else {
+                int tmp = list.get(nums[i]);
+                tmp++;
+                list.put(nums[i], tmp);
+            }
+
+            if (null == ll.get(nums[i])) {
+                Integer[] i1 = new Integer[]{-1, -1};
+                i1[0] = i;
+                ll.put(nums[i], i1);
+            } else {
+                Integer[] i2 = ll.get(nums[i]);
+                i2[1] = i;
+                ll.put(nums[i], i2);
+            }
+        }
+        int max = 0, step = 0;
+        for (Integer i : list.keySet()) {
+            if (list.get(i) > max) {
+                max = list.get(i);
+                Integer[] steps = ll.get(i);
+                step = steps[1] - steps[0];
+            } else if (list.get(i) == max) {
+                Integer[] steps = ll.get(i);
+                int step_cur = steps[1] - steps[0];
+                if (step > step_cur) {
+                    max = list.get(i);
+                    step = step_cur;
+                }
+            }
+        }
+        return step <= 0 ? 1 : step + 1;
+    }
+
+    public static void main(String[] args) {
+//        int[] nums = new int[]{1, 2, 2, 3, 1};
+        int[] nums = new int[]{1, 2, 2, 3, 1, 4, 2};
+        System.out.println(new T5().findShortestSubArray(nums));
+    }
+
+    //873. 最长的斐波那契子序列的长度
+//    public int lenLongestFibSubseq(int[] A) {
+//        if (A == null || A.length < 3) return 0;
+//        int k = 0;
+//        int l = 0;
+////        int n1 = A[0], n2 = A[1];
+//        for (int i = 2; i < A.length; i++) {
+//            int n1 = A[i - 2], n2 = A[i - 1];
+//            for (int j = i; j < A.length; j++) {
+//                if (n1 + n2 == A[j]) {
+//                    n1 = n2;
+//                    n2 = A[j];
+//                    if (j == 2) {
+//                        k = 3;
+//                    } else {
+//                        k++;
+//                    }
+//                }
+//            }
+//            if (k > l) l = k;
+//            k = 0;
+//        }
+//        return l;
+//    }
+//    public int lenLongestFibSubseq(int[] A) {
+//        if (A == null || A.length < 3) return 0;
+//        int k = 0;
+//        int l = 0;
+//        for (int i = 0; i < A.length - 2; i++) {
+//            int n1 = A[i], n2 = A[i + 1];
+//            for (int j = i + 2; j < A.length; j++) {
+//                if (n1 + n2 == A[j]) {
+//                    if (j == i + 2) {
+//                        k = 3;
+//                    } else {
+//                        k++;
+//                    }
+//                    n1 = n2;
+//                    n2 = A[j];
+//                }
+//            }
+//            if (k > l) l = k;
+//            k = 0;
+//        }
+//        return l;
+//    }
+//
+//    public static void main(String[] args) {
+////        int[] A = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
+//        int[] A = new int[]{1, 3, 7, 11, 12, 14, 18};
+//        System.out.println(new T5().lenLongestFibSubseq(A));
+//    }
+
+//    public static void main(String[] args) {
+////        int[] nums = new int[]{1, 3, 5, 6};
+////        int target = 5;
+//
+////        int[] nums = new int[]{1,3,5,6};
+////        int target = 2;
+//
+////        int[] nums = new int[]{1,3,5,6};
+////        int target = 7;
+//
+//        int[] nums = new int[]{1, 3, 5, 6};
+//        int target = 0;
+//
+//        int result = new T5().searchInsert(nums, target);
+//        System.out.println(result);
+//    }
+//
+//    public int searchInsert(int[] nums, int target) {
+//        int low = 0;
+//        int high = nums.length - 1;
+//        while (low <= high) {
+//            int mid = low + (high - low) / 2;
+//            if (nums[mid] > target)
+//                high = mid - 1;
+//            else if (nums[mid] < target)
+//                low = mid + 1;
+//            else
+//                return mid;
+//        }
+//        return low;
+//    }
 
     //80. 删除排序数组中的重复项 II
 //    public int aremoveDuplicate(int[] nums) {

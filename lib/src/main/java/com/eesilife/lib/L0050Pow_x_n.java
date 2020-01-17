@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Created by siy on 18-6-27.
  */
-public class L_050Pow_x_n {
+public class L0050Pow_x_n {
     public double myPow(double x, int n) {
         if (n == 0)
             return 1;
@@ -25,7 +25,7 @@ public class L_050Pow_x_n {
         return t;
     }
     public static void main(String[] args){
-        L_050Pow_x_n c = new L_050Pow_x_n();
+        L0050Pow_x_n c = new L0050Pow_x_n();
         long time = System.currentTimeMillis();
 //        System.out.println(c.myPow(0.00001, 2147483647));
 //        System.out.println(c.myPow(-2.00000, 2));

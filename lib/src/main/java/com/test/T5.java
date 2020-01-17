@@ -9,47 +9,72 @@ import java.util.Stack;
 
 public class T5 {
 
-    public boolean isPalindrome(String s) {
-        s = s.toLowerCase();
-        String ans = "";
+    public char findTheDifference(String s, String t) {
+        int sumS = 0;
+        int sumT = 0;
         for (int i = 0; i < s.length(); i++) {
-            if ((s.charAt(i) >= 97 && s.charAt(i) <= 122)||(s.charAt(i) >= 48 && s.charAt(i) <= 57)) {
-                ans += String.valueOf(s.charAt(i));
-            }
+            sumS += s.charAt(i);
         }
-        if ("".equals(ans)) return true;
-        int len = ans.length() / 2;
-        for (int i = 0; i < len; i++) {
-            if (ans.charAt(i) != ans.charAt(ans.length() - 1 -i)) {
-                return false;
-            }
+        for (int i = 0; i < t.length(); i++) {
+            sumT += t.charAt(i);
         }
-        return true;
-//        if (ans.length() % 2 == 0) {
-//            String s1 = ans.substring(0, ans.length()/2);
-//            String s2 = new StringBuilder(ans.substring(ans.length()/2)).reverse().toString();
-//            System.out.println("2");
-//            System.out.println(s1);
-//            System.out.println(s2);
-//            System.out.println(s1==s2);
-//            if (s1 == s2) return true;
-//        } else {
-//            String s1 = ans.substring(0, ans.length()/2);
-//            String s2 = new StringBuilder(ans.substring(ans.length()/2 + 1)).reverse().toString();
-//            System.out.println("1");
-//            System.out.println(s1);
-//            System.out.println(s2);
-//            System.out.println(s1==s2);
-//            if (s1 == s2) return true;
-//        }
-//        return false;
-    }
-    public static void main(String[] args) {
-//        String ss = "A man, a plan, a canal: Panama";
-        String ss = "0P";
-        System.out.println(new T5().isPalindrome(ss));
+        return (char)(sumT - sumS);
     }
 
+    public char findTheDifference1(String s, String t) {
+        char ans = 0;
+        for (int i = 0; i < s.length(); i++) {
+            ans ^= s.charAt(i);
+        }
+        for (int i = 0; i < t.length(); i++) {
+            ans ^= t.charAt(i);
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        String s = "ymbgaraibkfmvocpizdydugvalagaivdbfsfbepeyccqfepzvtpyxtbadkhmwmoswrcxnargtlswqemafandgkmydtimuzvjwxvlfwlhvkrgcsithaqlcvrihrwqkpjdhgfgreqoxzfvhjzojhghfwbvpfzectwwhexthbsndovxejsntmjihchaotbgcysfdaojkjldprwyrnischrgmtvjcorypvopfmegizfkvudubnejzfqffvgdoxohuinkyygbdzmshvyqyhsozwvlhevfepdvafgkqpkmcsikfyxczcovrmwqxxbnhfzcjjcpgzjjfateajnnvlbwhyppdleahgaypxidkpwmfqwqyofwdqgxhjaxvyrzupfwesmxbjszolgwqvfiozofncbohduqgiswuiyddmwlwubetyaummenkdfptjczxemryuotrrymrfdxtrebpbjtpnuhsbnovhectpjhfhahbqrfbyxggobsweefcwxpqsspyssrmdhuelkkvyjxswjwofngpwfxvknkjviiavorwyfzlnktmfwxkvwkrwdcxjfzikdyswsuxegmhtnxjraqrdchaauazfhtklxsksbhwgjphgbasfnlwqwukprgvihntsyymdrfovaszjywuqygpvjtvlsvvqbvzsmgweiayhlubnbsitvfxawhfmfiatxvqrcwjshvovxknnxnyyfexqycrlyksderlqarqhkxyaqwlwoqcribumrqjtelhwdvaiysgjlvksrfvjlcaiwrirtkkxbwgicyhvakxgdjwnwmubkiazdjkfmotglclqndqjxethoutvjchjbkoasnnfbgrnycucfpeovruguzumgmgddqwjgdvaujhyqsqtoexmnfuluaqbxoofvotvfoiexbnprrxptchmlctzgqtkivsilwgwgvpidpvasurraqfkcmxhdapjrlrnkbklwkrvoaziznlpor";
+        String t = "qhxepbshlrhoecdaodgpousbzfcqjxulatciapuftffahhlmxbufgjuxstfjvljybfxnenlacmjqoymvamphpxnolwijwcecgwbcjhgdybfffwoygikvoecdggplfohemfypxfsvdrseyhmvkoovxhdvoavsqqbrsqrkqhbtmgwaurgisloqjixfwfvwtszcxwktkwesaxsmhsvlitegrlzkvfqoiiwxbzskzoewbkxtphapavbyvhzvgrrfriddnsrftfowhdanvhjvurhljmpxvpddxmzfgwwpkjrfgqptrmumoemhfpojnxzwlrxkcafvbhlwrapubhveattfifsmiounhqusvhywnxhwrgamgnesxmzliyzisqrwvkiyderyotxhwspqrrkeczjysfujvovsfcfouykcqyjoobfdgnlswfzjmyucaxuaslzwfnetekymrwbvponiaojdqnbmboldvvitamntwnyaeppjaohwkrisrlrgwcjqqgxeqerjrbapfzurcwxhcwzugcgnirkkrxdthtbmdqgvqxilllrsbwjhwqszrjtzyetwubdrlyakzxcveufvhqugyawvkivwonvmrgnchkzdysngqdibhkyboyftxcvvjoggecjsajbuqkjjxfvynrjsnvtfvgpgveycxidhhfauvjovmnbqgoxsafknluyimkczykwdgvqwlvvgdmufxdypwnajkncoynqticfetcdafvtqszuwfmrdggifokwmkgzuxnhncmnsstffqpqbplypapctctfhqpihavligbrutxmmygiyaklqtakdidvnvrjfteazeqmbgklrgrorudayokxptswwkcircwuhcavhdparjfkjypkyxhbgwxbkvpvrtzjaetahmxevmkhdfyidhrdeejapfbafwmdqjqszwnwzgclitdhlnkaiyldwkwwzvhyorgbysyjbxsspnjdewjxbhpsvj";
+        System.out.println(new T5().findTheDifference(s, t));
+    }
+
+//    public int[] singleNumber(int[] nums) {
+//        List<Integer> list = new ArrayList<>();
+//        for (int i = 0; i < nums.length; i++) {
+//            if (list.contains(nums[i])) {
+//                list.remove((Integer) nums[i]);
+//            } else {
+//                list.add(nums[i]);
+//            }
+//        }
+//        int[] ans = new int[2];
+//        ans[0] = list.get(0);
+//        ans[1] = list.get(1);
+//        return ans;
+//    }
+
+//    public boolean isPalindrome(String s) {
+//        s = s.toLowerCase();
+//        String ans = "";
+//        for (int i = 0; i < s.length(); i++) {
+//            if ((s.charAt(i) >= 97 && s.charAt(i) <= 122)||(s.charAt(i) >= 48 && s.charAt(i) <= 57)) {
+//                ans += String.valueOf(s.charAt(i));
+//            }
+//        }
+//        if ("".equals(ans)) return true;
+//        int len = ans.length() / 2;
+//        for (int i = 0; i < len; i++) {
+//            if (ans.charAt(i) != ans.charAt(ans.length() - 1 -i)) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+//    public static void main(String[] args) {
+////        String ss = "A man, a plan, a canal: Panama";
+//        String ss = "0P";
+//        System.out.println(new T5().isPalindrome(ss));
+//    }
 
 
 //    public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -71,7 +96,6 @@ public class T5 {
 //        int[] num1 = new int[]{1,2,3};
 //        int[] num2 = new int[]{2,5,7};
 //    }
-
 
 
     //83

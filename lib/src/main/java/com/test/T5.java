@@ -10,42 +10,74 @@ import java.util.Stack;
 public class T5 {
 
 
-    int mySqrt1(int x)
-    {
-        if(x == 1)
-            return 1;
-        int min = 0;
-        int max = x;
-        while(max-min>1)
-        {
-            int m = (max+min)/2;
-            if(x/m<m)
-                max = m;
-            else
-                min = m;
-        }
-        return min;
+    public int climbStairs(int n) {
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+        return climbStairs(n - 1) + climbStairs(n - 2);
     }
 
-    public int mySqrt(int x) {
-        if (x == 1 || x== 2) return 1;
-        int y = x / 2;
-        int left = 1;
-        for (int i = 1; i <= y; i ++) {
-            if (i < x / i) {
-                left = i;
-            } else if (i == x /i) {
-                return i;
-            } else {
-                return left;
-            }
+    public int climbStairs1(int n) {
+        if (n <= 2) {
+            return n;
         }
-        return y;
+        int a1 = 1;
+        int ans = 2;
+        for (int i = 3; i <= n; i++) {
+            int current = a1 + ans;
+            a1 = ans;
+            ans = current;
+        }
+        return ans;
     }
+
     public static void main(String[] args) {
-        int x = 4;
-        System.out.println(new T5().mySqrt(x));
+        System.out.println(new T5().climbStairs1(37));
     }
+
+//    public boolean isPerfectSquare(int num) {
+//        for(int i = 1; num > 0; i += 2){
+//            num -= i;
+//        }
+//        return num == 0;
+//    }
+
+
+//    int mySqrt1(int x)
+//    {
+//        if(x == 1)
+//            return 1;
+//        int min = 0;
+//        int max = x;
+//        while(max-min>1)
+//        {
+//            int m = (max+min)/2;
+//            if(x/m<m)
+//                max = m;
+//            else
+//                min = m;
+//        }
+//        return min;
+//    }
+//
+//    public int mySqrt(int x) {
+//        if (x == 1 || x== 2) return 1;
+//        int y = x / 2;
+//        int left = 1;
+//        for (int i = 1; i <= y; i ++) {
+//            if (i < x / i) {
+//                left = i;
+//            } else if (i == x /i) {
+//                return i;
+//            } else {
+//                return left;
+//            }
+//        }
+//        return y;
+//    }
+//    public static void main(String[] args) {
+//        int x = 4;
+//        System.out.println(new T5().mySqrt(x));
+//    }
 
     //058
 //    public int lengthOfLastWord(String s) {
@@ -561,30 +593,30 @@ public class T5 {
 
 
     //26. 删除排序数组中的重复项
-    public static int removeDuplicates(int[] nums) {
-        if (null == nums || nums.length == 0) return 0;
-        int j = 1;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != nums[i - 1]) {
-                nums[j] = nums[i];
-                j++;
-            }
-        }
-        return j;
-    }
-
-    //27. 移除元素
-    public static int removeElement(int[] nums, int val) {
-        if (null == nums || nums.length == 0) return 0;
-        int j = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val) {
-                nums[j] = nums[i];
-                j++;
-            }
-        }
-        return j;
-    }
+//    public static int removeDuplicates(int[] nums) {
+//        if (null == nums || nums.length == 0) return 0;
+//        int j = 1;
+//        for (int i = 1; i < nums.length; i++) {
+//            if (nums[i] != nums[i - 1]) {
+//                nums[j] = nums[i];
+//                j++;
+//            }
+//        }
+//        return j;
+//    }
+//
+//    //27. 移除元素
+//    public static int removeElement(int[] nums, int val) {
+//        if (null == nums || nums.length == 0) return 0;
+//        int j = 0;
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] != val) {
+//                nums[j] = nums[i];
+//                j++;
+//            }
+//        }
+//        return j;
+//    }
 
     //     public static void main(String[] args) {
 // //        String s1 = "(()())(())";

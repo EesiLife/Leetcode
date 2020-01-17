@@ -2,7 +2,7 @@ package com.eesilife.lib;
 
 import java.util.Stack;
 
-public class L020_ValidParentheses {
+public class L0020_ValidParentheses {
     public boolean isValid(String s) {
         if ("".equals(s))return true;
         Stack<Character> stack = new Stack<>();
@@ -37,7 +37,7 @@ public class L020_ValidParentheses {
     }
 
     public static void main(String[] args){
-        L020_ValidParentheses c = new L020_ValidParentheses();
+        L0020_ValidParentheses c = new L0020_ValidParentheses();
         String s = "([)]";
 //        String s = "{[]}";
 //        String s = "()[]{}";

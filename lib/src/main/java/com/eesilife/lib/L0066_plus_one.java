@@ -3,7 +3,7 @@ package com.eesilife.lib;
 /**
  * Create by siy on 20-1-16
  **/
-public class L66_plus_one {
+public class L0066_plus_one {
     public int[] plusOne(int[] digits) {
         int len = digits.length;
         boolean plus = false;

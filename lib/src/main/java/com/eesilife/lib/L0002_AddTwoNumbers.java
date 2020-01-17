@@ -3,7 +3,7 @@ package com.eesilife.lib;
 /**
  * Created by siy on 18-5-22.
  */
-public class L002_AddTwoNumbers {
+public class L0002_AddTwoNumbers {
     public static class ListNode {
         int val;
         ListNode next;

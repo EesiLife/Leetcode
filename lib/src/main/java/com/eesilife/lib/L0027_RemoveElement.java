@@ -4,7 +4,7 @@ package com.eesilife.lib;
 import java.util.ArrayList;
 import java.util.List;
 
-public class L027_RemoveElement {
+public class L0027_RemoveElement {
     public int removeElement(int[] nums, int val) {
         if (null == nums || nums.length == 0)return 0;
         List<Integer> list = new ArrayList<>();
@@ -31,7 +31,7 @@ public class L027_RemoveElement {
     }
 
     public static void main(String[] args){
-        L027_RemoveElement c = new L027_RemoveElement();
+        L0027_RemoveElement c = new L0027_RemoveElement();
 //        int[] nums = new int[]{0,1,2,2,3,0,4,2};
 //        int[] nums = new int[]{3,2,2,3};
 //        int[] nums = new int[]{0,1,2,2,3,0,4,2};

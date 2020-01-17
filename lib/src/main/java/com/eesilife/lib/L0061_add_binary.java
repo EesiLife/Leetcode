@@ -3,7 +3,7 @@ package com.eesilife.lib;
 /**
  * Create by siy on 20-1-16
  **/
-public class L61_add_binary {
+public class L0061_add_binary {
     public String addBinary(String a, String b) {
         StringBuilder ans = new StringBuilder();
         int ca = 0;

@@ -1,6 +1,6 @@
 package com.eesilife.lib;
 
-public class L035_SearchInsertPosition {
+public class L0035_SearchInsertPosition {
     //35
     public int searchInsert(int[] nums, int target) {
         if (nums == null ||nums.length == 0)return 0;

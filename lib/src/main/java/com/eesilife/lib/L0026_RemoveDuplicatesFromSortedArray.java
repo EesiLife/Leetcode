@@ -3,7 +3,7 @@ package com.eesilife.lib;
 import java.util.ArrayList;
 import java.util.List;
 
-public class L026_RemoveDuplicatesFromSortedArray {
+public class L0026_RemoveDuplicatesFromSortedArray {
     public int removeDuplicates(int[] nums) {
         if (null == nums || nums.length == 0)return 0;
         List<Integer> list = new ArrayList<>();
@@ -23,7 +23,7 @@ public class L026_RemoveDuplicatesFromSortedArray {
     }
 
     public static void main(String[] args){
-        L026_RemoveDuplicatesFromSortedArray c = new L026_RemoveDuplicatesFromSortedArray();
+        L0026_RemoveDuplicatesFromSortedArray c = new L0026_RemoveDuplicatesFromSortedArray();
 //        int[] nums = new int[]{1, 1, 2};
 //        int[] nums = new int[]{0,0,1,1,1,2,2,3,3,4};
         int[] nums = new int[]{-3,-1,0,0};

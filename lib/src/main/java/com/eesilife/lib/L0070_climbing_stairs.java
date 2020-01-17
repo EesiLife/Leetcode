@@ -3,7 +3,7 @@ package com.eesilife.lib;
 /**
  * Create by siy on 20-1-17
  **/
-public class L070_climbing_stairs {
+public class L0070_climbing_stairs {
     public int climbStairs(int n) {
         if (n == 1) return 1;
         if (n == 2) return 2;

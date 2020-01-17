@@ -3,7 +3,7 @@ package com.eesilife.lib;
 /**
  * Create by siy on 20-1-15
  **/
-public class L080_RemoveDuplicatesFromSortedArrayII {
+public class L0080_RemoveDuplicatesFromSortedArrayII {
 
     //80. 删除排序数组中的重复项 II
 //    public int removeDuplicate(int[] nums) {

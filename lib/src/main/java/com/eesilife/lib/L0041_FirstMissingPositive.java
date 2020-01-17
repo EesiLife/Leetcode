@@ -1,13 +1,12 @@
 package com.eesilife.lib;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by siy on 18-6-21.
  */
-public class L041_FirstMissingPositive {
+public class L0041_FirstMissingPositive {
     public int firstMissingPositive(int[] nums) {
         if (nums== null || nums.length == 0)return 1;
         if (nums.length == 1) {
@@ -121,7 +120,7 @@ public class L041_FirstMissingPositive {
         int[] l = new int[]{4,1,2,3};//5
         int[] m = new int[]{0,2,2,4,0,1,0,1,3};// 5
         int[] n = new int[]{7,2,2,2,-7,8,8,3,3,5,-1,18,-1,-3,-7,-9,8,1,4};
-        L041_FirstMissingPositive c = new L041_FirstMissingPositive();
+        L0041_FirstMissingPositive c = new L0041_FirstMissingPositive();
         System.out.println(c.firstMissingPositive1(n));
     }
 }

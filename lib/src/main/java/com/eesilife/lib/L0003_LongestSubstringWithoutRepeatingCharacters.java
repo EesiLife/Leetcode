@@ -3,7 +3,7 @@ package com.eesilife.lib;
 /**
  * Created by siy on 18-5-22.
  */
-public class L003_LongestSubstringWithoutRepeatingCharacters {
+public class L0003_LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
         if (s.length() == 0) {
             return 0;
@@ -37,7 +37,7 @@ public class L003_LongestSubstringWithoutRepeatingCharacters {
 
     public static void main(String[] args){
         String s = "abcabcbb";
-        L003_LongestSubstringWithoutRepeatingCharacters c = new L003_LongestSubstringWithoutRepeatingCharacters();
+        L0003_LongestSubstringWithoutRepeatingCharacters c = new L0003_LongestSubstringWithoutRepeatingCharacters();
         System.out.println(c.lengthOfLongestSubstring(s));
 
     }

@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by siy on 18-5-22.
  */
-public class L001_TwoSum {
+public class L0001_TwoSum {
     public static void main(String[] args){
         twoSum(new int[]{2, 7, 11, 15}, 9);
     }

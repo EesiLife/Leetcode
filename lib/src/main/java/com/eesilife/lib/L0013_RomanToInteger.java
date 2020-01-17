@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * Created by siy on 18-5-30.
  */
-public class L013_RomanToInteger {
+public class L0013_RomanToInteger {
     public int romanToInt(String s) {
         int num = 0;
         HashMap<Character,Integer> map = new HashMap<>();

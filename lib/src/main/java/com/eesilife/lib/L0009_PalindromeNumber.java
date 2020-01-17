@@ -3,7 +3,7 @@ package com.eesilife.lib;
 /**
  * Created by siy on 18-5-31.
  */
-public class L009_PalindromeNumber {
+public class L0009_PalindromeNumber {
     public boolean isPalindrome(int x) {
         if (x < 0) return false;
         int sum = 0;
@@ -27,7 +27,7 @@ public class L009_PalindromeNumber {
     }
 
     public static void main(String[] args) {
-        L009_PalindromeNumber c = new L009_PalindromeNumber();
+        L0009_PalindromeNumber c = new L0009_PalindromeNumber();
         System.out.println(c.isPalindrome(121121));
     }
 }

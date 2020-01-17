@@ -3,7 +3,7 @@ package com.eesilife.lib;
 /**
  * Created by siy on 18-7-9.
  */
-public class L69_Sqrt_X {
+public class L0069_Sqrt_X {
     public int mySqrt(int x) {
         if(x == 0 || x == 1)return x;
         int lo = 1;

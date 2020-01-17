@@ -1,6 +1,6 @@
 package com.eesilife.lib;
 
-public class L007_ReverseInteger {
+public class L0007_ReverseInteger {
     public int reverse(int x) {
         long xx= (long)x;
         long y = 0;
@@ -24,7 +24,7 @@ public class L007_ReverseInteger {
     }
 
     public static void main(String[] args){
-        L007_ReverseInteger c = new L007_ReverseInteger();
+        L0007_ReverseInteger c = new L0007_ReverseInteger();
         System.out.println(c.reverse(-20));
     }
 }

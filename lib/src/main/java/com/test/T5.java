@@ -9,30 +9,134 @@ import java.util.Stack;
 
 public class T5 {
 
-
-    public int climbStairs(int n) {
-        if (n == 1) return 1;
-        if (n == 2) return 2;
-        return climbStairs(n - 1) + climbStairs(n - 2);
-    }
-
-    public int climbStairs1(int n) {
-        if (n <= 2) {
-            return n;
+    public boolean isPalindrome(String s) {
+        s = s.toLowerCase();
+        String ans = "";
+        for (int i = 0; i < s.length(); i++) {
+            if ((s.charAt(i) >= 97 && s.charAt(i) <= 122)||(s.charAt(i) >= 48 && s.charAt(i) <= 57)) {
+                ans += String.valueOf(s.charAt(i));
+            }
         }
-        int a1 = 1;
-        int ans = 2;
-        for (int i = 3; i <= n; i++) {
-            int current = a1 + ans;
-            a1 = ans;
-            ans = current;
+        if ("".equals(ans)) return true;
+        int len = ans.length() / 2;
+        for (int i = 0; i < len; i++) {
+            if (ans.charAt(i) != ans.charAt(ans.length() - 1 -i)) {
+                return false;
+            }
         }
-        return ans;
+        return true;
+//        if (ans.length() % 2 == 0) {
+//            String s1 = ans.substring(0, ans.length()/2);
+//            String s2 = new StringBuilder(ans.substring(ans.length()/2)).reverse().toString();
+//            System.out.println("2");
+//            System.out.println(s1);
+//            System.out.println(s2);
+//            System.out.println(s1==s2);
+//            if (s1 == s2) return true;
+//        } else {
+//            String s1 = ans.substring(0, ans.length()/2);
+//            String s2 = new StringBuilder(ans.substring(ans.length()/2 + 1)).reverse().toString();
+//            System.out.println("1");
+//            System.out.println(s1);
+//            System.out.println(s2);
+//            System.out.println(s1==s2);
+//            if (s1 == s2) return true;
+//        }
+//        return false;
     }
-
     public static void main(String[] args) {
-        System.out.println(new T5().climbStairs1(37));
+//        String ss = "A man, a plan, a canal: Panama";
+        String ss = "0P";
+        System.out.println(new T5().isPalindrome(ss));
     }
+
+
+
+//    public void merge(int[] nums1, int m, int[] nums2, int n) {
+//        int mm = 0;
+//        int nn = 0;
+//        int[] ans = new int[m + n];
+//        for (int i = 0; i < m + n; i ++) {
+//            if (nums1[mm] < nums2[nn]) {
+//                ans[i] = nums1[mm];
+//                mm ++;
+//            } else {
+//                ans[i] = nums2[nn];
+//                nn++;
+//            }
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        int[] num1 = new int[]{1,2,3};
+//        int[] num2 = new int[]{2,5,7};
+//    }
+
+
+
+    //83
+//    public static class ListNode {
+//        int val;
+//        ListNode next;
+//
+//        ListNode(int x) {
+//            val = x;
+//        }
+//    }
+//    public ListNode deleteDuplicates(ListNode head) {
+//        if (null == head || head.next == null)return head;
+//        List<Integer> list = new ArrayList<>();
+//        ListNode current = head;
+//        ListNode next = current.next;
+//        while (next != null) {
+//            if (list.contains(next.val)) {
+//                next = current.next;
+//                current = next;
+//            } else {
+//                list.add(head.val);
+//                head.next =
+//            }
+//        }
+//        return current;
+//    }
+//
+//    public static void main(String[] args) {
+//        ListNode l1 = new ListNode(1);
+//        ListNode l2 = new ListNode(1);
+//        l1.next = l2;
+//        ListNode l3 = new ListNode(2);
+//        l2.next = l3;
+//        ListNode l4 = new ListNode(3);
+//        l3.next = l4;
+//        ListNode l5 = new ListNode(3);
+//        l4.next = l5;
+//        System.out.println(new T5().deleteDuplicates(l1));
+//    }
+
+
+//    public int climbStairs(int n) {
+//        if (n == 1) return 1;
+//        if (n == 2) return 2;
+//        return climbStairs(n - 1) + climbStairs(n - 2);
+//    }
+//
+//    public int climbStairs1(int n) {
+//        if (n <= 2) {
+//            return n;
+//        }
+//        int a1 = 1;
+//        int ans = 2;
+//        for (int i = 3; i <= n; i++) {
+//            int current = a1 + ans;
+//            a1 = ans;
+//            ans = current;
+//        }
+//        return ans;
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println(new T5().climbStairs1(37));
+//    }
 
 //    public boolean isPerfectSquare(int num) {
 //        for(int i = 1; num > 0; i += 2){

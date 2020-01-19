@@ -9,61 +9,73 @@ import java.util.Stack;
 
 public class T5 {
 
-    //599
-    public static class Item{
-        public int index1, sum = -1;
-    }
-    public String[] findRestaurant(String[] list1, String[] list2) {
-        HashMap<String, Item> map = new HashMap<>();
-        for (int i = 0; i < list1.length; i++) {
-            Item item = new Item();
-            item.index1 = i;
-            map.put(list1[i], item);
-        }
-        for (int i = 0; i < list2.length; i++) {
-            if (map.containsKey(list2[i])) {
-                Item item = map.get(list2[i]);
-                item.sum = item.index1 + i;
-                map.put(list2[i], item);
+    //1317
+    public int[] getNoZeroIntegers(int n) {
+        for (int i = 1; i < n; i++) {
+            int num = n - i;
+            if (!String.valueOf(i).contains("0")
+                    && !String.valueOf(num).contains("0")) {
+                return new int[]{i, num};
             }
         }
-        List<String> tmp = new ArrayList<>();
-        int min = -1;
-        for (String key : map.keySet()) {
-            Item item = map.get(key);
-            if (item.sum == -1) continue;
-            if (min == -1) {
-                tmp.add(key);
-                min = item.sum;
-            } else {
-                if (min > item.sum) {
-                    tmp.clear();
-                    min = item.sum;
-                    tmp.add(key);
-                } else if (min == item.sum){
-                    tmp.add(key);
-                }
-            }
-        }
-        String[] ans = new String[tmp.size()];
-        for (int i = 0; i < ans.length; i++) {
-            ans[i] = tmp.get(i);
-        }
-        System.out.println(Arrays.toString(ans));
-        return ans;
+        return null;
     }
-    public static void main(String[] args) {
-//        String[] list1 = new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"};
-//        String[] list2 = new String[]{"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"};
 
-//        String[] list1 = new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"};
-//        String[] list2 = new String[]{"KFC", "Shogun", "Burger King"};
-
-        String[] list1 = new String[]{"k","KFC"};
-        String[] list2 = new String[]{"k","KFC"};
-
-        System.out.println(new T5().findRestaurant(list1,list2));
-    }
+//    //599
+//    public static class Item{
+//        public int index1, sum = -1;
+//    }
+//    public String[] findRestaurant(String[] list1, String[] list2) {
+//        HashMap<String, Item> map = new HashMap<>();
+//        for (int i = 0; i < list1.length; i++) {
+//            Item item = new Item();
+//            item.index1 = i;
+//            map.put(list1[i], item);
+//        }
+//        for (int i = 0; i < list2.length; i++) {
+//            if (map.containsKey(list2[i])) {
+//                Item item = map.get(list2[i]);
+//                item.sum = item.index1 + i;
+//                map.put(list2[i], item);
+//            }
+//        }
+//        List<String> tmp = new ArrayList<>();
+//        int min = -1;
+//        for (String key : map.keySet()) {
+//            Item item = map.get(key);
+//            if (item.sum == -1) continue;
+//            if (min == -1) {
+//                tmp.add(key);
+//                min = item.sum;
+//            } else {
+//                if (min > item.sum) {
+//                    tmp.clear();
+//                    min = item.sum;
+//                    tmp.add(key);
+//                } else if (min == item.sum){
+//                    tmp.add(key);
+//                }
+//            }
+//        }
+//        String[] ans = new String[tmp.size()];
+//        for (int i = 0; i < ans.length; i++) {
+//            ans[i] = tmp.get(i);
+//        }
+//        System.out.println(Arrays.toString(ans));
+//        return ans;
+//    }
+//    public static void main(String[] args) {
+////        String[] list1 = new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"};
+////        String[] list2 = new String[]{"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"};
+//
+////        String[] list1 = new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"};
+////        String[] list2 = new String[]{"KFC", "Shogun", "Burger King"};
+//
+//        String[] list1 = new String[]{"k","KFC"};
+//        String[] list2 = new String[]{"k","KFC"};
+//
+//        System.out.println(new T5().findRestaurant(list1,list2));
+//    }
 
     //189
 //    public void rotate(int[] nums, int k) {

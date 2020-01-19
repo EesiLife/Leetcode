@@ -20,4 +20,30 @@ public class L0189_rotate_array {
         }
         System.out.println(Arrays.toString(nums));
     }
+
+
+    void reverse(int[] nums, int a, int b) {
+        int tmp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = tmp;
+    }
+
+    void reverseRange(int[] nums, int L, int R) {
+        while (L < R) {
+            reverse(nums, L, R);
+            L++;
+            R--;
+        }
+    }
+
+    public void rotate_1(int[] nums, int k) {
+        if (k == 0) {
+            return;
+        }
+        k = k % nums.length;
+        int len = nums.length;
+        reverseRange(nums, 0, len-k-1);
+        reverseRange(nums, len-k, len-1);
+        reverseRange(nums, 0, len-1);
+    }
 }

@@ -10,45 +10,60 @@ import java.util.Stack;
 public class T5 {
 
     //189
-    public void rotate(int[] nums, int k) {
-        if (nums == null || nums.length == 0) return;
-        if (k == 0) return;
-        int kk = k % nums.length;
-        if (kk == 0) return;
-        for (int i = 0; i < kk; i++) {
-            int temp = nums[nums.length - 1];
-            for (int j = nums.length - 1; j > 0; j--) {
-                nums[j] = nums[j - 1];
-            }
-            nums[0] = temp;
+//    public void rotate(int[] nums, int k) {
+//        if (nums == null || nums.length == 0) return;
+//        if (k == 0) return;
+//        int kk = k % nums.length;
+//        if (kk == 0) return;
+//        for (int i = 0; i < kk; i++) {
+//            int temp = nums[nums.length - 1];
+//            for (int j = nums.length - 1; j > 0; j--) {
+//                nums[j] = nums[j - 1];
+//            }
+//            nums[0] = temp;
+//        }
+//        System.out.println(Arrays.toString(nums));
+//    }
+//    public static void main(String[] args) {
+//        int[] nums = new int[]{1,2,3,4,5,6,7};
+//        int k = 2;
+//        new T5().rotate(nums, k);
+//    }
+
+    public static class Item {
+        int index;
+        int current;
+        public Item(int index, int current) {
+            this.index = index;
+            this.current = current;
         }
-        System.out.println(Arrays.toString(nums));
-    }
-    public static void main(String[] args) {
-        int[] nums = new int[]{1,2,3,4,5,6,7};
-        int k = 2;
-        new T5().rotate(nums, k);
     }
 
-//    public static class Item {
-//        int index;
-//        int current;
-//        public Item(int index, int current) {
-//            this.index = index;
-//            this.current = current;
-//        }
-//    }
-//
-//    public int[] twoSum(int[] numbers, int target) {
-//        HashMap<Integer, Item> map = new HashMap<>();
-//        for (int i = 0; i < numbers.length; i++) {
-//            if (numbers[i] < target) {
-//                int ans = target - numbers[i];
-//                Item item = new Item(i,numbers[i]);
-//                map.put(ans, )
-//            }
-//        }
-//    }
+    public int[] twoSum(int[] numbers, int target) {
+        int[] result = new int[2];
+        HashMap<Integer, Item> map = new HashMap<>();
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] < target) {
+                int ans = target - numbers[i];
+                if (map.containsKey(ans)) {
+                    result[1] = i + 1;
+                    result[0] = map.get(numbers[i]).index;
+                    break;
+                } else {
+                    Item item = new Item(i+1,numbers[i]);
+                    map.put(ans, item);
+                }
+            } else {
+                break;
+            }
+        }
+        System.out.println(Arrays.toString(result));
+        return result;
+    }
+    public static void main(String[] args) {
+        int[] nums = new int[]{2, 7, 11, 15};
+        System.out.println(new T5().twoSum(nums, 9));
+    }
 
 //    public char findTheDifference(String s, String t) {
 //        int sumS = 0;

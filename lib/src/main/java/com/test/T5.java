@@ -9,6 +9,62 @@ import java.util.Stack;
 
 public class T5 {
 
+    //599
+    public static class Item{
+        public int index1, sum = -1;
+    }
+    public String[] findRestaurant(String[] list1, String[] list2) {
+        HashMap<String, Item> map = new HashMap<>();
+        for (int i = 0; i < list1.length; i++) {
+            Item item = new Item();
+            item.index1 = i;
+            map.put(list1[i], item);
+        }
+        for (int i = 0; i < list2.length; i++) {
+            if (map.containsKey(list2[i])) {
+                Item item = map.get(list2[i]);
+                item.sum = item.index1 + i;
+                map.put(list2[i], item);
+            }
+        }
+        List<String> tmp = new ArrayList<>();
+        int min = -1;
+        for (String key : map.keySet()) {
+            Item item = map.get(key);
+            if (item.sum == -1) continue;
+            if (min == -1) {
+                tmp.add(key);
+                min = item.sum;
+            } else {
+                if (min > item.sum) {
+                    tmp.clear();
+                    min = item.sum;
+                    tmp.add(key);
+                } else if (min == item.sum){
+                    tmp.add(key);
+                }
+            }
+        }
+        String[] ans = new String[tmp.size()];
+        for (int i = 0; i < ans.length; i++) {
+            ans[i] = tmp.get(i);
+        }
+        System.out.println(Arrays.toString(ans));
+        return ans;
+    }
+    public static void main(String[] args) {
+//        String[] list1 = new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"};
+//        String[] list2 = new String[]{"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"};
+
+//        String[] list1 = new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"};
+//        String[] list2 = new String[]{"KFC", "Shogun", "Burger King"};
+
+        String[] list1 = new String[]{"k","KFC"};
+        String[] list2 = new String[]{"k","KFC"};
+
+        System.out.println(new T5().findRestaurant(list1,list2));
+    }
+
     //189
 //    public void rotate(int[] nums, int k) {
 //        if (nums == null || nums.length == 0) return;
@@ -30,40 +86,37 @@ public class T5 {
 //        new T5().rotate(nums, k);
 //    }
 
-    public static class Item {
-        int index;
-        int current;
-        public Item(int index, int current) {
-            this.index = index;
-            this.current = current;
-        }
-    }
-
-    public int[] twoSum(int[] numbers, int target) {
-        int[] result = new int[2];
-        HashMap<Integer, Item> map = new HashMap<>();
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] < target) {
-                int ans = target - numbers[i];
-                if (map.containsKey(ans)) {
-                    result[1] = i + 1;
-                    result[0] = map.get(numbers[i]).index;
-                    break;
-                } else {
-                    Item item = new Item(i+1,numbers[i]);
-                    map.put(ans, item);
-                }
-            } else {
-                break;
-            }
-        }
-        System.out.println(Arrays.toString(result));
-        return result;
-    }
-    public static void main(String[] args) {
-        int[] nums = new int[]{2, 7, 11, 15};
-        System.out.println(new T5().twoSum(nums, 9));
-    }
+//    public static class Item {
+//        int index;
+//        int current;
+//        public Item(int index, int current) {
+//            this.index = index;
+//            this.current = current;
+//        }
+//    }
+//
+//    public int[] twoSum(int[] numbers, int target) {
+//        int[] result = new int[2];
+//        HashMap<Integer, Item> map = new HashMap<>();
+//        for (int i = 0; i < numbers.length; i++) {
+//            int ans = target - numbers[i];
+//            if (map.containsKey(numbers[i])) {
+//                result[1] = i + 1;
+//                result[0] = map.get(numbers[i]).index;
+//                break;
+//            } else {
+//                Item item = new Item(i+1,numbers[i]);
+//                map.put(ans, item);
+//            }
+//        }
+//        System.out.println(Arrays.toString(result));
+//        return result;
+//    }
+//    public static void main(String[] args) {
+////        int[] nums = new int[]{2, 7, 11, 15};
+//        int[] nums = new int[]{-1,0};
+//        System.out.println(new T5().twoSum(nums, -1));
+//    }
 
 //    public char findTheDifference(String s, String t) {
 //        int sumS = 0;

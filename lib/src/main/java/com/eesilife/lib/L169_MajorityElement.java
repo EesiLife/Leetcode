@@ -26,6 +26,23 @@ public class L169_MajorityElement {
         return target;
     }
 
+    public int majorityElement1(int[] nums) {
+        int ret = nums[0];
+        int count = 1;
+        for(int num : nums) {
+            if(num != ret) {
+                count--;
+                if(count == 0) {
+                    count = 1;
+                    ret = num;
+                }
+            }
+            else
+                count++;
+        }
+        return ret;
+    }
+
     public static void main(String[] args){
         L169_MajorityElement c = new L169_MajorityElement();
         int[] n = new int[]{3,2,3};

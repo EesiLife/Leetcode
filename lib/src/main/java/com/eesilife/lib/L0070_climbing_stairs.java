@@ -22,4 +22,9 @@ public class L0070_climbing_stairs {
         }
         return ans;
     }
+
+    public static void main(String[] args) {
+        L0070_climbing_stairs ll = new L0070_climbing_stairs();
+        System.out.println(ll.climbStairs1(3));
+    }
 }

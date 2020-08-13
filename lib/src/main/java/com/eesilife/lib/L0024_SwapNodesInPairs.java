@@ -12,7 +12,7 @@ public class L0024_SwapNodesInPairs {
             val = x;
         }
     }
-    public ListNode swapPairs(ListNode head) {
+    public static ListNode swapPairs(ListNode head) {
         // Dummy node acts as the prevNode for the head node
         // of the list and hence stores pointer to the head node.
         ListNode dummy = new ListNode(-1);
@@ -72,6 +72,24 @@ public class L0024_SwapNodesInPairs {
                 cur = tmp;
             }
         }
-        ListNode out = swapPairs1(head);
+        ListNode out = swapPairs3(head);
+    }
+
+    public static ListNode swapPairs3(ListNode head) {
+        ListNode dump = new ListNode(-1);
+        dump.next = head;
+        ListNode prevNode = dump;
+        while (null != head && head.next != null) {
+            ListNode first = head;
+            ListNode second = head.next;
+
+            prevNode.next = second;
+            first.next = second.next;
+            second.next = first;
+
+            prevNode = first;
+            head = first.next;
+        }
+        return dump.next;
     }
 }

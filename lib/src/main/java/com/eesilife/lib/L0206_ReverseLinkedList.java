@@ -19,7 +19,7 @@ import java.util.LinkedList;
 
 
 public class L0206_ReverseLinkedList {
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
@@ -50,5 +50,18 @@ public class L0206_ReverseLinkedList {
         head.next.next = head;
         head.next = null;
         return cur;
+    }
+    public static void main(String[] args) {
+        L0206_ReverseLinkedList l = new L0206_ReverseLinkedList();
+        ListNode l1 = new ListNode(1);
+        ListNode l2 = new ListNode(2);
+        l1.next = l2;
+        ListNode l3 = new ListNode(3);
+        l2.next = l3;
+        ListNode l4 = new ListNode(4);
+        l3.next = l4;
+        ListNode l5 = new ListNode(5);
+        l4.next = l5;
+        ListNode out = l.reverseList(l1);
     }
 }

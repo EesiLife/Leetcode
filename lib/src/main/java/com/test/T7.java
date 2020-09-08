@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Random;
 import java.util.Stack;
 
 public class T7 {
@@ -361,7 +364,7 @@ public class T7 {
     }
 
     public static int[] exchange(int[] nums) {
-        if (null == nums ||nums.length == 1) return nums;
+        if (null == nums || nums.length == 1) return nums;
         int l = 0;
         int r = nums.length - 1;
         while (l <= r) {
@@ -373,7 +376,7 @@ public class T7 {
                     l++;
                 }
                 r--;
-            }  else {
+            } else {
                 l++;
                 if (nums[r] % 2 == 0) {
                     r--;
@@ -382,6 +385,7 @@ public class T7 {
         }
         return nums;
     }
+
     public static class ListNode {
         int val;
         ListNode next;
@@ -393,12 +397,12 @@ public class T7 {
 
     public ListNode getKthFromEnd(ListNode head, int k) {
         ListNode f = head;
-        ListNode la =head;
+        ListNode la = head;
         int i = 0;
         while (f != null) {
             f = f.next;
             i++;
-            if(i > k) {
+            if (i > k) {
                 la = la.next;
             }
         }
@@ -473,16 +477,119 @@ public class T7 {
         return ans;
     }
 
-    public String[] permutation(String s) {
+    List<String> res = new LinkedList<>();
+    char[] c;
 
+    public String[] permutation(String s) {
+        c = s.toCharArray();
+        dfs(0);
+        return res.toArray(new String[res.size()]);
     }
 
+    void dfs(int x) {
+        if (x == c.length - 1) {
+            res.add(String.valueOf(c)); // 添加排列方案
+            return;
+        }
+        HashSet<Character> set = new HashSet<>();
+        for (int i = x; i < c.length; i++) {
+            if (set.contains(c[i])) continue; // 重复，因此剪枝
+            set.add(c[i]);
+            swap(i, x); // 交换，将 c[i] 固定在第 x 位
+            dfs(x + 1); // 开启固定第 x + 1 位字符
+            swap(i, x); // 恢复交换
+        }
+    }
+
+    void swap(int a, int b) {
+        char tmp = c[a];
+        c[a] = c[b];
+        c[b] = tmp;
+    }
+
+//    public static void main(String[] args) {
+//        String a = "abc";
+//        T7 t = new T7();
+//        t.permutation(a);
+//    }
+
+//    public static int cuttingRope(int n) {
+//        int p = (int)Math.sqrt(n);
+//        int q = p + 1;
+//        int r = n - (int)Math.pow(p, 2);
+//
+//        System.out.println("6^8:"  + Math.pow(6, 6) * 3 + ";55:" + Math.pow(6, 3) *7 * 7 * 7);
+//        return p;
+//    }
+
+    public static int cuttingRope(int n) {
+        if (n <= 3) return n -1;
+        if ( n== 4) return 4;
+        long res = 1;
+        while(n > 4) {
+            n -= 3;
+            res *= 3;
+        }
+        return (int)((res * n) % 1000000007);
+    }
+
+    public static int majorityElement2(int[] nums) {
+        int count = 1;
+        int ans = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == ans) {
+                count++;
+            } else {
+                if (--count == 0) {
+                    count = 1;
+                    ans = nums[i];
+                }
+            }
+        }
+        for (int num :nums) {
+            if (num == ans) count++;
+        }
+        if (count > nums.length / 2 ) {
+            return ans;
+        }
+        return -1;
+    }
+
+    public static int[] getLeastNumbers(int[] arr, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>((a, b) -> (b - a));
+        for (int i = 0; i < arr.length; i++) {
+            if (i < k) {
+                queue.add(arr[i]);
+            } else {
+                if (queue.peek() > arr[i]) {
+                    queue.remove();
+                    queue.add(arr[i]);
+                }
+            }
+        }
+        int[] ans = new int[k];
+        for (int i = 0; i < k; i++) {
+            ans[i] = queue.remove();
+        }
+        return ans;
+    }
+
+    public int countDigitOne(int n) {
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            String val = String.valueOf(i);
+            char[] arr = val.toCharArray();
+            for (int j = 0; i <arr.length;i++ ) {
+                if (arr[i] == '1') ans++;
+            }
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
-        int[][] a = new int[][]{
-                {1,2,3,4},
-                {5,6,7,8},
-                {9,10,11,12}
-        };
+        int[] a = new int[]{3,2, 1};
+        System.out.println(Arrays.toString(getLeastNumbers(a, 2)));
     }
 
 }

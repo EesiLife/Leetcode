@@ -1,8 +1,11 @@
 package com.test;
 
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -10,6 +13,8 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class T7 {
 
@@ -523,14 +528,14 @@ public class T7 {
 //    }
 
     public static int cuttingRope(int n) {
-        if (n <= 3) return n -1;
-        if ( n== 4) return 4;
+        if (n <= 3) return n - 1;
+        if (n == 4) return 4;
         long res = 1;
-        while(n > 4) {
+        while (n > 4) {
             n -= 3;
             res *= 3;
         }
-        return (int)((res * n) % 1000000007);
+        return (int) ((res * n) % 1000000007);
     }
 
     public static int majorityElement2(int[] nums) {
@@ -546,10 +551,10 @@ public class T7 {
                 }
             }
         }
-        for (int num :nums) {
+        for (int num : nums) {
             if (num == ans) count++;
         }
-        if (count > nums.length / 2 ) {
+        if (count > nums.length / 2) {
             return ans;
         }
         return -1;
@@ -579,17 +584,227 @@ public class T7 {
         for (int i = 0; i < n; i++) {
             String val = String.valueOf(i);
             char[] arr = val.toCharArray();
-            for (int j = 0; i <arr.length;i++ ) {
+            for (int j = 0; i < arr.length; i++) {
                 if (arr[i] == '1') ans++;
             }
         }
         return ans;
     }
 
+//    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+//        Stack<Integer> sa = new Stack<>();
+//        Stack<Integer> sb = new Stack<>();
+//        while (headA != null) {
+//            sa.push(headA.val);
+//            headA = headA.next;
+//        }
+//        while (headB != null) {
+//            sb.push(headB.val);
+//            headB = headB.next;
+//        }
+//    }
+
+    public static int search(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        int mid = left + (right - left) / 2;
+        int ans = 0;
+        while (left < right) {
+            mid = left + (right - left) / 2;
+            if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                break;
+            }
+        }
+        int i = mid - 1, j = mid;
+        while (i >= 0) {
+            if (nums[i] == target) ans++;
+            i--;
+        }
+        while (j < nums.length) {
+            if (nums[j] == target) ans++;
+            j++;
+        }
+        return ans;
+    }
+
+    public static int missingNumber(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        int mid = left + (right - left) / 2;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if (nums[mid] == mid) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return mid;
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        int[] ans = new int[2];
+        int i = 0, j = nums.length - 1;
+        while (i < j) {
+            int sum = nums[i] + nums[j];
+            if (sum < target) i++;
+            else if (sum > target) j--;
+            else {
+                ans[0] = nums[i];
+                ans[1] = nums[j];
+                break;
+            }
+        }
+        return ans;
+    }
+
+    public static int[] singleNumbers(int[] nums) {
+        int ret = 0;
+        for (int n : nums)
+            ret ^= n;
+        int div = 1;
+        while ((div & ret) == 0)
+            div <<= 1;
+        int a = 0, b = 0;
+        for (int n : nums)
+            if ((div & n) != 0)
+                a ^= n;
+            else
+                b ^= n;
+        return new int[]{a, b};
+    }
+
+    public static String replaceBlank(String str) {
+        String dest = "";
+        if (str != null) {
+            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+            Matcher m = p.matcher(str);
+            dest = m.replaceAll("");
+        }
+        return dest;
+    }
+
+    public static int[][] findContinuousSequence(int target) {
+
+        List<int[]> result = new ArrayList<>();
+        int i = 1;
+
+        while (target > 0) {
+            target -= i++;
+            if (target > 0 && target % i == 0) {
+                int[] array = new int[i];
+                for (int k = target / i, j = 0; k < target / i + i; k++, j++) {
+                    array[j] = k;
+                }
+                result.add(array);
+            }
+        }
+        Collections.reverse(result);
+        return result.toArray(new int[0][]);
+    }
+
+    public static int[][] findContinuousSequence1(int target) {
+
+        List<int[]> result = new ArrayList<>();
+        int mid = (target - 1) / 2;
+        for (int x = 1; x <= mid; x++) {
+            long delta = 1 - 4L * (x - 1L * x * x - 2 * target);
+            if (delta < 0) continue;
+            long delaSqrt = (long) Math.sqrt((double) delta);
+            if (delaSqrt * delaSqrt == delta && (delaSqrt - 1) % 2 == 0) {
+                int y = ((int) delaSqrt - 1) / 2;
+                if (y <= x) continue;
+                int[] a = new int[y - x + 1];
+                for (int i = x; i <= y; i++) {
+                    a[i - x] = i;
+                }
+                result.add(a);
+            }
+
+        }
+        return result.toArray(new int[0][]);
+    }
+
+    public static int[][] findContinuousSequence3(int target) {
+
+        List<int[]> result = new ArrayList<>();
+        for (int l = 1, r = 2; l < r; ) {
+            int sum = (l + r) * (r - l + 1) / 2;
+            if (sum == target) {
+                int[] a = new int[r - l + 1];
+                for (int i = l; i <= r; i++) {
+                    a[i - l] = i;
+                }
+                result.add(a);
+                l++;
+            } else if (sum < target) {
+                r++;
+            } else {
+                l++;
+            }
+        }
+        return result.toArray(new int[0][]);
+    }
+
+    public static String reverseWords(String s) {
+        s = s.trim();
+        String[] arr = s.split(" ");
+        StringBuffer sb = new StringBuffer();
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (null == arr[i] || "".equals(arr[i])) continue;
+            sb.append(arr[i]);
+            sb.append(" ");
+        }
+        return sb.toString().trim();
+    }
+
+    class MaxQueue {
+
+        public MaxQueue() {
+
+        }
+
+        public int max_value() {
+
+        }
+
+        public void push_back(int value) {
+
+        }
+
+        public int pop_front() {
+
+        }
+    }
+
+    public static int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums.length == 0 || k == 0) return new int[0];
+        Deque<Integer> deque = new ArrayDeque<>();
+        for (int i = 0; i < k; i++) {
+            while (!deque.isEmpty() && deque.peekLast() < nums[i]) {
+                deque.removeLast();
+            }
+            deque.addLast(nums[i]);
+        }
+        int[] ans = new int[nums.length - k + 1];
+        ans[0] = deque.peekFirst();
+        for (int i = k; i < nums.length; i++) {
+            if(deque.peekFirst() == nums[i - k])
+                deque.removeFirst();
+            while (!deque.isEmpty() && deque.peekLast() < nums[i]) {
+                deque.removeLast();
+            }
+            deque.addLast(nums[i]);
+            ans[i - k + 1] = deque.peekFirst();
+        }
+        return ans;
+    }
 
     public static void main(String[] args) {
-        int[] a = new int[]{3,2, 1};
-        System.out.println(Arrays.toString(getLeastNumbers(a, 2)));
+        int[] a = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
+        System.out.println(Arrays.toString(maxSlidingWindow(a, 3)));
     }
 
 }

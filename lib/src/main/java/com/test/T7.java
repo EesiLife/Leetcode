@@ -760,27 +760,27 @@ public class T7 {
         return sb.toString().trim();
     }
 
-    class MaxQueue {
-
-        public MaxQueue() {
-
-        }
-
-        public int max_value() {
-
-        }
-
-        public void push_back(int value) {
-
-        }
-
-        public int pop_front() {
-
-        }
-    }
+//    class MaxQueue {
+//
+//        public MaxQueue() {
+//
+//        }
+//
+//        public int max_value() {
+//
+//        }
+//
+//        public void push_back(int value) {
+//
+//        }
+//
+//        public int pop_front() {
+//
+//        }
+//    }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {
-        if(nums.length == 0 || k == 0) return new int[0];
+        if (nums.length == 0 || k == 0) return new int[0];
         Deque<Integer> deque = new ArrayDeque<>();
         for (int i = 0; i < k; i++) {
             while (!deque.isEmpty() && deque.peekLast() < nums[i]) {
@@ -791,7 +791,7 @@ public class T7 {
         int[] ans = new int[nums.length - k + 1];
         ans[0] = deque.peekFirst();
         for (int i = k; i < nums.length; i++) {
-            if(deque.peekFirst() == nums[i - k])
+            if (deque.peekFirst() == nums[i - k])
                 deque.removeFirst();
             while (!deque.isEmpty() && deque.peekLast() < nums[i]) {
                 deque.removeLast();
@@ -802,9 +802,88 @@ public class T7 {
         return ans;
     }
 
+    public static int findLengthOfShortestSubarray(int[] arr) {
+        if (null == arr || arr.length == 0) return 0;
+        int left = 0, right = arr.length - 1, len = arr.length;
+        while (left + 1 < len && arr[left] <= arr[left + 1]) {
+            left++;
+        }
+        if (left == arr.length - 1) return 0;
+        while (right > 0 && arr[right - 1] <= arr[right]) {
+            right--;
+        }
+        if (right == 1) return arr.length - 1;
+        int ans = Math.min(arr.length - left - 1, right);
+        int i = 0, j = right;
+        while (i <= left && j < arr.length) {
+            if (arr[i] <= arr[j]) {
+                ans = Math.min(ans, j - i - 1);
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return ans;
+    }
+
+    public static int[] arrayRankTransform(int[] arr) {
+        int[] tmp = Arrays.copyOf(arr, arr.length);
+        Arrays.sort(tmp);
+        int j = 1;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < tmp.length; i++) {
+            Integer cur = map.get(tmp[i]);
+            if (null == cur) {
+                map.put(tmp[i], j++);
+            }
+        }
+        for (int i = 0; i < arr.length;i++) {
+            arr[i] = map.get(arr[i]);
+        }
+        return arr;
+    }
+
+    public static int countCharacters(String[] words, String chars) {
+        int ans = 0;
+        HashMap<Character, Integer> mapChars = new HashMap<>();
+        for (char c : chars.toCharArray()) {
+            int i = mapChars.getOrDefault(c, 0);
+            mapChars.put(c, ++i);
+        }
+        for (int i = 0; i < words.length; i++) {
+            HashMap<Character, Integer> mapWord = new HashMap<>();
+            char[] arr = words[i].toCharArray();
+            for (char c : arr) {
+                int count = mapWord.getOrDefault(c, 0);
+                mapWord.put(c, ++count);
+            }
+            boolean isAns = true;
+            for (int j = 0; j < arr.length; j++) {
+                if (mapWord.get(arr[j]) > mapChars.getOrDefault(arr[j], 0)) {
+                    isAns = false;
+                    break;
+                }
+            }
+            if (isAns) {
+                ans += words[i].length();
+            }
+        }
+        return ans;
+    }
+
+    private static boolean isValid(String src, String chars) {
+        for (int i = 0; i < src.length(); i++) {
+            if (!chars.contains(String.valueOf(src.charAt(i)))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public static void main(String[] args) {
-        int[] a = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
-        System.out.println(Arrays.toString(maxSlidingWindow(a, 3)));
+        String[] ss = new String[]{"hello","world","leetcode"};
+        System.out.println(countCharacters(ss, "welldonehoneyr"));
     }
 
 }

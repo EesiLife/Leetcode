@@ -630,20 +630,6 @@ public class T7 {
         return ans;
     }
 
-    public static int missingNumber(int[] nums) {
-        int left = 0, right = nums.length - 1;
-        int mid = left + (right - left) / 2;
-        while (left <= right) {
-            mid = left + (right - left) / 2;
-            if (nums[mid] == mid) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return mid;
-    }
-
     public static int[] twoSum(int[] nums, int target) {
         int[] ans = new int[2];
         int i = 0, j = nums.length - 1;
@@ -837,7 +823,7 @@ public class T7 {
                 map.put(tmp[i], j++);
             }
         }
-        for (int i = 0; i < arr.length;i++) {
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = map.get(arr[i]);
         }
         return arr;
@@ -880,10 +866,76 @@ public class T7 {
         return true;
     }
 
+    public static int maxTurbulenceSize(int[] A) {
+        int len = A.length;
+        int ans = 0;
+        int index = 0;
+        for (int i = 1; i < len; i++) {
+            int c = Integer.compare(A[i - 1], A[i]);
+            if (i == len - 1 || c * Integer.compare(A[i], A[i + 1]) != -1) {
+                if (c != 0) ans = Math.max(i - index + 1, ans);
+                index = i;
+            }
+        }
+        return ans;
+    }
+
+//    public static int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
+//
+//    }
+
+    public static List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 1; i <= numRows; i++) {
+            if (i == 1) {
+                ans.add(Arrays.asList(1));
+            } else if (i == 2) {
+                ans.add(Arrays.asList(1, 1));
+            } else {
+                List<Integer> l = new ArrayList<>();
+                l.add(1);
+                for (int j = 0; j < ans.get(i - 2).size() - 1; j++) {
+                    l.add(ans.get(i - 2).get(j) + ans.get(i - 2).get(j + 1));
+                }
+                l.add(1);
+                ans.add(l);
+            }
+        }
+        return ans;
+    }
+
+    public static String[] findOcurrences(String text, String first, String second) {
+        String[] arr = text.split(" ");
+        int len = arr.length;
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < len - 2; i++) {
+            if (arr[i].equals(first) && arr[i + 1].equals(second)) {
+                list.add(arr[i + 2]);
+                i = i + 1;
+            }
+        }
+        return list.toArray(new String[list.size()]);
+    }
+
+    public static int missingNumber(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        int mid = left + (right - left) / 2;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if (nums[mid] == mid) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
 
     public static void main(String[] args) {
-        String[] ss = new String[]{"hello","world","leetcode"};
-        System.out.println(countCharacters(ss, "welldonehoneyr"));
+//
+        int[] a = new int[]{0};
+        System.out.println(missingNumber(a));
     }
 
 }

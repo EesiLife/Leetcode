@@ -1,6 +1,8 @@
 package com.test;
 
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -931,11 +933,53 @@ public class T7 {
         return left;
     }
 
+//    public static int findString(String[] words, String s) {
+//        int i = 0, r = words.length - 1;
+//        while (i < words.length - 1 && words[i].length() == 0) {
+//            i++;
+//        }
+//        while (r >= 0 && words[r].length() == 0) {
+//            r++;
+//        }
+//        while (i <= r) {
+//            int mid = (r + i) / 2;
+//            if (words[mid].length() == 0) {
+//                i =
+//            }
+//        }
+//    }
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws NoSuchAlgorithmException {
 //
-        int[] a = new int[]{0};
-        System.out.println(missingNumber(a));
+        get("siyu");
+    }
+
+    private static void get(String userName) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("MD5");
+        digest.reset();
+        digest.update(userName.getBytes());
+        byte[] bytes = digest.digest();
+        String hexstr = toHexString(bytes);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < hexstr.length(); i++) {
+            sb.append(hexstr.charAt(i));
+        }
+        String userSN = sb.toString();
+        System.out.println(userSN);
+    }
+
+    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
+
+    public static String toHexString(byte... bytes) {
+        char[] hexChars = new char[bytes.length * 2];
+        for (int j = 0; j < bytes.length; j++) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = hexArray[v >>> 4];
+            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+        }
+        return new String(hexChars);
+
     }
 
 }

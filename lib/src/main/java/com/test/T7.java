@@ -1,8 +1,6 @@
 package com.test;
 
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,10 +8,10 @@ import java.util.Collections;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Random;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -950,36 +948,321 @@ public class T7 {
 //    }
 
 
-    public static void main(String[] args) throws NoSuchAlgorithmException {
+//    public static void main(String[] args) throws NoSuchAlgorithmException {
+////
+//        get("siyu");
+//    }
 //
-        get("siyu");
-    }
+//    private static void get(String userName) throws NoSuchAlgorithmException {
+//        MessageDigest digest = MessageDigest.getInstance("MD5");
+//        digest.reset();
+//        digest.update(userName.getBytes());
+//        byte[] bytes = digest.digest();
+//        String hexstr = toHexString(bytes);
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < hexstr.length(); i++) {
+//            sb.append(hexstr.charAt(i));
+//        }
+//        String userSN = sb.toString();
+//        System.out.println(userSN);
+//    }
+//
+//    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
+//
+//    public static String toHexString(byte... bytes) {
+//        char[] hexChars = new char[bytes.length * 2];
+//        for (int j = 0; j < bytes.length; j++) {
+//            int v = bytes[j] & 0xFF;
+//            hexChars[j * 2] = hexArray[v >>> 4];
+//            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+//        }
+//        return new String(hexChars);
+//
+//    }
 
-    private static void get(String userName) throws NoSuchAlgorithmException {
-        MessageDigest digest = MessageDigest.getInstance("MD5");
-        digest.reset();
-        digest.update(userName.getBytes());
-        byte[] bytes = digest.digest();
-        String hexstr = toHexString(bytes);
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < hexstr.length(); i++) {
-            sb.append(hexstr.charAt(i));
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int i = 0, j = 0;
+        List<Integer> list = new ArrayList<>();
+        while (i < nums1.length && j < nums2.length) {
+            int n1 = nums1[i];
+            int n2 = nums2[j];
+            if (n1 == n2) {
+                i++;
+                j++;
+                list.add(n1);
+            } else if (n1 > n2) {
+                j++;
+            } else {
+                i++;
+            }
         }
-        String userSN = sb.toString();
-        System.out.println(userSN);
-    }
-
-    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
-
-    public static String toHexString(byte... bytes) {
-        char[] hexChars = new char[bytes.length * 2];
-        for (int j = 0; j < bytes.length; j++) {
-            int v = bytes[j] & 0xFF;
-            hexChars[j * 2] = hexArray[v >>> 4];
-            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+        int[] ans = new int[list.size()];
+        for (int k = 0; k < list.size(); k++) {
+            ans[k] = list.get(k);
         }
-        return new String(hexChars);
+        return ans;
+    }
+
+    public static int[] findErrorNums(int[] nums) {
+        int[] res = new int[2];
+        int[] arr = new int[nums.length + 1];
+        for (int n : nums) {
+            arr[n]++;
+        }
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                res[1] = i;
+            }
+            if (arr[i] == 2) {
+                res[0] = i;
+            }
+        }
+        return res;
 
     }
 
+    public int arrangeCoins(int n) {
+        int l = 0, r = n;
+        long mid, sum;
+        while (l <= r) {
+            mid = l + (r - l) / 2;
+            sum = mid * (mid + 1) / 2;
+            if (sum == n) {
+                return (int) mid;
+            } else if (n > sum) {
+                l = (int) mid + 1;
+            } else {
+                r = (int) mid - 1;
+            }
+        }
+        return r;
+    }
+
+    public static char nextGreatestLetter(char[] letters, char target) {
+        int l = 0, r = letters.length;
+        int mid = 0;
+        while (l < r) {
+            mid = (l + r) / 2;
+            if (letters[mid] < target) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return letters[l % letters.length];
+    }
+
+//    public static void main(String[] args) {
+//        char[] aa = new char[]{'c', 'f', 'j'};
+//        char target = 'j';
+//        System.out.println(nextGreatestLetter(aa, target));
+//    }
+
+    public int peakIndexInMountainArray1(int[] A) {
+        int lo = 0, hi = A.length - 1;
+        while (lo < hi) {
+            int mi = lo + (hi - lo) / 2;
+            if (A[mi] < A[mi + 1])
+                lo = mi + 1;
+            else
+                hi = mi;
+        }
+        return lo;
+    }
+
+    public static int peakIndexInMountainArray(int[] arr) {
+        int low = 0, high = arr.length - 1;
+        while (low < high) {
+            int mid = (low + high) / 2;
+            if (arr[mid + 1] > arr[mid]) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low;
+    }
+
+    public static int findRadius(int[] houses, int[] heaters) {
+        int res = 0;
+        Arrays.sort(heaters);
+        int len = heaters.length;
+        for (int house : houses) {
+            int left = 0, right = len;
+            while (left < right) {
+                int mid = left + (right - left) / 2;
+                if (house > heaters[mid]) left = mid + 1;
+                else right = mid;
+            }
+            int dist1 = (right == 0) ? Integer.MAX_VALUE : Math.abs(house - heaters[right - 1]);
+            int dist2 = (right == len) ? Integer.MAX_VALUE : Math.abs(house - heaters[right]);
+            res = Math.max(res, Math.min(dist1, dist2));
+
+        }
+        return res;
+    }
+
+    private static int target = 6;
+
+    public static int guess(int num) {
+        if (num == target) return 0;
+        if (num > target) return -1;
+        else return 1;
+    }
+
+    public static int guessNumber(int n) {
+        int low = 1;
+        int high = n;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (guess(mid) == 0) return mid;
+            else if (guess(mid) == 1) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return -1;
+    }
+
+    public List<List<Integer>> threeSum1(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums);
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            if (nums[i] > 0) break;
+            int L = i + 1, R = len - 1;
+            while (L < R) {
+                int sum = nums[i] + nums[L] + nums[R];
+                if (sum == 0) {
+                    ans.add(Arrays.asList(nums[i], nums[L], nums[R]));
+                    while (L < R && nums[L] == nums[L + 1]) L++;
+                    while (L < R && nums[R] == nums[R - 1]) R--;
+                    L++;
+                    R--;
+                } else if (sum < 0) {
+                    L++;
+                } else {
+                    R--;
+                }
+            }
+        }
+        return ans;
+    }
+
+    public static List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums);
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            for (int j = i + 1; j < len; j++) {
+                if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+                int L = j + 1, R = len - 1;
+                while (L < R) {
+                    int sum = nums[i] + nums[j] + nums[L] + nums[R];
+                    if (sum == target) {
+                        ans.add(Arrays.asList(nums[i], nums[j], nums[L], nums[R]));
+                        while (L < R && nums[L] == nums[L + 1]) L++;
+                        while (L < R && nums[R] == nums[R - 1]) R--;
+                        L++;
+                        R--;
+                    } else if (sum < target) {
+                        L++;
+                    } else {
+                        R--;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
+    public static int threeSumSmaller(int[] nums, int target) {
+        int len = nums.length;
+        int ans = target;
+        int tmp = Integer.MAX_VALUE;
+        for (int i = 0; i < len; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            int L = i + 1, R = len - 1;
+            while (L < R) {
+                int sum = nums[i] + nums[L] + nums[R];
+                if (sum < target) {
+                    break;
+                } else {
+
+                }
+                if (sum == target) {
+                    ans = target;
+                    break;
+                } else if (sum > target) {
+                    R--;
+                } else {
+                    L++;
+                }
+
+            }
+        }
+        return ans;
+    }
+
+    public int threeSumSmaller1(int[] nums, int target) {
+        int ans = 0;
+        int len = nums.length;
+        int left, right;
+        Arrays.sort(nums);
+        for (int i = 0; i < len; ++i) {
+            left = i + 1;
+            right = len - 1;
+            while (left < right) {
+                int three = nums[left] + nums[right] + nums[i];
+                if (three >= target) {
+                    right--;
+                } else {
+                    ans += right - left;
+                    left++;
+                }
+            }
+        }
+        return ans;
+    }
+
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{-2, 0, 1, 3};
+        System.out.println(threeSumSmaller(arr, 2));
+    }
+
+    public static int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int len = nums.length;
+        int ans = target;
+        int tmp = Integer.MAX_VALUE;
+        for (int i = 0; i < len; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            int L = i + 1, R = len - 1;
+            while (L < R) {
+                int sum = nums[i] + nums[L] + nums[R];
+                int gap = Math.abs(sum - target);
+                if (tmp > gap) {
+                    tmp = gap;
+                    ans = sum;
+                }
+                if (sum == target) {
+                    ans = target;
+                    break;
+                } else if (sum > target) {
+                    R--;
+                } else {
+                    L++;
+                }
+
+            }
+        }
+        return ans;
+    }
 }

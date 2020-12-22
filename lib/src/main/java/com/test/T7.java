@@ -19,9 +19,6 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.swing.JFormattedTextField;
-
-import sun.security.acl.AclEntryImpl;
 
 public class T7 {
 
@@ -1992,11 +1989,11 @@ public class T7 {
         return 2;
     }
 
-    public static String mostCommonWord(String paragraph, String[] banned) {
-        paragraph = paragraph.toLowerCase().replaceAll("!", "")
-                .replaceAll("\\?", "").replaceAll("'", "")
-                .replaceAll(",", "").replaceAll(";", "")
-                .replaceAll("\\.", "");
+    public static String mostCommonWord1(String paragraph, String[] banned) {
+        paragraph = paragraph.toLowerCase().replaceAll("!", " ")
+                .replaceAll("\\?", " ").replaceAll("'", " ")
+                .replaceAll(",", " ").replaceAll(";", " ")
+                .replaceAll("\\.", " ");
         Map<String, Integer> map = new HashMap<>();
         for (String b : banned) {
             map.put(b, -1);
@@ -2025,9 +2022,824 @@ public class T7 {
         return ans;
     }
 
+    public static String mostCommonWord(String paragraph, String[] banned) {
+        paragraph += ".";
+        Set<String> ban = new HashSet<>();
+        for (String b : banned) {
+            ban.add(b);
+        }
+        int maxCount = 0;
+        String ans = "";
+        StringBuilder sb = new StringBuilder();
+        Map<String, Integer> map = new HashMap<>();
+        for (char c : paragraph.toCharArray()) {
+            if (Character.isLetter(c)) {
+                sb.append(Character.toLowerCase(c));
+            } else {
+                if (sb.length() > 0) {
+                    String ss = sb.toString();
+                    if (!ban.contains(ss)) {
+                        int count = map.getOrDefault(ss, 0);
+                        map.put(ss, ++count);
+                        if (count > maxCount) {
+                            maxCount = count;
+                            ans = ss;
+                        }
+                    }
+                }
+                sb = new StringBuilder();
+            }
+        }
+        return ans;
+    }
+
+    public static String mostCommonWord2(String paragraph, String[] banned) {
+        paragraph += ".";
+
+        Set<String> banset = new HashSet();
+        for (String word : banned) banset.add(word);
+        Map<String, Integer> count = new HashMap();
+
+        String ans = "";
+        int ansfreq = 0;
+
+        StringBuilder word = new StringBuilder();
+        for (char c : paragraph.toCharArray()) {
+            if (Character.isLetter(c)) {
+                word.append(Character.toLowerCase(c));
+            } else if (word.length() > 0) {
+                String finalword = word.toString();
+                if (!banset.contains(finalword)) {
+                    count.put(finalword, count.getOrDefault(finalword, 0) + 1);
+                    if (count.get(finalword) > ansfreq) {
+                        ans = finalword;
+                        ansfreq = count.get(finalword);
+                    }
+                }
+                word = new StringBuilder();
+            }
+        }
+
+        return ans;
+    }
+
+    public static int numUniqueEmails(String[] emails) {
+        Set<String> set = new HashSet<>();
+        for (String ss : emails) {
+            String[] arr = ss.split("@");
+            String s = arr[0];
+            String last = "@" + arr[1];
+            if (s.contains("+")) {
+                s = s.substring(0, s.indexOf("+"));
+            }
+            s = s.replaceAll("\\.", "");
+            String email = s + last;
+            if (!set.contains(email)) {
+                set.add(email);
+            }
+        }
+        return set.size();
+    }
+
+    public static int numUniqueEmails1(String[] emails) {
+        Set<String> seen = new HashSet();
+        for (String email : emails) {
+            int i = email.indexOf('@');
+            String local = email.substring(0, i);
+            String rest = email.substring(i);
+            if (local.contains("+")) {
+                local = local.substring(0, local.indexOf('+'));
+            }
+            local = local.replaceAll("\\.", "");
+            seen.add(local + rest);
+        }
+
+        return seen.size();
+    }
+
+    public String[] reorderLogFiles(String[] logs) {
+        Arrays.sort(logs, (log1, log2) -> {
+            String[] split1 = log1.split(" ", 2);
+            String[] split2 = log2.split(" ", 2);
+            boolean isDigit1 = Character.isDigit(split1[1].charAt(0));
+            boolean isDigit2 = Character.isDigit(split2[1].charAt(0));
+            if (!isDigit1 && !isDigit2) {
+                int cmp = split1[1].compareTo(split2[1]);
+                if (cmp != 0) return cmp;
+                return split1[0].compareTo(split2[0]);
+            }
+            return isDigit1 ? (isDigit2 ? 0 : 1) : -1;
+        });
+        return logs;
+    }
+
+    //a e i o u
+    private static List<Character> list = Arrays.asList(
+            'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'
+    );
+
+    public static String reverseVowels(String s) {
+        StringBuilder sb = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (list.contains(c)) {
+                stack.push(c);
+            }
+        }
+        for (char c : s.toCharArray()) {
+            if (list.contains(c)) {
+                sb.append(stack.pop());
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+
+    public String reverseVowels1(String s) {
+        StringBuilder sb = new StringBuilder();
+        int len = s.length(), i = 0, j = s.length() - 1;
+        while (sb.length() < len) {
+            char c = s.charAt(i);
+            if (c != 'a' && c == 'e' && c == 'i' && c == 'o' && c == 'u') {
+                sb.append(i);
+            } else {
+
+            }
+        }
+        return sb.toString();
+    }
+
+    public boolean validPalindrome(String s) {
+        int low = 0, high = s.length() - 1;
+        while (low < high) {
+            char c1 = s.charAt(low), c2 = s.charAt(high);
+            if (c1 == c2) {
+                low++;
+                high--;
+            } else {
+                boolean flag1 = true, flag2 = true;
+                for (int i = low, j = high - 1; i < j; i++, j--) {
+                    char c3 = s.charAt(i), c4 = s.charAt(j);
+                    if (c3 != c4) {
+                        flag1 = false;
+                        break;
+                    }
+                }
+                for (int i = low + 1, j = high; i < j; i++, j--) {
+                    char c3 = s.charAt(i), c4 = s.charAt(j);
+                    if (c3 != c4) {
+                        flag2 = false;
+                        break;
+                    }
+                }
+                return flag1 || flag2;
+            }
+        }
+        return true;
+    }
+
+    public static int maxScore(String s) {
+        char[] str = s.toCharArray();
+        int N = s.length();
+        int l = 0, r = 0;
+        if (str[0] == '0') l++;
+        int max = l + r;
+        for (int i = 1; i < N - 1; i++) {
+            if (str[i] == '1') r--;
+            else max = Math.max(max, ++l + r);
+        }
+        if (str[N - 1] == '1') r--;
+        return max - r;
+    }
+
+    public static void reverseString(char[] s) {
+        System.out.println(Arrays.toString(s));
+        int i = 0, j = s.length - 1;
+        while (i < j) {
+            char tmp = s[i];
+            s[i] = s[j];
+            s[j] = tmp;
+            i++;
+            j--;
+        }
+        System.out.println(Arrays.toString(s));
+    }
+
+
+    public String reformatDate(String date) {
+        HashMap<String, String> day = new HashMap<String, String>() {
+            {
+                put("1st", "1");
+                put("2nd", "2");
+                put("3rd", "3");
+                put("4th", "4");
+                put("5th", "5");
+                put("6th", "6");
+                put("7th", "7");
+                put("8th", "8");
+                put("9th", "9");
+                put("10th", "10");
+                put("11th", "11");
+                put("12th", "12");
+                put("13th", "13");
+                put("14th", "14");
+                put("15th", "15");
+                put("16th", "16");
+                put("17th", "17");
+                put("18th", "18");
+                put("19th", "19");
+                put("20th", "20");
+                put("21st", "21");
+                put("22nd", "22");
+                put("23rd", "23");
+                put("24th", "24");
+                put("25th", "25");
+                put("26th", "26");
+                put("27th", "27");
+                put("28th", "28");
+                put("29th", "29");
+                put("30th", "30");
+                put("31st", "31");
+            }
+        };
+        HashMap<String, String> month = new HashMap<String, String>() {
+            {
+                put("Jan", "01");
+                put("Feb", "02");
+                put("Mar", "03");
+                put("Apr", "04");
+                put("May", "05");
+                put("Jun", "06");
+                put("Jul", "07");
+                put("Aug", "08");
+                put("Sep", "09");
+                put("Oct", "10");
+                put("Nov", "11");
+                put("Dec", "12");
+            }
+        };
+        String[] arr = date.split(" ");
+        StringBuilder sb = new StringBuilder();
+        sb.append(arr[2]).append("-").append(month.get(arr[1])).append("-").append(day.get(arr[0]));
+        return sb.toString();
+    }
+
+    public static int numSpecialEquivGroups(String[] A) {
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String a : A) {
+            StringBuilder sb1 = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            for (int i = 0; i < a.length(); i++) {
+                if (i % 2 == 0) {
+                    sb1.append(a.charAt(i));
+                } else {
+                    sb2.append(a.charAt(i));
+                }
+            }
+            char[] s1 = sb1.toString().toCharArray();
+            Arrays.sort(s1);
+            char[] s2 = sb2.toString().toCharArray();
+            Arrays.sort(s2);
+            StringBuilder s = new StringBuilder();
+            s.append(s1).append(s2);
+            map.put(s.toString(), map.getOrDefault(s.toString(), 0) + 1);
+        }
+        return map.size();
+    }
+
+    public static String reformat(String s) {
+        boolean letter = true;
+        int i = 0, j = 0;
+        StringBuilder sb = new StringBuilder();
+        while (i < s.length() && j < s.length()) {
+            if (letter) {
+                while (!Character.isLetter(s.charAt(i))) {
+                    i++;
+                }
+                sb.append(s.charAt(i));
+                i++;
+            } else {
+                while (Character.isLetter(s.charAt(j))) {
+                    j++;
+                }
+                sb.append(s.charAt(j));
+                j++;
+            }
+            letter = !letter;
+        }
+        return sb.toString();
+    }
+
+    public static String formate(String s) {
+        int numLe = 0, numNu = 0;
+        for (char c : s.toCharArray()) {
+            if (c >= '0' && c <= '9') {
+                numNu++;
+            } else {
+                numLe++;
+            }
+        }
+        if (numLe - numNu > 1 || numNu - numLe > 1) return "";
+        if (numLe > numNu) {
+            numLe = 0;
+            numNu = 1;
+        } else {
+            numNu = 0;
+            numLe = 1;
+        }
+        char[] ans = new char[s.length()];
+        for (char c : s.toCharArray()) {
+            if (c >= '0' && c <= '9') {
+                ans[numNu] = c;
+                numNu += 2;
+            } else {
+                ans[numLe] = c;
+                numLe += 2;
+            }
+        }
+        return new String(ans);
+    }
+
+    public static String thousandSeparator(int n) {
+        String s = new StringBuilder(String.valueOf(n)).reverse().toString();
+        int len = s.length();
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < len; i++) {
+            ans.append(s.charAt(i));
+            if (i < len - 1 && (i + 1) % 3 == 0) {
+                ans.append(".");
+            }
+        }
+        return ans.reverse().toString();
+    }
+
+
+    public static String freqAlphabets(String s) {
+        StringBuilder sb = new StringBuilder();
+        int i = s.length() - 1;
+        while (i >= 0) {
+            if (s.charAt(i) == '#') {
+                int val = Integer.parseInt(s.substring(i - 2, i));
+                sb.append((char) ('a' + (val - 1)));
+                i -= 3;
+            } else {
+                sb.append((char) ('a' + (s.charAt(i) - '0' - 1)));
+                i--;
+            }
+        }
+        return sb.reverse().toString();
+    }
+
+
+    public String defangIPaddr(String address) {
+        StringBuilder ans = new StringBuilder();
+        for (char c : address.toCharArray()) {
+            if (c != '.') {
+                ans.append(c);
+            } else {
+                ans.append('[').append(c).append(']');
+            }
+        }
+        return ans.toString();
+    }
+
+    //a, e, i, o, u
+    public static String toGoatLatin(String S) {
+        Set<Character> set = new HashSet<Character>() {
+            {
+                add('a');
+                add('e');
+                add('i');
+                add('o');
+                add('u');
+                add('A');
+                add('E');
+                add('I');
+                add('O');
+                add('U');
+            }
+        };
+        String[] arr = S.split(" ");
+        for (int i = 0; i < arr.length; i++) {
+            String s = arr[i];
+            StringBuilder sb;
+            if (set.contains(s.charAt(0))) {
+                sb = new StringBuilder();
+                sb.append(s).append("ma");
+            } else {
+                sb = new StringBuilder();
+                sb.append(s.substring(1)).append(s.charAt(0)).append("ma");
+            }
+            for (int j = 0; j <= i; j++) {
+                sb.append("a");
+            }
+            arr[i] = sb.toString();
+        }
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            ans.append(arr[i]);
+            if (i != arr.length - 1) {
+                ans.append(' ');
+            }
+        }
+        return ans.toString();
+    }
+
+    public String breakPalindrome(String palindrome) {
+        if (palindrome.length() == 1)
+            return "";
+        char[] arr = palindrome.toCharArray();
+        int len = arr.length;
+        boolean flag = false;
+        for (int i = 0; i < len / 2; ++i) {
+            if (arr[i] != 'a') {
+                arr[i] = 'a';
+                flag = true;
+                break;
+            }
+        }
+        if (!flag)
+            arr[len - 1] = 'b';
+        return new String(arr);
+    }
+
+    public static String minRemoveToMakeValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        Stack<Integer> st = new Stack<>();
+        char[] arr = s.toCharArray();
+        for (int i = 0; i < arr.length; i++) {
+            char c = arr[i];
+            if (c == '(') {
+                stack.push(c);
+                st.push(i);
+            } else if (c == ')') {
+                if (!stack.isEmpty() && stack.peek() == '(') {
+                    stack.pop();
+                    st.pop();
+                } else {
+                    stack.add(c);
+                    st.push(i);
+                }
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        Set<Integer> indexesToRemove = new HashSet<>();
+        while (!st.isEmpty()) indexesToRemove.add(st.pop());
+        for (int i = 0; i < arr.length; i++) {
+            if (!indexesToRemove.contains(i)) {
+                sb.append(arr[i]);
+            }
+        }
+        return sb.toString();
+    }
+
+    public static List<String> ambiguousCoordinates(String S) {
+        List<String> ans = new ArrayList();
+        for (int i = 2; i < S.length() - 1; ++i)
+            for (String left : make(S, 1, i))
+                for (String right : make(S, i, S.length() - 1))
+                    ans.add("(" + left + ", " + right + ")");
+        return ans;
+    }
+
+    public static List<String> make(String S, int i, int j) {
+        List<String> ans = new ArrayList();
+        for (int d = 1; d <= j - i; ++d) {
+            String left = S.substring(i, i + d);
+            String right = S.substring(i + d, j);
+            if ((!left.startsWith("0") || left.equals("0"))
+                    && !right.endsWith("0"))
+                ans.add(left + (d < j - i ? "." : "") + right);
+        }
+        return ans;
+    }
+
+    public static int numSub1(String s) {
+        int len = s.length();
+        int[] dp = new int[len];
+        int[] sp = new int[len];
+        for (int i = 0; i < len; i++) {
+            sp[i] = s.charAt(i) == '1' ? (i == 0 ? 1 : sp[i - 1] + 1) : 0;
+            dp[i] = Math.floorMod(i == 0 ? sp[i] : sp[i] + dp[i - 1], (int) Math.pow(10, 9) + 7);
+        }
+        return dp[len - 1];
+    }
+
+    public static int numSub(String s) {
+        int ans = 0;
+        int tmp = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '1') {
+                ++tmp;
+                ans += tmp;
+                if (ans > 1000000006) ans -= 1000000007;
+            } else {
+                tmp = 0;
+            }
+        }
+        return ans;
+    }
+
+    public String optimalDivision(int[] nums) {
+        StringBuilder sb = new StringBuilder();
+        if (nums.length == 1) {
+            sb.append(nums[0]);
+        } else if (nums.length == 2) {
+            sb.append(nums[0]).append("/").append(nums[1]);
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if (i == 0) {
+                    sb.append(nums[i]).append("/(");
+                } else if (i == nums.length - 1) {
+                    sb.append(nums[i]).append(")");
+                } else {
+                    sb.append(nums[i]).append("");
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    public static int compress(char[] chars) {
+        int ans = 0;
+        char pre = chars[0];
+        int count = 1;
+        int i, a, b, c;
+        int index = -1;
+        for (i = 1; i <= chars.length; i++) {
+            char cur;
+            if (i < chars.length) {
+                cur = chars[i];
+            } else {
+                cur = ' ';
+            }
+            if (pre == cur) {
+                count++;
+            } else {
+                chars[++index] = pre;
+                pre = cur;
+                ans++;
+                if (count > 1) {
+                    ans++;
+                    chars[++index] = (char) ('0' + count);
+                }
+                if (count >= 10) {
+                    ans++;
+                    a = count / 10;
+                    b = count % 10;
+                    chars[index] = (char) ('0' + a);
+                    chars[++index] = (char) ('0' + b);
+                } else if (count >= 100) {
+                    ans++;
+                    a = count / 100;
+                    b = (count - a * 100) / 10;
+                    c = count - a * 100 - b * 10;
+                    chars[index] = (char) ('0' + a);
+                    chars[++index] = (char) ('0' + b);
+                    chars[++index] = (char) ('0' + c);
+                } else if (count >= 1000) {
+                    ans++;
+                    chars[index] = '1';
+                    chars[++index] = '0';
+                    chars[++index] = '0';
+                    chars[++index] = '0';
+                }
+                count = 1;
+            }
+        }
+        return ans;
+    }
+
+
+    public static int maxDiff(int num) {
+        String s = String.valueOf(num);
+        int len = s.length();
+        int max = num, min = num;
+        char[] ma = s.toCharArray();
+        char archor = ' ';
+        for (int i = 0; i < len; i++) {
+            char cur = ma[i];
+            if (cur != '9' && archor == ' ') {
+                archor = cur;
+            }
+            if (archor == cur) {
+                ma[i] = '9';
+            }
+        }
+        max = Integer.parseInt(new String(ma));
+        char[] mi = s.toCharArray();
+        char c0 = mi[0];
+        if (c0 != '1') {
+            for (int i = 0; i < mi.length; i++) {
+                if (mi[i] == c0)
+                    mi[i] = '1';
+            }
+        } else {
+            for (int i = 1; i < len; i++) {
+                char cur = mi[i];
+                if (cur != '0' && mi[i] != mi[0]) {
+                    for (int j = i; j < len; j++) {
+                        if (mi[j] == cur) {
+                            mi[j] = '0';
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        min = Integer.parseInt(new String(mi));
+        return max - min;
+    }
+
+
+    public static int maxDiff1(int num) {
+        char[] ch1 = String.valueOf(num).toCharArray();
+        char[] ch2 = ch1.clone();
+        for (int i = 0; i < ch1.length; i++) {
+            if (ch1[i] != 57) {
+                char c = ch1[i];
+                for (int j = i; j < ch1.length; j++) {
+                    if (ch1[j] == c)
+                        ch1[j] = 57;
+                }
+                break;
+            }
+        }
+        if (ch2[0] != 49) {
+            char c = ch2[0];
+            for (int i = 0; i < ch2.length; i++) {
+                if (ch2[i] == c)
+                    ch2[i] = 49;
+            }
+        } else {
+            for (int i = 1; i < ch2.length; i++) {
+                if (ch2[i] != 48 && ch2[i] != ch2[0]) {
+                    char c = ch2[i];
+                    for (int j = i; j < ch2.length; j++) {
+                        if (ch2[j] == c)
+                            ch2[j] = 48;
+                    }
+                    break;
+                }
+            }
+        }
+        return Integer.parseInt(String.valueOf(ch1)) - Integer.parseInt(String.valueOf(ch2));
+    }
+
+
+    public static int expressiveWords(String S, String[] words) {
+        int ans = 0;
+        R sR = new R(S);
+        String key = sR.key;
+        search:
+        for (String word : words) {
+            R r = new R(word);
+            String k = new R(word).key;
+            if (!key.equals(k)) continue;
+            for (int i = 0; i < sR.count.size(); ++i) {
+                int c1 = sR.count.get(i);
+                int c2 = r.count.get(i);
+                if (c1 < 3 && c1 != c2 || c1 < c2)
+                    continue search;
+            }
+            ans++;
+        }
+        return ans;
+    }
+
+    private static class R {
+        public String key;
+        public List<Integer> count = new ArrayList<>();
+
+        R(String s) {
+            StringBuilder sb = new StringBuilder();
+            char[] arr = s.toCharArray();
+            int len = arr.length;
+            int pre = -1;
+            for (int i = 0; i < len; i++) {
+                if (i == len - 1 || arr[i] != arr[i + 1]) {
+                    sb.append(arr[i]);
+                    count.add(i - pre);
+                    pre = i;
+                }
+            }
+            key = sb.toString();
+        }
+    }
+
+    public static int bitwiseComplement(int N) {
+        String val = new StringBuilder(Integer.toBinaryString(N)).reverse().toString();
+        int ans = 0;
+        for (int i = 0; i < val.length(); i++) {
+            if (val.charAt(i) == '0') {
+                ans += Math.pow(2, i);
+            }
+        }
+        return ans;
+    }
+
+    public int minMoves(int[] nums) {
+        int min = nums[0];
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            if (min > nums[i]) {
+                min = nums[i];
+            }
+        }
+        return sum - min * nums.length;
+    }
+
+    public static int trailingZeroes(int n) {
+        int ans = 0;
+        while (n > 5) {
+            n = n / 5;
+            ans += n;
+        }
+        return ans;
+    }
+
+    public static int reverse(int x) {
+        int rev = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            if (rev > Integer.MAX_VALUE / 10 || (rev == Integer.MAX_VALUE / 10 && pop > 7))
+                return 0;
+            if (rev < Integer.MIN_VALUE / 10 || (rev == Integer.MIN_VALUE / 10 && pop < -8))
+                return 0;
+            rev = rev * 10 + pop;
+        }
+        return rev;
+    }
+
+    public int singleNumberII(int[] A) {
+        // write your code here
+        return 0;
+    }
+
+    public static int findSubstringInWraproundString(String p) {
+        int[] dp = new int[26];
+        int ans = 0;
+        char[] arr = (" " + p).toCharArray();
+        int cnt = 1;
+        for (int i = 1; i < arr.length; i++) {
+            int id = arr[i] - 'a';
+            if (check(arr[i - 1], arr[i])) {
+                cnt++;
+            } else {
+                cnt = 1;
+            }
+            dp[id] = Math.max(dp[id], cnt);
+        }
+        for (int i = 0; i < 26; i++) {
+            ans += dp[i];
+        }
+        return ans;
+    }
+
+    public static boolean check(char a, char b) {
+        if (a == 'z' && b == 'a') return true;
+        return b - a == 1;
+    }
+
+    //输入: [0,1,0,3,12]
+    //输出: [1,3,12,0,0]
+    public static void moveZeroes(int[] nums) {
+        int j = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                int tmp = nums[i];
+                nums[i] = nums[j];
+                nums[j++] = tmp;
+            }
+        }
+    }
+
+    public static int missingNumber1(int[] nums) {
+        int res = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            res ^= i;
+            res ^= nums[i];
+        }
+        res ^= nums.length;
+        return res;
+    }
+
+    public static int countOdds(int low, int high) {
+        if (low % 2 != 0) low--;
+        if (high % 2 != 0) high++;
+        int num = (high - low) / 2;
+        return num;
+    }
+
+
     public static void main(String[] args) {
-        String name = "Bob hit a ball, the hit BALL flew far after it was hit.", typed = "lleeelee";
-        String[] banned = {"hit"};
-        System.out.println(mostCommonWord(name, banned));
+//        int[] nums = new int[]{1, 4, 3, 0, 2};
+//        System.out.println(countOdds(7, 11));
+        String s = "867758314;867504617;864579114;864280330;864350301;865581497;865801480;865926238;862634726;862815933;863694259;863143650;861024759;861986347;87620682;877639097;877061723;875430263;875072710;872399317;872386515;873383099;870378264;870306515;870903396;871612787;871544738;871346328;879774724;879357798;846037523;847765966;847294832;847113951;844713339;844786472;844935094;845729451;845481099;845301808;84237738;842323064;842807707;843785672;843788037;843150303;840878193;857862034;857917701;854234045;854038457;850698945;850767026;851649622;851394535;858428264;826427505;826061307;824685408;824598259;824118234;825690781;823519055;823949772;820638230;820748600;820482434;821765143;836612686;83651221;836920985;837037625;834523467;834279299;834843900;83555121;83039810;838110560;839778359;806433123;806530631;807790282;807561762;804852861;804988523;805486131;80243278;809791433;809358507;814539138;814110599;814902309;815760125;815137281;812255743;813818607;810349868;811179409;811197044;81958523";
+        String[] ss = s.split(";");
+        System.out.println(ss.length);
     }
 }

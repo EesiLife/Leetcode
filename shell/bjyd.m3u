@@ -1,0 +1,721 @@
+#EXTM3U name="北京联通IPTV(RTP)”
+#EXTINF:-1,﻿咪咕4K(1)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226399
+#EXTINF:-1,咪咕4K(2)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226400
+#EXTINF:-1,北京IPTV4K超清(3)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226550
+#EXTINF:-1,北京IPTV淘BABY CQ(4)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226554
+#EXTINF:-1,北京IPTV淘剧场 CQ(5)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226553
+#EXTINF:-1,北京IPTV淘娱乐 CQ(6)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226551
+#EXTINF:-1,北京IPTV淘电影 CQ(7)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226552
+#EXTINF:-1,北京IPTV萌宠TV CQ(8)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226555
+#EXTINF:-1,老伙计-laoguy.com(9)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226555
+#EXTINF:-1,大健康 CQ(10)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226556
+#EXTINF:-1,凤凰中文 HD(11)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225942
+#EXTINF:-1,凤凰中文 HD(12)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225948
+#EXTINF:-1,凤凰资讯 HD(13)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225949
+#EXTINF:-1,CCTV1 HD(14)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225924
+#EXTINF:-1,CCTV1 HD(15)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226154
+#EXTINF:-1,CCTV1 HD(16)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226155
+#EXTINF:-1,CCTV1 HD(17)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226226
+#EXTINF:-1,CCTV1 CQ(18)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226346
+#EXTINF:-1,CCTV1 CQ(19)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226431
+#EXTINF:-1,CCTV2 HD(20)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226230
+#EXTINF:-1,CCTV2 CQ(21)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226371
+#EXTINF:-1,CCTV2 CQ(22)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226472
+#EXTINF:-1,CCTV3 CQ(23)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226471
+#EXTINF:-1,CCTV4 HD(24)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226314
+#EXTINF:-1,CCTV4 HD(25)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226335
+#EXTINF:-1,CCTV4 CQ(26)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226470
+#EXTINF:-1,CCTV5 CQ(27)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226469
+#EXTINF:-1,CCTV5+ HD(28)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226225
+#EXTINF:-1,CCTV5+ CQ(29)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226349
+#EXTINF:-1,CCTV5+ CQ(30)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226458
+#EXTINF:-1,CCTV6 CQ(31)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226468
+#EXTINF:-1,CCTV7 HD(32)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226234
+#EXTINF:-1,CCTV7 CQ(33)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226467
+#EXTINF:-1,CCTV8 CQ(34)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226485
+#EXTINF:-1,CCTV9 HD(35)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226236
+#EXTINF:-1,CCTV9 CQ(36)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226465
+#EXTINF:-1,CCTV10 HD(37)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226227
+#EXTINF:-1,CCTV10 CQ(38)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226464
+#EXTINF:-1,CCTV11 HD(39)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226334
+#EXTINF:-1,CCTV11 HD(40)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226315
+#EXTINF:-1,CCTV11 CQ(41)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226463
+#EXTINF:-1,CCTV12 HD(42)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226228
+#EXTINF:-1,CCTV12 CQ(43)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226462
+#EXTINF:-1,CCTV13 HD(44)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226316
+#EXTINF:-1,CCTV14 HD(45)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226229
+#EXTINF:-1,CCTV14 CQ(46)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226461
+#EXTINF:-1,CCTV15 HD(47)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226460
+#EXTINF:-1,CCTV15 HD(48)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226317
+#EXTINF:-1,CCTV15 HD(49)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226333
+#EXTINF:-1,CCTV17 HD(50)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226318
+#EXTINF:-1,CCTV17 CQ(51)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226459
+#EXTINF:-1,中国教育1 CQ(52)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226494
+#EXTINF:-1,东南卫视 HD(53)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226406
+#EXTINF:-1,东南卫视 CQ(54)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226496
+#EXTINF:-1,东方卫视 HD(55)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226237
+#EXTINF:-1,东方卫视 CQ(56)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226364
+#EXTINF:-1,东方卫视 CQ(57)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226505
+#EXTINF:-1,北京卫视 HD(58)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226224
+#EXTINF:-1,北京卫视 CQ(59)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226367
+#EXTINF:-1,北京卫视 CQ(60)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226441
+#EXTINF:-1,天津卫视 HD(61)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226246
+#EXTINF:-1,天津卫视 CQ(62)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226502
+#EXTINF:-1,安徽卫视 HD(63)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226223
+#EXTINF:-1,安徽卫视 CQ(64)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226499
+#EXTINF:-1,山东卫视 HD(65)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225894
+#EXTINF:-1,山东卫视 HD(66)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226244
+#EXTINF:-1,山东卫视 CQ(67)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226308
+#EXTINF:-1,山东卫视 CQ(68)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226501
+#EXTINF:-1,广东卫视 HD(69)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225878
+#EXTINF:-1,广东卫视 HD(70)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226238
+#EXTINF:-1,广东卫视 CQ(71)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226508
+#EXTINF:-1,江苏卫视 HD(72)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226242
+#EXTINF:-1,江苏卫视 CQ(73)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226366
+#EXTINF:-1,江苏卫视 CQ(74)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226506
+#EXTINF:-1,江西卫视 HD(75)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226243
+#EXTINF:-1,河北卫视 CQ(76)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226507
+#EXTINF:-1,浙江卫视 HD(77)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226247
+#EXTINF:-1,浙江卫视 CQ(78)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226365
+#EXTINF:-1,浙江卫视 CQ(79)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226504
+#EXTINF:-1,深圳卫视 HD(80)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225897
+#EXTINF:-1,深圳卫视 HD(81)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226245
+#EXTINF:-1,深圳卫视 CQ(82)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226495
+#EXTINF:-1,湖北卫视 HD(83)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226240
+#EXTINF:-1,湖北卫视 CQ(84)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226310
+#EXTINF:-1,湖北卫视 CQ(85)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226503
+#EXTINF:-1,湖南卫视 HD(86)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226241
+#EXTINF:-1,湖南卫视 CQ(87)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226509
+#EXTINF:-1,贵州卫视 CQ(88)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226497
+#EXTINF:-1,辽宁卫视 CQ(89)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226500
+#EXTINF:-1,黑龙江卫视 HD(90)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226239
+#EXTINF:-1,黑龙江卫视 CQ(91)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226498
+#EXTINF:-1,北京冬奥纪实 CQ(92)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226438
+#EXTINF:-1,北京影视 CQ(93)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226486
+#EXTINF:-1,北京文艺 CQ(94)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226440
+#EXTINF:-1,北京新闻 CQ(95)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226437
+#EXTINF:-1,北京卡酷少儿 CQ(96)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226558
+#EXTINF:-1,湖南快乐垂钓 CQ(97)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226549
+#EXTINF:-1,湖南茶频道 CQ(98)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226548
+#EXTINF:-1,黑莓动画 HD(99)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225914
+#EXTINF:-1,黑莓动画 HD(100)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226289
+#EXTINF:-1,黑莓电影 HD(101)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225927
+#EXTINF:-1,黑莓电影 HD(102)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226292
+#EXTINF:-1,黑莓电竞 HD(103)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225931
+#EXTINF:-1,黑莓电竞 HD(104)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226250
+#EXTINF:-1,黑莓电竞 HD(105)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226262
+#EXTINF:-1,黑莓电竞 HD(106)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226307
+#EXTINF:-1,NewTV中国功夫 HD(107)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225951
+#EXTINF:-1,NewTV中国功夫 HD(108)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226298
+#EXTINF:-1,NewTV中国功夫 HD(109)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226321
+#EXTINF:-1,NewTV怡伴健康 HD(110)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225919
+#EXTINF:-1,NewTV怡伴健康 HD(111)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226306
+#EXTINF:-1,NewTV怡伴健康 HD(112)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226327
+#EXTINF:-1,NewTV军事评论 HD(113)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225926
+#EXTINF:-1,NewTV军事评论 HD(114)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226303
+#EXTINF:-1,NewTV军事评论 HD(115)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226326
+#EXTINF:-1,NewTV军旅剧场 HD(116)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225923
+#EXTINF:-1,NewTV军旅剧场 HD(117)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226301
+#EXTINF:-1,NewTV军旅剧场 HD(118)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226324
+#EXTINF:-1,NewTV农业致富 HD(119)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225930
+#EXTINF:-1,NewTV农业致富 HD(120)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226304
+#EXTINF:-1,NewTV动作电影 HD(121)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225915
+#EXTINF:-1,NewTV动作电影 HD(122)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226288
+#EXTINF:-1,NewTV动作电影 HD(123)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226329
+#EXTINF:-1,NewTV古装剧场 HD(124)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225916
+#EXTINF:-1,NewTV古装剧场 HD(125)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226300
+#EXTINF:-1,NewTV古装剧场 HD(126)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226323
+#EXTINF:-1,NewTV家庭剧场 HD(127)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225918
+#EXTINF:-1,NewTV家庭剧场 HD(128)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226290
+#EXTINF:-1,NewTV家庭剧场 HD(129)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226330
+#EXTINF:-1,NewTV惊悚悬疑 HD(130)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225921
+#EXTINF:-1,NewTV惊悚悬疑 HD(131)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226294
+#EXTINF:-1,NewTV惊悚悬疑 HD(132)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226423
+#EXTINF:-1,NewTV明星大片 HD(133)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225929
+#EXTINF:-1,NewTV明星大片 HD(134)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226295
+#EXTINF:-1,NewTV明星大片 HD(135)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226425
+#EXTINF:-1,NewTV武搏世界 HD(136)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226171
+#EXTINF:-1,NewTV武搏世界 HD(137)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226297
+#EXTINF:-1,NewTV武搏世界 HD(138)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226320
+#EXTINF:-1,NewTV海外剧场 HD(139)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225917
+#EXTINF:-1,NewTV海外剧场 HD(140)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226302
+#EXTINF:-1,NewTV海外剧场 HD(141)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226325
+#EXTINF:-1,NewTV潮妈辣婆 HD(142)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225957
+#EXTINF:-1,NewTV潮妈辣婆 HD(143)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226286
+#EXTINF:-1,NewTV炫舞未来 HD(144)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226248
+#EXTINF:-1,NewTV爱情喜剧 HD(145)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225913
+#EXTINF:-1,NewTV爱情喜剧 HD(146)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226299
+#EXTINF:-1,NewTV爱情喜剧 HD(147)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226322
+#EXTINF:-1,NewTV精品体育 HD(148)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226287
+#EXTINF:-1,NewTV精品体育 HD(149)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226328
+#EXTINF:-1,NewTV精品体育 HD(150)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225922
+#EXTINF:-1,NewTV精品大剧 HD(151)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225925
+#EXTINF:-1,NewTV精品大剧 HD(152)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226291
+#EXTINF:-1,NewTV精品大剧 HD(153)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226331
+#EXTINF:-1,NewTV精品纪录 HD(154)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226293
+#EXTINF:-1,NewTV精品纪录 HD(155)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226332
+#EXTINF:-1,NewTV超级体育 HD(156)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226157
+#EXTINF:-1,NewTV超级体育 HD(157)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226158
+#EXTINF:-1,NewTV超级体育 HD(158)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226232
+#EXTINF:-1,NewTV超级体育 CQ(159)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226348
+#EXTINF:-1,NewTV超级电影 HD(160)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226133
+#EXTINF:-1,NewTV超级电影 HD(161)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226233
+#EXTINF:-1,NewTV超级电影 CQ(162)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226369
+#EXTINF:-1,NewTV超级电视剧 HD(163)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225864
+#EXTINF:-1,NewTV超级电视剧 HD(164)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226253
+#EXTINF:-1,NewTV超级电视剧 CQ(165)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226368
+#EXTINF:-1,NewTV超级综艺 HD(166)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226127
+#EXTINF:-1,NewTV超级综艺 HD(167)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226231
+#EXTINF:-1,NewTV超级综艺 CQ(168)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226370
+#EXTINF:-1,NewTV金牌综艺 HD(169)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225920
+#EXTINF:-1,NewTV金牌综艺 HD(170)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226296
+#EXTINF:-1,NewTV金牌综艺 HD(171)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226347
+#EXTINF:-1,咪咕视频 HD(172)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226374
+#EXTINF:-1,咪咕视频 HD(173)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226375
+#EXTINF:-1,咪咕视频 HD(174)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226377
+#EXTINF:-1,咪咕视频 HD(175)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226378
+#EXTINF:-1,咪咕视频 HD(176)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226379
+#EXTINF:-1,咪咕视频 HD(177)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226380
+#EXTINF:-1,咪咕视频 HD(178)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226381
+#EXTINF:-1,咪咕视频 HD(179)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226382
+#EXTINF:-1,咪咕视频 HD(180)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226394
+#EXTINF:-1,咪咕视频 HD(181)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226395
+#EXTINF:-1,咪咕视频 HD(182)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226396
+#EXTINF:-1,咪咕视频 HD(183)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226397
+#EXTINF:-1,咪咕视频 HD(184)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226398
+#EXTINF:-1,咪咕视频 HD(185)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226393
+#EXTINF:-1,咪咕视频 HD(186)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226392
+#EXTINF:-1,咪咕视频 HD(187)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226391
+#EXTINF:-1,咪咕视频 HD(188)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226390
+#EXTINF:-1,咪咕视频 HD(189)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226372
+#EXTINF:-1,咪咕视频 HD(190)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226373
+#EXTINF:-1,咪咕视频 HD(191)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226376
+#EXTINF:-1,咪咕视频 HD(192)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226383
+#EXTINF:-1,咪咕视频 HD(193)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226384
+#EXTINF:-1,北京家有购物 HD(194)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226429
+#EXTINF:-1,山西优购物 HD(195)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226386
+#EXTINF:-1,中视购物 HD(196)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226547
+#EXTINF:-1,央广购物 HD(197)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226319
+#EXTINF:-1,央广购物 HD(198)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226363
+#EXTINF:-1,江苏好享购物 HD(199)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226312
+#EXTINF:-1,江苏好享购物 HD(200)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226344
+#EXTINF:-1,湖南快乐购 HD(201)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226341
+#EXTINF:-1,江西风尚购物 HD(202)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225911
+#EXTINF:-1,江西风尚购物 HD(203)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226305
+#EXTINF:-1,江西风尚购物 HD(204)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226342
+#EXTINF:-1,江苏好享购物 HD(205)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226313
+#EXTINF:-1,5GO美妆个护 HD(206)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226387
+#EXTINF:-1,5GO美妆个护 HD(207)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226389
+#EXTINF:-1,5GO服饰内衣 HD(208)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226388
+#EXTINF:-1,CCTV1 标清(209)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226432
+#EXTINF:-1,CCTV1 标清(210)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226338
+#EXTINF:-1,CCTV2 标清(211)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225934
+#EXTINF:-1,CCTV2 标清(212)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226457
+#EXTINF:-1,CCTV3 标清(213)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226456
+#EXTINF:-1,CCTV4 标清(214)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226156
+#EXTINF:-1,CCTV4 标清(215)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226455
+#EXTINF:-1,CCTV5 标清(216)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226454
+#EXTINF:-1,CCTV5 标清(217)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226256
+#EXTINF:-1,CCTV5 标清(218)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226257
+#EXTINF:-1,CCTV5 标清(219)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226258
+#EXTINF:-1,CCTV5 标清(220)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226259
+#EXTINF:-1,CCTV5 标清(221)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226260
+#EXTINF:-1,CCTV5 标清(222)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226261
+#EXTINF:-1,CCTV5 标清(223)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226340
+#EXTINF:-1,CCTV5+ 标清(224)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225938
+#EXTINF:-1,CCTV6 标清(225)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226453
+#EXTINF:-1,CCTV7 标清(226)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225863
+#EXTINF:-1,CCTV7 标清(227)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226452
+#EXTINF:-1,CCTV8 标清(228)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226451
+#EXTINF:-1,CCTV9 标清(229)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226450
+#EXTINF:-1,CCTV9 标清(230)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225865
+#EXTINF:-1,CCTV10 标清(231)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225868
+#EXTINF:-1,CCTV10 标清(232)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226449
+#EXTINF:-1,CCTV11 标清(233)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225869
+#EXTINF:-1,CCTV11 标清(234)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226448
+#EXTINF:-1,CCTV12 标清(235)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225870
+#EXTINF:-1,CCTV12 标清(236)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226447
+#EXTINF:-1,CCTV13 标清(237)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226446
+#EXTINF:-1,CCTV13 标清(238)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226159
+#EXTINF:-1,CCTV13 标清(239)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226339
+#EXTINF:-1,CCTV14 标清(240)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225872
+#EXTINF:-1,CCTV14 标清(241)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226445
+#EXTINF:-1,CCTV14 标清(242)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225928
+#EXTINF:-1,CCTV15 标清(243)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225940
+#EXTINF:-1,CCTV15 标清(244)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226444
+#EXTINF:-1,CCTV17 标清(245)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226442
+#EXTINF:-1,CGTN 标清(246)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226404
+#EXTINF:-1,CGTN 标清(247)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225867
+#EXTINF:-1,CGTN 标清(248)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226443
+#EXTINF:-1,CGTN纪录 标清(249)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226403
+#EXTINF:-1,CGTN纪录 标清(250)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225866
+#EXTINF:-1,中国教育1 标清(251)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226417
+#EXTINF:-1,中国教育1 标清(252)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226538
+#EXTINF:-1,中国教育1 标清(253)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225905
+#EXTINF:-1,中国教育2 标清(254)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226537
+#EXTINF:-1,中国教育4 标清(255)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226362
+#EXTINF:-1,中国教育4 标清(256)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226557
+#EXTINF:-1,东南卫视 标清(257)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226517
+#EXTINF:-1,东南卫视 标清(258)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225876
+#EXTINF:-1,东方卫视 标清(259)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226519
+#EXTINF:-1,东方卫视 标清(260)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226161
+#EXTINF:-1,云南卫视 标清(261)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226424
+#EXTINF:-1,云南卫视 标清(262)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225902
+#EXTINF:-1,云南卫视 标清(263)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226543
+#EXTINF:-1,内蒙古卫视 标清(264)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226415
+#EXTINF:-1,内蒙古卫视 标清(265)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226530
+#EXTINF:-1,内蒙古卫视 标清(266)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225891
+#EXTINF:-1,北京卫视 标清(267)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226436
+#EXTINF:-1,北京卫视 标清(268)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226160
+#EXTINF:-1,厦门卫视 标清(269)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226542
+#EXTINF:-1,吉林卫视 标清(270)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226426
+#EXTINF:-1,吉林卫视 标清(271)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226533
+#EXTINF:-1,吉林卫视 标清(272)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225886
+#EXTINF:-1,四川卫视 标清(273)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226407
+#EXTINF:-1,四川卫视 标清(274)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225898
+#EXTINF:-1,四川卫视 标清(275)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226523
+#EXTINF:-1,天津卫视 标清(276)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226489
+#EXTINF:-1,天津卫视 标清(277)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225899
+#EXTINF:-1,宁夏卫视 标清(278)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226413
+#EXTINF:-1,宁夏卫视 标清(279)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226528
+#EXTINF:-1,宁夏卫视 标清(280)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225892
+#EXTINF:-1,安徽卫视 标清(281)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225873
+#EXTINF:-1,安徽卫视 标清(282)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226490
+#EXTINF:-1,山东卫视 标清(283)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226487
+#EXTINF:-1,山西卫视 标清(284)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226410
+#EXTINF:-1,山西卫视 标清(285)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225895
+#EXTINF:-1,山西卫视 标清(286)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226531
+#EXTINF:-1,广东卫视 标清(287)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226535
+#EXTINF:-1,广西卫视 标清(288)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226408
+#EXTINF:-1,广西卫视 标清(289)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225879
+#EXTINF:-1,广西卫视 标清(290)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226534
+#EXTINF:-1,新疆卫视 标清(291)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226422
+#EXTINF:-1,新疆卫视 标清(292)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225901
+#EXTINF:-1,新疆卫视 标清(293)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226546
+#EXTINF:-1,江苏卫视 标清(294)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226491
+#EXTINF:-1,江苏卫视 标清(295)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225887
+#EXTINF:-1,江西卫视 标清(296)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226522
+#EXTINF:-1,江西卫视 标清(297)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225888
+#EXTINF:-1,河北卫视 标清(298)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226409
+#EXTINF:-1,河北卫视 标清(299)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225881
+#EXTINF:-1,河北卫视 标清(300)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226536
+#EXTINF:-1,河南卫视 标清(301)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225882
+#EXTINF:-1,河南卫视 标清(302)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226525
+#EXTINF:-1,浙江卫视 标清(303)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226492
+#EXTINF:-1,浙江卫视 标清(304)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225903
+#EXTINF:-1,海南卫视 标清(305)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226427
+#EXTINF:-1,海南卫视 标清(306)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225890
+#EXTINF:-1,湖北卫视 标清(307)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226520
+#EXTINF:-1,湖北卫视 标清(308)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225884
+#EXTINF:-1,湖南卫视 标清(309)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226493
+#EXTINF:-1,湖南卫视 标清(310)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226162
+#EXTINF:-1,甘肃卫视 标清(311)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226414
+#EXTINF:-1,甘肃卫视 标清(312)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225877
+#EXTINF:-1,甘肃卫视 标清(313)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226545
+#EXTINF:-1,西藏卫视 标清(314)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226428
+#EXTINF:-1,西藏卫视 标清(315)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225900
+#EXTINF:-1,西藏卫视 标清(316)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226527
+#EXTINF:-1,贵州卫视 标清(317)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226405
+#EXTINF:-1,贵州卫视 标清(318)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225880
+#EXTINF:-1,贵州卫视 标清(319)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226521
+#EXTINF:-1,辽宁卫视 标清(320)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226488
+#EXTINF:-1,辽宁卫视 标清(321)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226336
+#EXTINF:-1,辽宁卫视 标清(322)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225889
+#EXTINF:-1,重庆卫视 标清(323)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225904
+#EXTINF:-1,重庆卫视 标清(324)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226337
+#EXTINF:-1,重庆卫视 标清(325)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226518
+#EXTINF:-1,陕西卫视 标清(326)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226411
+#EXTINF:-1,陕西卫视 标清(327)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225896
+#EXTINF:-1,陕西卫视 标清(328)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226532
+#EXTINF:-1,青海卫视 标清(329)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226412
+#EXTINF:-1,青海卫视 标清(330)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225893
+#EXTINF:-1,青海卫视 标清(331)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226529
+#EXTINF:-1,黑龙江卫视 标清(332)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226524
+#EXTINF:-1,黑龙江卫视 标清(333)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225883
+#EXTINF:-1,山东教育卫视 标清(334)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226419
+#EXTINF:-1,山东教育卫视 标清(335)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225908
+#EXTINF:-1,山东教育卫视 标清(336)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226526
+#EXTINF:-1,广东南方卫视地面 标清(337)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226540
+#EXTINF:-1,新疆兵团卫视 标清(338)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226541
+#EXTINF:-1,海南三沙卫视 标清(339)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226544
+#EXTINF:-1,北京卡酷少儿 标清(340)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225907
+#EXTINF:-1,北京卡酷少儿 标清(341)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226511
+#EXTINF:-1,北京国际 标清(342)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226510
+#EXTINF:-1,北京影视 标清(343)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226433
+#EXTINF:-1,北京文艺 标清(344)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226435
+#EXTINF:-1,北京新闻 标清(345)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226512
+#EXTINF:-1,北京生活 标清(346)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226514
+#EXTINF:-1,北京科教 标清(347)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226434
+#EXTINF:-1,北京财经 标清(348)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226516
+#EXTINF:-1,北京青年 标清(349)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226513
+#EXTINF:-1,上海哈哈炫动 标清(350)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226421
+#EXTINF:-1,上海哈哈炫动 标清(351)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225909
+#EXTINF:-1,广东嘉佳卡通 标清(352)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226539
+#EXTINF:-1,江苏优漫卡通 标清(353)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226420
+#EXTINF:-1,江苏优漫卡通 标清(354)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225910
+#EXTINF:-1,湖南金鹰卡通 标清(355)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225906
+#EXTINF:-1,CCTV中视购物 标清(356)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226385
+#EXTINF:-1,北京家有购物 标清(357)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225912
+#EXTINF:-1,北京家有购物 标清(358)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226343
+#EXTINF:-1,聚鲨环球精选 标清(359)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226311
+#EXTINF:-1,聚鲨环球精选 标清(360)
+http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226345

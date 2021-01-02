@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
@@ -669,10 +670,62 @@ public class T6 {
         return ans;
     }
 
+//    public static void main(String[] args) {
+//        String A = "this apple is sweet";
+//        String B = "this apple is sour";
+//        System.out.println(Arrays.toString(uncommonFromSentences(A, B)));
+//    }
+
+
+    public static boolean canPlaceFlowers1(int[] flowerbed, int n) {
+        int ans = 0;
+        int[] ff = new int[flowerbed.length + 2];
+        for (int i = 1; i < ff.length - 1; i++) {
+            ff[i] = flowerbed[i - 1];
+        }
+
+        for (int i = 1; i < ff.length - 1; i++) {
+            int pre = ff[i - 1];
+            int cur = ff[i];
+            int next = ff[i + 1];
+            if (pre == 1 || next == 1 || cur == 1) {
+                continue;
+            }
+            ff[i] = 1;
+            ans++;
+        }
+        return ans >= n;
+    }
+
     public static void main(String[] args) {
-        String A = "this apple is sweet";
-        String B = "this apple is sour";
-        System.out.println(Arrays.toString(uncommonFromSentences(A, B)));
+//        int[] aa = new int[]{1,0,0,0,1};
+//        System.out.println(canPlaceFlowers1(aa, 1));
+
+
+        //nums = [1,3,-1,-3,5,3,6,7], k = 3
+    }
+
+    public static int[] maxSlidingWindow(int[] nums, int k) {
+        if (null == nums || nums.length < 2) return nums;
+        LinkedList<Integer> queue = new LinkedList<>();
+        int len = nums.length;
+        int[] ans = new int[len - k + 1];
+        for (int i = 0; i < len; i++) {
+            while (!queue.isEmpty() && nums[queue.peekLast()] <= nums[i]) {
+                queue.pollLast();
+            }
+            queue.addLast(i);
+
+            if (queue.peek() <= i - k) {
+                queue.pollFirst();
+            }
+
+            if (i + 1 >= k) {
+                ans[i + 1 - k] = nums[queue.peekFirst()];
+            }
+
+        }
+        return ans;
     }
 
 

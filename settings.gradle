@@ -1,2 +1,3 @@
+include ':interestinglibrary'
 include ':manifest'
 include ':app', ':lib'

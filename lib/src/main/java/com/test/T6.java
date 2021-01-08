@@ -697,13 +697,13 @@ public class T6 {
         return ans >= n;
     }
 
-    public static void main(String[] args) {
-//        int[] aa = new int[]{1,0,0,0,1};
-//        System.out.println(canPlaceFlowers1(aa, 1));
-
-
-        //nums = [1,3,-1,-3,5,3,6,7], k = 3
-    }
+//    public static void main(String[] args) {
+////        int[] aa = new int[]{1,0,0,0,1};
+////        System.out.println(canPlaceFlowers1(aa, 1));
+//
+//
+//        //nums = [1,3,-1,-3,5,3,6,7], k = 3
+//    }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {
         if (null == nums || nums.length < 2) return nums;
@@ -728,5 +728,60 @@ public class T6 {
         return ans;
     }
 
+
+    public static ListNode partition(ListNode head, int x) {
+        ListNode pre = new ListNode(-1);
+        ListNode preTmp = pre;
+        ListNode next = new ListNode(-1);
+        ListNode nextTmp = next;
+
+        while (head != null) {
+            int val = head.val;
+            if (val < x) {
+                ListNode t1 = new ListNode(val);
+                preTmp.next = t1;
+                preTmp = t1;
+
+            } else {
+                ListNode t2 = new ListNode(val);
+                nextTmp.next = t2;
+                nextTmp = t2;
+            }
+            head = head.next;
+        }
+        preTmp.next = next.next;
+
+        return pre.next;
+    }
+
+//    public static void main(String[] args) {
+//        ListNode n1 = new ListNode(1);
+//        ListNode n2 = new ListNode(4);
+//        n1.next = n2;
+//        ListNode n3 = new ListNode(3);
+//        n2.next = n3;
+//        ListNode n4 = new ListNode(2);
+//        n3.next = n4;
+//        ListNode n5 = new ListNode(5);
+//        n4.next = n5;
+//        ListNode n6 = new ListNode(2);
+//        n5.next = n6;
+//        partition(n1, 3);
+//    }
+
+    public static int getRe(int tartget, int max) {
+        int[] N = new int[] {10, 50, 100, 500};
+        int ans = 0;
+        for (int i = 0; i < N.length; i++) {
+            int cur = N[i];
+            
+        }
+        return ans;
+
+    }
+
+    public static void main(String[] args) {
+        getRe(1000, 15);
+    }
 
 }

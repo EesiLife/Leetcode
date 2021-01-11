@@ -2861,7 +2861,80 @@ public class T7 {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{2,7,4,1,8,1};
-        System.out.println(lastStoneWeight(arr));
+//        int[] arr = new int[]{2,7,4,1,8,1};
+//        System.out.println(lastStoneWeight(arr));
+        //s = "dcab", pairs = [[0,3],[1,2],[0,2]]
+        String s = "dcab";
+        List<List<Integer>> pairs = new ArrayList<List<Integer>>() {
+            {
+                add(Arrays.asList(0,3));
+                add(Arrays.asList(1,2));
+                add(Arrays.asList(0,2));
+            }
+        };
+        System.out.println(smallestStringWithSwaps(s,pairs));
+    }
+
+    public static String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
+        if (pairs == null || pairs.size() == 0) return s;
+        int n = s.length();
+        UnionFind unionFind = new UnionFind(n);
+        for (int i = 0; i < pairs.size(); i++) {
+            unionFind.union(pairs.get(i).get(0), pairs.get(i).get(1));
+        }
+        HashMap<Integer, PriorityQueue<Character>> map = new HashMap<>();
+        for(int i = 0; i < n; i++) {
+            int root = unionFind.find(i);
+            if (!map.containsKey(root)) {
+                PriorityQueue<Character> tMap = new PriorityQueue<>();
+                tMap.offer(s.charAt(i));
+                map.put(root, tMap);
+            } else {
+                map.get(root).offer(s.charAt(i));
+            }
+        }
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            int root = unionFind.find(i);
+            ans.append(map.get(root).poll());
+        }
+        return ans.toString();
+    }
+
+    private static class UnionFind {
+        private int[] parent;
+        private int[] rank;
+        UnionFind(int n) {
+            parent = new int[n];
+            rank = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+                rank[i] = 1;
+            }
+        }
+
+        public void union(int x, int y) {
+            int rootX = find(x);
+            int rootY = find(y);
+            if (rootX == rootY) {
+                return;
+            }
+            if (rank[rootX] == rank[rootY]) {
+                parent[rootX] = rootY;
+                rank[rootY]++;
+            } else if (rank[rootX] < rank[rootY]) {
+                parent[rootX] = rootY;
+            } else {
+                parent[rootY] = rootX;
+            }
+        }
+
+        public int find(int x) {
+            if (x != parent[x]) {
+                parent[x] = find(parent[x]);
+            }
+            return parent[x];
+        }
+
     }
 }

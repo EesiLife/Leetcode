@@ -321,10 +321,137 @@ public class T9 {
      * 1 <= nums.length <= 104
      * 0 <= nums[i] <= 105
      */
-    public boolean canJump(int[] nums) {
-
+    public static boolean canJump1(int[] nums) {
+        if (nums.length == 1) {
+            return true;
+        }
+        if (nums[0] == 0) {
+            return false;
+        }
+        int len = nums.length;
+        int[] dp = new int[len];
+        dp[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i - 1], nums[i] + i);
+            if (dp[i] >= len - 1) {
+                return true;
+            }
+            if (dp[i] == i) {
+                return false;
+            }
+        }
+        return false;
     }
+
+    public static boolean canJump(int[] nums) {
+        int max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i <= max) {
+                max = Math.max(max, nums[i] + i);
+            }
+            if (max >= nums.length - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 给定一个长度为 n 的 0 索引整数数组 nums。初始位置为 nums[0]。
+     * 每个元素 nums[i] 表示从索引 i 向前跳转的最大长度。换句话说，如果你在 nums[i] 处，你可以跳转到任意 nums[i + j] 处:
+     * 0 <= j <= nums[i]
+     * i + j < n
+     * 返回到达 nums[n - 1] 的最小跳跃次数。生成的测试用例可以到达 nums[n - 1]。
+     * 示例 1:
+     * 输入: nums = [2,3,1,1,4]
+     * 输出: 2
+     * 解释: 跳到最后一个位置的最小跳跃数是 2。
+     *      从下标为 0 跳到下标为 1 的位置，跳 1 步，然后跳 3 步到达数组的最后一个位置。
+     * 示例 2:
+     * 输入: nums = [2,3,0,1,4]
+     * 输出: 2
+     * 提示:
+     *
+     * 1 <= nums.length <= 104
+     * 0 <= nums[i] <= 1000
+     * 题目保证可以到达 nums[n-1]
+     * @param nums
+     */
+    public static int jump(int[] nums) {
+        int len = nums.length;
+        int end = 0;
+        int max = 0;
+        int ans = 0;
+        for (int i = 0; i < len - 1; i++) {
+            max = Math.max(max, nums[i] + i);
+            if (i == end) {
+                end = max;
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 给你一个整数数组 citations ，其中 citations[i] 表示研究者的第 i 篇论文被引用的次数。计算并返回该研究者的 h 指数。
+     *
+     * 根据维基百科上 h 指数的定义：h 代表“高引用次数” ，一名科研人员的 h 指数 是指他（她）至少发表了 h 篇论文，并且 至少 有 h 篇论文被引用次数大于等于 h 。如果 h 有多种可能的值，h 指数 是其中最大的那个。
+     * 示例 1：
+     * 输入：citations = [3,0,6,1,5]
+     * 输出：3
+     * 解释：给定数组表示研究者总共有 5 篇论文，每篇论文相应的被引用了 3, 0, 6, 1, 5 次。
+     *      由于研究者有 3 篇论文每篇 至少 被引用了 3 次，其余两篇论文每篇被引用 不多于 3 次，所以她的 h 指数是 3。
+     * 示例 2：
+     * 输入：citations = [1,3,1]
+     * 输出：1
+     * 提示：
+     * n == citations.length
+     * 1 <= n <= 5000
+     * 0 <= citations[i] <= 1000
+     */
+    public static int hIndex1(int[] citations) {
+        Arrays.sort(citations);
+        int ans = 0;
+        int pre = -1;
+        for (int i = 0; i < citations.length; i++) {
+            if (pre == citations[i]) {
+                continue;
+            }
+            if (citations.length - i >= citations[i]) {
+                ans = citations[i];
+            } else {
+                ans = Math.max(ans, citations.length - i);
+            }
+
+            pre = citations[i];
+        }
+        return ans;
+    }
+
+    public static int hIndex(int[] citations) {
+        int n = citations.length, tot = 0;
+        int[] counter = new int[n + 1];
+        for (int i = 0; i < n; i++) {
+            if (citations[i] >= n) {
+                counter[n]++;
+            } else {
+                counter[citations[i]]++;
+            }
+        }
+        for (int i = n; i >= 0; i--) {
+            tot += counter[i];
+            if (tot >= i) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
+        System.out.println(hIndex(new int[] {1,3,1}));
+        System.out.println(hIndex(new int[] {100}));
+        System.out.println(hIndex(new int[] {11, 15}));
+
         /**
          int[] a = new int[]{1, 2, 3};
          plusOne(a);
@@ -336,7 +463,10 @@ public class T9 {
         int k = 9999;
         addToArrayForm(num, k);
          */
-        System.out.println(compareVersion("1.01", "1.01.01"));
+        /**
+         * System.out.println(compareVersion("1.01", "1.01.01"));
+         */
+
 
     }
 }

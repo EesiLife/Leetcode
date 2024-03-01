@@ -236,10 +236,94 @@ public class T9 {
      * @param words
      * @return
      */
-    public int expressiveWords(String s, String[] words) {
+//    public int expressiveWords(String s, String[] words) {
 
+//    }
+
+    /**
+     删除有序数组中的重复项 II
+     已解答
+     中等
+     相关标签
+     相关企业
+     给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使得出现次数超过两次的元素只出现两次 ，返回删除后数组的新长度。
+
+     不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
+
+
+
+     说明：
+
+     为什么返回数值是整数，但输出的答案是数组呢？
+
+     请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
+
+     你可以想象内部操作如下:
+
+     // nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
+     int len = removeDuplicates(nums);
+
+     // 在函数里修改输入数组对于调用者是可见的。
+     // 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。
+     for (int i = 0; i < len; i++) {
+     print(nums[i]);
+     }
+
+
+     示例 1：
+
+     输入：nums = [1,1,1,2,2,3]
+     输出：5, nums = [1,1,2,2,3]
+     解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3。 不需要考虑数组中超出新长度后面的元素。
+     示例 2：
+
+     输入：nums = [0,0,1,1,1,1,2,3,3]
+     输出：7, nums = [0,0,1,1,2,3,3]
+     解释：函数应返回新长度 length = 7, 并且原数组的前七个元素被修改为 0, 0, 1, 1, 2, 3, 3。不需要考虑数组中超出新长度后面的元素。
+
+
+     提示：
+
+     1 <= nums.length <= 3 * 104
+     -104 <= nums[i] <= 104
+     nums 已按升序排列
+     * @param nums
+     */
+    public int removeDuplicates(int[] nums) {
+        if ( null == nums || nums.length <= 2) return nums.length;
+        int j = 0, pre = nums[0], count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            int cur = nums[i];
+            if (cur == pre && count == 1) {
+
+            } else {
+
+            }
+        }
+        return 0;
     }
 
+    /**
+     * 给你一个非负整数数组 nums ，你最初位于数组的 第一个下标 。数组中的每个元素代表你在该位置可以跳跃的最大长度。
+     *
+     * 判断你是否能够到达最后一个下标，如果可以，返回 true ；否则，返回 false 。
+     * 示例 1：
+     * 输入：nums = [2,3,1,1,4]
+     * 输出：true
+     * 解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。
+     * 示例 2：
+     *
+     * 输入：nums = [3,2,1,0,4]
+     * 输出：false
+     * 解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。
+     *
+     * 提示：
+     * 1 <= nums.length <= 104
+     * 0 <= nums[i] <= 105
+     */
+    public boolean canJump(int[] nums) {
+
+    }
     public static void main(String[] args) {
         /**
          int[] a = new int[]{1, 2, 3};

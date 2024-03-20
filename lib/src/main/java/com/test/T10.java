@@ -175,13 +175,92 @@ public class T10 {
                 ((long) target + target + (n - m) - 1) * (n - m) / 2) % MOD);
     }
 
+    public static String capitalizeTitle(String title) {
+        StringBuilder ans = new StringBuilder();
+        String[] arr = title.split(" ");
+        for (String s : arr) {
+            if (ans.length() != 0) {
+                ans.append(" ");
+            }
+            if (s.length() > 2) {
+                ans.append(Character.toUpperCase(s.charAt(0)));
+                s = s.substring(1);
+            }
+            ans.append(s.toLowerCase());
+        }
+        return ans.toString();
+    }
+
+    public static long maxArrayValue(int[] nums) {
+
+        int sum = nums[0];
+        int ans = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] >= nums[i - 1]) {
+                sum+= nums[i];
+            } else {
+                ans = Math.max(ans, sum);
+                sum = nums[i];
+            }
+        }
+        ans = Math.max(ans, sum);
+        return ans;
+    }
+
+    private static String testPath(String path) {
+        if (path.startsWith("/mnt/user/")) {
+            String tmp = path.replace("/mnt/user/", "");
+            int i = tmp.indexOf('/');
+            if (i != -1) {
+                path = "/storage" + tmp.substring(i);
+            } else {
+                path = path.replace("/mnt/user/0/", "/storage/");
+            }
+        }
+        return path;
+    }
+
+    class NumArray {
+        int[] sum;
+        public NumArray(int[] nums) {
+            sum = new int[nums.length + 1];
+            for (int i = 0; i < nums.length; i++) {
+                sum[i + 1] = sum[i] + nums[i];
+            }
+        }
+
+        public int sumRange(int left, int right) {
+            return sum[right + 1] - sum[left];
+        }
+    }
+
+    public static int maximumScore(int[] nums, int k) {
+        int n = nums.length;
+        int ans = 0;
+        int left = k -1, right = k + 1;
+        for (int i = nums[k];; i--) {
+            while (left >= 0 && nums[left] >=i) {
+                left--;
+            }
+            while (right < n && nums[right] >=i) {
+                right++;
+            }
+            ans = Math.max((right - left - 1) * i, ans);
+            if (left == -1 && right == n) {
+                break;
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
 //        productExceptSelf(new int[] {1,2,3,4});
 
 //        divisibilityArray("8917171717276217174131", 17);
 
-        System.out.println(sumDistance(new int[]{-2,0,2}, "RLL", 3));
-        System.out.println(sumDistance(new int[]{1,0}, "RL", 2));
-
+//        System.out.println(sumDistance(new int[]{-2,0,2}, "RLL", 3));
+//        System.out.println(capitalizeTitle("First leTTeR of EACH Word"));
+        System.out.println(testPath("/mnt/user/0/emulated/0/pic/1.jpg"));
+        System.out.println(testPath("/mnt/user/110/emulated/110/pic/1.jpg"));
     }
 }

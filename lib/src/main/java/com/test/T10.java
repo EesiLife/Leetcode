@@ -1,6 +1,9 @@
 package com.test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class T10 {
 
@@ -253,6 +256,53 @@ public class T10 {
         return ans;
     }
 
+    static class FrequencyTracker {
+        HashMap<Integer, Integer> map;
+        HashMap<Integer, Integer> mapFrequency;
+
+        public FrequencyTracker() {
+            map = new HashMap<>();
+            mapFrequency = new HashMap<>();
+        }
+
+        public void add(int number) {
+            Integer cnt = map.get(number);
+            if (cnt == null) {
+                map.put(number, 1);
+                Integer fre = mapFrequency.get(1);
+                mapFrequency.put(1, null == fre ? 1 : ++fre);
+            } else {
+                Integer fre = mapFrequency.get(cnt);
+                mapFrequency.put(fre, --fre);
+                int newCnt = ++cnt;
+                map.put(number, newCnt);
+                fre = mapFrequency.get(newCnt);
+                mapFrequency.put(newCnt, fre == null ? 1 : ++fre);
+            }
+        }
+
+        public void deleteOne(int number) {
+            Integer cnt = map.get(number);
+            if (cnt == null || cnt == 0) return;
+            Integer fre = mapFrequency.get(cnt);
+            mapFrequency.put(cnt, --fre);
+            int newCnt = --cnt;
+            map.put(number, newCnt);
+            fre = mapFrequency.get(newCnt);
+            mapFrequency.put(newCnt, fre == null ? 1 : ++fre);
+        }
+
+        public boolean hasFrequency(int frequency) {
+            Integer val = mapFrequency.get(frequency);
+            if (null == val || 0 == val) return false;
+            return true;
+        }
+    }
+
+//    public int minNonZeroProduct(int p) {
+//
+//    }
+
     public static void main(String[] args) {
 //        productExceptSelf(new int[] {1,2,3,4});
 
@@ -260,7 +310,17 @@ public class T10 {
 
 //        System.out.println(sumDistance(new int[]{-2,0,2}, "RLL", 3));
 //        System.out.println(capitalizeTitle("First leTTeR of EACH Word"));
-        System.out.println(testPath("/mnt/user/0/emulated/0/pic/1.jpg"));
-        System.out.println(testPath("/mnt/user/110/emulated/110/pic/1.jpg"));
+        FrequencyTracker f = new  FrequencyTracker();
+        f.hasFrequency(1);
+        f.add(6);
+        f.hasFrequency(1);
+        f.add(2);
+        f.add(6);
+        f.add(5);
+        f.hasFrequency(2);
+        f.deleteOne(1);
+        f.add(2);
+        f.deleteOne(5);
+        f.hasFrequency(1);
     }
 }

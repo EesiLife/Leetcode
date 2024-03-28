@@ -1,9 +1,6 @@
 package com.test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class T10 {
 
@@ -303,6 +300,92 @@ public class T10 {
 //
 //    }
 
+    public int[][] merge(int[][] intervals) {
+        if (intervals.length == 0) return new int[0][2];
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0] - o2[0];
+            }
+        });
+        List<int[]> merge = new ArrayList<>();
+        for (int i = 0; i < intervals.length;i++) {
+            int L = intervals[i][0], R = intervals[i][1];
+            if (merge.size() == 0 || merge.get(merge.size() - 1)[1] < L) {
+                merge.add(new int[]{L, R});
+            } else {
+                merge.get(merge.size() - 1)[1] = Math.max(merge.get(merge.size() - 1)[1], R);
+            }
+        }
+        return merge.toArray(new int[merge.size()][]);
+    }
+
+    public int countWays1(int[][] ranges) {
+        int MOD = 1000000007;
+        int ans = 1;
+        Arrays.sort(ranges, (a, b) -> a[0] - b[0]);
+        List<int[]> merge = new ArrayList<>();
+        for (int i = 0; i < ranges.length;i++) {
+            int L = ranges[i][0], R = ranges[i][1];
+            if (merge.size() == 0 || merge.get(merge.size() - 1)[1] < L) {
+                merge.add(new int[]{L, R});
+                ans = ans * 2 % MOD;
+            } else {
+                merge.get(merge.size() - 1)[1] = Math.max(merge.get(merge.size() - 1)[1], R);
+            }
+        }
+        return ans;
+    }
+
+    //2580
+    public int countWays(int[][] ranges) {
+        int MOD = 1000000007;
+        Arrays.sort(ranges, (a, b) -> a[0] - b[0]);
+        int ans = 1;
+        int maxR = -1;
+        for (int i = 0; i < ranges.length;i++) {
+            int L = ranges[i][0], R = ranges[i][1];
+            if (maxR < L) {
+                ans = ans * 2 % MOD;
+            }
+            maxR = Math.max(maxR, R);
+        }
+        return ans;
+    }
+
+    /**
+     * 2963统计好分割方案的数目
+     * @param nums
+     * @return
+     */
+    public static int numberOfGoodPartitions(int[] nums) {
+        Map<Integer, int[]> map = new HashMap<>();
+        for (int i = 0; i < nums.length;i++) {
+            int x = nums[i];
+            if (map.containsKey(x)) {
+                map.get(x)[1] = i;
+            } else {
+                map.put(x, new int[]{i, i});
+            }
+        }
+        int ans = 1;
+        List<int[]> list = new ArrayList<>(map.values());
+        list.sort((p,q)-> p[0] - q[0]);
+        int maxR = list.get(0)[1];
+        for (int i = 1; i < list.size(); i++) {
+            int L = list.get(i)[0], R = list.get(i)[1];
+            if (L > maxR) {
+                ans = ans * 2 % 1_000_000_007;
+            }
+            maxR = Math.max(maxR, R);
+        }
+        return ans;
+    }
+
+    //1997
+    public int firstDayBeenInAllRooms(int[] nextVisit) {
+
+    }
     public static void main(String[] args) {
 //        productExceptSelf(new int[] {1,2,3,4});
 
@@ -310,17 +393,18 @@ public class T10 {
 
 //        System.out.println(sumDistance(new int[]{-2,0,2}, "RLL", 3));
 //        System.out.println(capitalizeTitle("First leTTeR of EACH Word"));
-        FrequencyTracker f = new  FrequencyTracker();
-        f.hasFrequency(1);
-        f.add(6);
-        f.hasFrequency(1);
-        f.add(2);
-        f.add(6);
-        f.add(5);
-        f.hasFrequency(2);
-        f.deleteOne(1);
-        f.add(2);
-        f.deleteOne(5);
-        f.hasFrequency(1);
+//        FrequencyTracker f = new  FrequencyTracker();
+//        f.hasFrequency(1);
+//        f.add(6);
+//        f.hasFrequency(1);
+//        f.add(2);
+//        f.add(6);
+//        f.add(5);
+//        f.hasFrequency(2);
+//        f.deleteOne(1);
+//        f.add(2);
+//        f.deleteOne(5);
+//        f.hasFrequency(1);
+        numberOfGoodPartitions(new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,23});
     }
 }

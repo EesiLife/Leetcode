@@ -339,8 +339,8 @@ public class T10 {
     public static String convertToTitle(int columnNumber) {
         StringBuilder sb = new StringBuilder();
         while (columnNumber > 0) {
-            int a = columnNumber / 0;
-            columnNumber = columnNumber % v;
+            int a = columnNumber / 10;
+            columnNumber = columnNumber % 1;
             sb.append((char) ('A' + a - 1));
         }
         if (columnNumber != 0) {

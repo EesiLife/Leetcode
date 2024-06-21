@@ -1,0 +1,329 @@
+public int[] FindNumsAppearOnce (int[] nums) {
+        // write code here
+        int a = 0;
+        int b = 0;
+        int tmp = 0;
+        for (int i : nums) {
+            tmp ^= i;
+        }
+        int carry = 1;
+        while((tmp&carry) == 0) {
+            carry <<= 1;
+        }
+        for(int i : nums) {
+            if((carry & i)!= 0) {
+                a ^ = i;
+            } else {
+                b ^ = i;
+            }
+        }
+        return a < b ? new int[]{a, b} : new int[b, a];
+
+}
+
+    /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+        if (root1 == null) return root2;
+        if (root2 == null) return root1;
+        TreeNode ans = new TreeNode(root1.val + root2.val);
+        ans.left = mergeTrees(root1.left, root2.left);
+        ans.right= mergeTrees(root1.right,root2.right);
+        return ans;
+    }
+
+给定一个无重复元素的整数数组nums，请你找出其中没有出现的最小的正整数
+
+进阶： 空间复杂度 
+O(1)，时间复杂度 O(n)
+public int minNumberDisappeared (int[] nums) {
+        // write code here
+        if (nums == null || nums.length == 0) return 1;
+        Arrays.sort(nums);
+        int ans = 1;
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] ==i) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+import java.util.*;
+public class Solution {
+    public int minNumberDisappeared (int[] nums) {
+        int n = nums.length;
+        //遍历数组
+        for(int i = 0; i < n; i++) 
+            //负数全部记为n+1
+            if(nums[i] <= 0) 
+                nums[i] = n + 1;
+        for(int i = 0; i < n; i++)
+            //对于1-n中的数字
+            if(Math.abs(nums[i]) <= n) 
+                //这个数字的下标标记为负数
+                nums[Math.abs(nums[i]) - 1] = -1 * Math.abs(nums[Math.abs(nums[i]) - 1]); 
+        for(int i = 0; i < n; i++)
+            //找到第一个元素不为负数的下标
+            if(nums[i] > 0)
+                return i + 1;
+        return n + 1;
+    }
+}
+
+
+public boolean IsBalanced_Solution (TreeNode pRoot) {
+        // write code here
+        if (null == pRoot) return true;
+        int left = deep(pRoot.left);
+        int right = deep(pRoot.right);
+        if (left -right > 1 || right - left > 1) return false;
+        return IsBalanced_Solution(pRoot.left) && IsBalanced_Solution(pRoot.right);
+}
+
+public int deep(TreeNode root) {
+    if (null == root) return 0;
+    int left = deep(root.left);
+    int right = deep(root.right);
+    return left > right ? left + 1 : right +1;
+}
+
+public int lowestCommonAncestor (TreeNode root, int p, int q) {
+        // write code here
+        if (null != root) {
+            int pre = root.val;
+            if ( (p>= pre && q <=pre) || (q>= pre && p <= pre)) {
+                return pre;
+            } else if (p <= pre && q <= pre) {
+                return lowestCommonAncestor(root.left, p, q);
+            } else {
+                return lowestCommonAncestor(root.right, p, q);
+            }
+
+        }
+        return -1;
+}
+
+public int lowestCommonAncestor (TreeNode root, int o1, int o2) {
+        // write code here
+        if (null != root) {
+            int pre = root.val;
+            if ( (o1>= pre && o2 <=pre) || (o2>= pre && o1 <= pre)) {
+                return pre;
+            } else if (o1 <= pre && o2 <= pre) {
+                return lowestCommonAncestor(root.left, o1, o2);
+            } else {
+                return lowestCommonAncestor(root.right, o1, o2);
+            }
+
+        }
+        return -1;
+    }
+
+    public boolean isCompleteTree (TreeNode root) {
+        // write code here
+        if(null == root) return true;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        boolean isLeafOrLeft = false;
+        while (!q.isEmpty()) {
+            TreeNode cur = q.poll();
+            if (isLeafOrLeft) {
+                if (null != cur.left || null != cur.right) {
+                    return false;
+                }
+            } else {
+                if(null != cur.left && null != cur.right) {
+                q.offer(cur.left);
+                q.offer(cur.right);
+            } else if (null != cur.left) {
+                q.offer(cur.left);
+                isLeafOrLeft = true;
+            } else if (null != cur.right) {
+                return false;
+            } else {
+                isLeafOrLeft = true;
+            }
+            }
+        }
+        return true;
+    }
+
+用两个栈来实现一个队列，使用n个元素来完成 n 次在队列尾部插入整数(push)和n次在队列头部删除整数(pop)的功能。 队列中的元素为int类型。保证操作合法，即保证pop操作时队列内已有元素。
+
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+    
+    public void push(int node) {
+        stack1.push(node);
+    }
+    
+    public int pop() {
+        while (!stack1.isEmpty()) {
+            stack2.push(stack1.pop());
+        }
+        if(!stack2.isEmpty()) {
+            int ret = stack2.pop();
+            while(!stack2.isEmpty()) {
+                stack1.push(stack2.pop());
+            }
+            return ret;
+        }
+        return -1;
+    }
+
+
+    Stack<Integer> stack = new Stack<Integer>();
+    Stack<Integer> minstack = new Stack<Integer>();
+    public void push(int node) {
+        stack.push(node);
+        if(minstack.isEmpty() || node < minstack.peek()) {
+            minstack.push(node);
+        } else {
+            minstack.push(minstack.peek());
+        }
+    }
+    
+    public void pop() {
+        stack.pop();
+        minstack.pop;        
+    }
+    
+    public int top() {
+        return stack.peek();
+    }
+    
+    public int min() {
+        return min.peek();
+    }
+
+    给出一个仅包含字符'(',')','{','}','['和']',的字符串，判断给出的字符串是否是合法的括号序列
+括号必须以正确的顺序关闭，"()"和"()[]{}"都是合法的括号序列，但"(]"和"([)]"不合法。
+public boolean isValid (String s) {
+        // write code here
+        Stack<Character> st = new Stack<Character>();
+        for(char c : s.toCharArray()) {
+            if (st.isEmpty()) {
+                s.push(c);
+            } else {
+                char top = st.peek();
+                swtich top:
+                    case '{':
+                    if (c== '}') {
+                        st.pop();
+                    }
+                    break;
+                    case '(':
+                    if (c== ')') {
+                        st.pop();
+                    }
+                    break;
+                    case '[':
+                    if (c== ']') {
+                        st.pop();
+                    }
+                    break;
+                    default:
+                    st.push(c);
+                    break;
+            }
+        }
+        return st.isEmpty();
+    }
+
+    public int Fibonacci (int n) {
+        // write code here
+        int a = 1, b = 1;
+        int cur = 0;
+        for (int i = 1; i <= n; i++) {
+            if (i == 1 || i == 2) {
+                cur = 1;
+            } else {
+               cur = a + b;
+            a = b;
+            b = cur; 
+            }
+        }
+        return cur;
+    }
+
+    //1 1
+    //2 2
+    //3 3
+    //4 1111 121 112 211 22
+    //5 11111 1211 1121 1112 122 2111 221 212
+    public int jumpFloor (int number) {
+        // write code here
+        int a = 1, b = 2;
+        int ans;
+        for (int i = 1; i <= number; i++) {
+            if (i == 1) {
+                ans = 1;
+            } else if (i == 2) {
+                ans = 2;
+            } else {
+                ans = a + b;
+                a = b;
+                b = ans;
+            }
+        }
+        return ans;
+    }
+
+    public int minCostClimbingStairs (int[] cost) {
+        // write code here
+        int[] dp = new int[cost.length + 1];
+        for(int i = 2; i <cost.length; i ++) {
+            dp[i] = Math.min(dp[i-1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        }
+        return dp[cost.length];
+    }
+
+
+public ArrayList<Integer> maxInWindows (int[] num, int size) {
+    ArrayList<Integer> ans = new ArrayList<>();
+    if(size == 0) return ans
+    ArrayDeque<Integer> queue = new ArrayDeque<>();
+    for(int i = 0; i < num.length; i++) {
+        while(!queue.isEmpty() && queue.peek() < i - size + 1) {
+            queue.poll();
+        }
+        while(!queue.isEmpty() && num[queue.peekLast()] < num[i]) {
+            queue.pollLast();
+        }
+        queue.offer(i);
+        if( i >= size - 1) {
+            ans.add(num[queue.peek()]);
+        }
+    }
+    return ans;   
+}
+
+public int uniquePaths (int m, int n) {
+        // write code here
+    }
+
+
+
+
+
+
+
+
+
+
+
+

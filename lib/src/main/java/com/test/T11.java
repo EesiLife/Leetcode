@@ -903,7 +903,6 @@ public class T11 {
 
     /**
      *
-     * @param nums
      * @return
      */
 //    public int InversePairs (int[] nums) {
@@ -1095,18 +1094,18 @@ public class T11 {
         }
     }
 
-    public static void main(String[] args) {
-        TreeNode a1 = new TreeNode(4);
-        TreeNode a2 = new TreeNode(8);
-        TreeNode a = new TreeNode(6, a1, a2);
-        TreeNode b1 = new TreeNode(12);
-        TreeNode b2 = new TreeNode(16);
-        TreeNode b = new TreeNode(14, b1, b2);
-        TreeNode root = new TreeNode(10, a, b);
-        T11 t = new T11();
-        t.Convert(root);
-        System.out.println(1);
-    }
+//    public static void main(String[] args) {
+//        TreeNode a1 = new TreeNode(4);
+//        TreeNode a2 = new TreeNode(8);
+//        TreeNode a = new TreeNode(6, a1, a2);
+//        TreeNode b1 = new TreeNode(12);
+//        TreeNode b2 = new TreeNode(16);
+//        TreeNode b = new TreeNode(14, b1, b2);
+//        TreeNode root = new TreeNode(10, a, b);
+//        T11 t = new T11();
+//        t.Convert(root);
+//        System.out.println(1);
+//    }
 
     TreeNode ans;
     TreeNode cur;
@@ -1132,24 +1131,224 @@ public class T11 {
         return pRoot;
     }
 
+    int preV = Integer.MIN_VALUE;
     public boolean isValidBST (TreeNode root) {
         // write code here
-        if (root.left != null && root.right != null && (root.left.val >= root.val || root.right.val <= root.val)) {
-             return false;
-        } else if (root.left != null && (root.left.val >= root.val)) {
-            return false;
-        } else if (root.right != null && (root.right.val <= root.val)){
-            return false;
-        }
-        return isValidBST(root.left) && isValidBST(root.right);
+        if (null == root) return true;
+        if (!isValidBST(root.left)) return false;
+        if (root.val < preV) return false;
+        preV = root.val;
+        return isValidBST(root.right);
     }
 
-    private boolean checkBST(TreeNode root) {
-        if (root == null) return true;
-        if (root.left == null && root.right == null) return true;
-        if (root.left != null) return root.left.val < root.val;
-        if (root.right != null) return root.right.val > root.val;
-        else return root.left.val < root.val && root.right.val > root.val;
+
+    public void swap(int[] arr , int i , int j) {
+        int t = arr[i] ;
+        arr[i] = arr[j] ;
+        arr[j] = t ;
     }
+    public int minNumberDisappeared (int[] nums) {
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            while (nums[i] > 0 && nums[i] <= len && nums[i] != nums[nums[i] - 1]) {
+                swap(nums, i, nums[i] - 1);
+            }
+        }
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != i + 1) {
+                return i+ 1;
+            }
+        }
+        return len + 1;
+    }
+
+//    public static void main(String[] args) {
+//        int[] nums = new int[]{1,2,3, -1};
+//        T11 t = new T11();
+//        System.out.println(t.minNumberDisappeared(nums));
+//    }
+
+    public boolean isCompleteTree (TreeNode root) {
+        //空树一定是完全二叉树
+        if(root == null)
+            return true;
+        //辅助队列
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        TreeNode cur;
+        //定义一个首次出现的标记位
+        boolean notComplete = false;
+        while(!queue.isEmpty()){
+            cur = queue.poll();
+            //标记第一次遇到空节点
+            if(cur == null){
+                notComplete = true;
+                continue;
+            }
+            //后续访问已经遇到空节点了，说明经过了叶子
+            if(notComplete)
+                return false;
+            queue.offer(cur.left);
+            queue.offer(cur.right);
+        }
+        return true;
+    }
+
+//    Stack<Integer> stack1 = new Stack<Integer>();
+//    Stack<Integer> stack2 = new Stack<Integer>();
+//    public void push(int node) {
+//        stack1.push(node);
+//    }
+//
+//    public int pop() {
+//        while (!stack1.isEmpty()) {
+//            stack2.push(stack1.pop());
+//        }
+//        if(!stack2.isEmpty()) {
+//            int ret = stack2.pop();
+//            while(!stack2.isEmpty()) {
+//                stack1.push(stack2.pop());
+//            }
+//            return ret;
+//        }
+//        return -1;
+//    }
+
+    Stack<Integer> stack = new Stack<Integer>();
+    Stack<Integer> minstack = new Stack<Integer>();
+    public void push(int node) {
+        stack.push(node);
+        if (minstack.isEmpty() || minstack.peek() > node) {
+            minstack.push(node);
+        } else {
+            minstack.push(minstack.peek());
+        }
+
+    }
+
+    public void pop() {
+        stack.pop();
+        minstack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int min() {
+        return minstack.peek();
+    }
+
+    public boolean isValid (String s) {
+        // write code here
+        Stack<Character> st = new Stack<Character>();
+        for(char c : s.toCharArray()) {
+            if (st.isEmpty()) {
+                st.push(c);
+            } else {
+                char top = st.peek();
+                switch (top) {
+                    case '{':
+                        if (c == '}') {
+                            st.pop();
+                        } else {
+                            st.push(c);
+                        }
+                        break;
+                    case '(':
+                        if (c == ')') {
+                            st.pop();
+                        } else {
+                            st.push(c);
+                        }
+                        break;
+                    case '[':
+                        if (c == ']') {
+                            st.pop();
+                        } else {
+                            st.push(c);
+                        }
+                        break;
+                    default:
+                        st.push(c);
+                        break;
+                }
+            }
+        }
+        return st.isEmpty();
+    }
+
+//    public static void main(String[] args) {
+//        T11 t = new T11();
+//        System.out.println(t.isValid("[(}]"));
+//    }
+
+    public ArrayList<Integer> maxInWindows (int[] num, int size) {
+        // write code here
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        ArrayList<Integer> ans = new ArrayList<>();
+        if (size == 0) return ans;
+
+        for (int i = 0; i < num.length; i ++ ) {
+
+            while (!deque.isEmpty() && deque.peek() < i - size + 1) {
+                deque.poll();
+            }
+            while (!deque.isEmpty() && num[deque.peekLast()] < num[i]) {
+                deque.pollLast();
+            }
+            deque.offer(i);
+            if (i >= size - 1) {
+                ans.add(num[deque.peek()]);
+            }
+        }
+
+        return ans;
+    }
+
+    /**
+     * 给定一个长度为 n 的可能有重复值的数组，找出其中不去重的最小的 k 个数。例如数组元素是4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4(任意顺序皆可)。
+     */
+//    public ArrayList<Integer> GetLeastNumbers_Solution (int[] input, int k) {
+//        // write code here
+//        int len = input.length;
+//        ArrayList<Integer> ans = new ArrayList<>();
+//        if (k >= len) {
+//            for (int i = 0; i < len; i++) {
+//                ans.add(input[i]);
+//            }
+//            return ans;
+//        }
+//
+//    }
+
+//    public String trans (String s, int n) {
+//        // write code here
+//        String sb
+//    }
+
+    public boolean judge (String str) {
+        // write code here
+        StringBuilder sb = new StringBuilder(str);
+        return sb.reverse().toString().equals(str);
+    }
+    public static boolean isPalindrome(String s) {
+
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if ((c >= 'A' && c <= 'Z') || ( c >= 'a' && c <= 'z')) {
+                sb.append(Character.toLowerCase(c));
+            }
+        }
+        System.out.println(sb.toString());
+        System.out.println(sb.reverse().toString());
+        return sb.toString().equals(sb.reverse().toString());
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("0P"));
+    }
+
 
 }

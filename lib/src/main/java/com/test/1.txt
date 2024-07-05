@@ -314,10 +314,280 @@ public ArrayList<Integer> maxInWindows (int[] num, int size) {
 
 public int uniquePaths (int m, int n) {
         // write code here
+
+}
+public boolean isPalindrome(String s) {
+
+        StringBuilder sb = new StringBuilder();
+        for(Char s)
+        return sb.reverse().toString().equals(s);
+    }
+
+public ListNode ReverseList (ListNode head) {
+        // write code here
+        ListNode res = new ListNode(0);
+        ListNoe cur = res;
+        Stack<Integer> stack = new Stack<>();
+        while(head != null) {
+            stack.push(head.val);
+            head = head.next;    
+        }
+        while(stack.isEmpty()) {
+            cur.next = new ListNode(stack.pop());
+            cur = cur.next;
+        }
+        return res;
+    }
+
+    public ListNode reverseBetween (ListNode head, int m, int n) {
+        // write code here
+        int index = 1;
+        Stack<Integer> stack = new Stack<>();
+        ListNode res = new ListNode(0);
+        ListNode cur = res;
+        while(head != null) {
+            if (index < m || index > n) {
+                cur.next = new ListNode(head.val);
+                cur = cur.next;
+            } else {
+                stack.push(head.val);
+                if (index == n) {
+                    while(!stack.isEmpty()) {
+                        cur.next = new ListNode(stack.pop());
+                        cur = cur.next;
+                    }
+                }
+            }
+            index++;
+            head = head.next;
+
+        }
+        return res.next;
+    }
+s
+public ListNode Merge (ListNode pHead1, ListNode pHead2) {
+    ListNode res = new ListNode(0);
+    ListNode cur = res;
+    ListNode tmp = null;
+    while(pHead1 != null && pHead2 != null) {
+        if (pHead1.val <= pHead2.val) {
+                tmp = new ListNode(pHead1.val);
+                pHead1 = pHead1.next;
+            } else {
+                tmp = new ListNode(pHead2.val);
+                pHead2 = pHead2.next;
+            }
+         cur.next = tmp;
+            cur = tmp;
+    }
+    cur.next = pHead1 != null ? pHead1: pHead2;
+    return res.next;
+}
+
+public boolean canConstruct(String ransomNote, String magazine) {
+    int[] v = new int[26];
+    for (int i = 0; i< magazine.length(); i++) {
+        v[magazine.charAt(i) - 'a']++;
+    }
+    boolean ans = true;
+    for (int i = 0; i < ransomNote.length(); i++) {
+        v[ransomNote.charAt(i) - 'a']--;
+        if(v[ransomNote.charAt(i) - 'a'] < 0) return false;
+    }
+    return true;
+
+    }
+
+    public boolean isIsomorphic(String s, String t) {
+        HashMap<Character, Character> maps = new HashMap<>();
+            HashMap<Character, Character> mapt = new HashMap<>();
+        for (int i = 0; i< s.length(); i++) {
+            Character a = s.charAt(i);
+            Character b = t.charAt(i);
+            if((maps.contains(a) && maps.get(a) != b)) || (mapt.constains(b) && mapt.get(b) != a)) ) {
+                return false;
+            }
+            maps.put(a, b);
+            mapt.put(b, a);
+        }
+        return true;
+    }
+
+    public boolean isAnagram(String s, String t) {
+        int[] cnt = new int[26];
+        for(char c: s.toCharArray()) {
+            cnt[c - 'a']++;
+        }
+        for(char c: t.toCharArray()) {
+            cnt[c - 'a']--;
+        }
+        for(int i : cnt) {
+            if (i != 0) return false;
+        }
+        return true;
+    }
+
+    public int[] solve (int n, int m, int[] a) {
+        // write code here
+        m = m %n;
+        reverse(a, 0, n - 1 );
+        reverse(a, 0, m - 1);
+        reverse(a, m, n);
+    }
+
+    public void reverse(int[] a , int start, int end) {
+        while(start < end) {
+            swap(a, start++, end--);
+        }
+    }
+
+    public void swap(int a, int b) {
+        int tmp = a;
+        a = b;
+        b = tmp;
     }
 
 
 
+
+
+    public void rotate(int[] nums, int k) {
+        int len = nums.length;
+        k = k%len;
+        reverse(nums, 0, len -1);
+        reverse(nums, len - k, len -1);
+        reverse(nums, 0, k -1);
+    }
+
+    public void reverse(int[] nums, int start, int end) {
+        while(start < end) {
+            swap(nums, start++, end--);
+        }
+    }
+
+    public void swap(int[] nums, int start, int end) {
+        int tmp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = tmp;
+    }
+
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length == 0) return "";
+        if(strs.length == 1) return strs[0];
+        String ans = strs[0];
+        int len = ans.length();
+        int ret = 0;
+        for(int i = 0; i < ans.length(); i++) {
+            char a = ans.charAt(i);
+            for (String s: strs) {
+                if (i == s.length() || s.charAt(i) != a) {
+                    return ans.substring(0, i);
+                }
+            }
+        }
+        return ans;
+    }
+
+    public String reverseWords(String s) {
+        if (null == s || "".equals(s)) return s;
+        String[] arr = s.split(" ");
+        StringBuilder sb = new StringBuilder();
+        for (int i = arr.length -1; i>=0; i--) {
+            if (!"".equals(arr[i]) && !" ".equals(arr[i])) {
+                sb.append(arr[i]);
+                sb.append(" ");
+            }
+        }
+        String ans = sb.toString();
+        return ans.substring(0, ans.length() -1);
+    }
+
+    public int climbStairs(int n) {
+        if (n== 1 || n == 2)return n;
+        int[] dp = new int[n];
+        dp[0] = 1;
+        dp[1] = 1;
+        for(int i = 2; i < n;i++){
+            dp[i] = dp[i-1]+dp[i-2];
+        }
+        return dp[n-1];
+    }
+
+public int rob(int[] nums) {
+    int len = nums.length;
+    if (len == 1) return nums[0];
+    if (len == 2) return Math.max(nums[0], nums[1]);
+    int[] dp = new int[len];
+    dp[0] = nums[0];
+    dp[1]= Math.max(nums[0], nums[1]);
+    for(int i = 2; i < len; i++) {
+        dp[i] = Math.max(dp[i-1], dp[i-2] + nums[i]); 
+    }
+    return dp[len-1];
+
+    }
+
+    public boolean wordBreak(String s, List<String> wordDict) {
+        Set<String> set = new HashSet<>(wordDict);
+        int len = s.length();
+        boolean[] dp = new boolean[len+1];
+        dp[0] = true;
+        for(int i = 1; i<=len; i++) {
+            for(int j = 0; j <i;j++) {
+                if(dp[j] && set.contains(s.substring(j, i))) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[len];
+    }
+
+    public int coinChange(int[] coins, int amount) {
+        int len = amount + 1;
+        int[] dp = new int[len];
+        Arrays.fill(dp, len);
+        dp[0] = 0;
+        for (int i = 1; i < len; i++) {
+            for (int j = 0; j < coins.length; j++) {
+                if (coins[j] <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+                }
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+
+    }
+
+    public int lengthOfLIS(int[] nums) {
+        int len = nums.length;
+        if (len <= 2) return len -1;
+        int[] dp = new int[len];
+        dp[0]= 1;
+        int ans = 1;
+        for(int i = 1; i < len; i++) {
+            for(int j = 0; j < i;j++) {
+                if (nums[j] <= nums[i]) {
+                    dp[i] =Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            ans = Math.max(ans, dp[i]);
+
+        }
+        return ans;
+    }
+
+public int findPeakElement(int[] nums) {
+        int left = 0,right = nums.length -1;
+        while(left < right) {
+            int mid = (left + right)/2;
+            if (nums[mid] > left) {
+                left = mid; 
+            } else {
+
+            }
+        }
+    }
 
 
 

@@ -927,12 +927,47 @@ class Te {
 //
 //    }
 
-    public static void main(String[] args) {
-        //[1,3,5,2,4]
-        //[6,5,4,3,2,1,7]
-        int[] n1 = new int[]{1, 3, 5, 2, 4};
-        int[] n2 = new int[]{6, 5, 4, 3, 2, 1, 7};
-        System.out.println(Arrays.toString(nextGreaterElement1(n1, n2)));
+    public static long toMem(long pc) {
+        return pc & ~0x1;
+    }
+//    public static void main(String[] args) {
+//        //[1,3,5,2,4]
+//        //[6,5,4,3,2,1,7]
+//        int[] n1 = new int[]{1, 3, 5, 2, 4};
+//        int[] n2 = new int[]{6, 5, 4, 3, 2, 1, 7};
+//        System.out.println("0x"+Long.toHexString(toMem(0x000145)));
+//    }
+
+    public static boolean isPalindrome(String s) {
+        if (null == s || "".equals(s)) return true;
+        int left = 0, right = s.length() -1;
+        while (left < right) {
+            char l = Character.toLowerCase(s.charAt(left));
+            char r = Character.toLowerCase(s.charAt(right));
+            if (!Character.isLetterOrDigit(l)) {
+                left++;
+            } else if (!Character.isLetterOrDigit(r)) {
+                right--;
+            } else if (l == r) {
+                left++;
+                right--;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 
+//    public static void main(String[] args) {
+//        System.out.println(isPalindrome(" "));
+//    }
+
+    public int findPeakElement(int[] nums) {
+        if (null == nums || nums.length == 0) return -1;
+        int id = 0;
+        for (int i = 1; i < nums.length;i++) {
+            if (nums[i] > nums[i -1]) id = i;
+        }
+        return id;
+    }
 }

@@ -2175,9 +2175,9 @@ public class T11 {
         }
         return ans;
     }
-    public int compare(int[] nums, int l, int r) {
-
-    }
+//    public int compare(int[] nums, int l, int r) {
+//
+//    }
     public static void main(String[] args) {
         int[][] aa = new int[][]{{200,0},{200,10}, {200,50},{200,30},{200, 25}};
         System.out.println(distance(aa));

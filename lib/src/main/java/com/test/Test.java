@@ -4,15 +4,64 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.sql.Time;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Test {
 
     public static void main(String[] args) {
-        handleData();
+        handle();
+    }
+
+    private static void handle() {
+    ///Volumes/macDisk/opa/opa/doc/feishu/编辑8.txt
+        BufferedReader reader = null;
+        try {
+            String mPath = "/Volumes/macDisk/opa/opa/doc/feishu/8.txt";
+            String newPath = "/Volumes/macDisk/opa/opa/doc/feishu/编辑8-8.txt";
+            File mFile = new File(mPath);
+            reader = new BufferedReader(new FileReader(mFile));
+            String line;
+            String time = null;
+            String preLine = null;
+            List<String> mList = new ArrayList<>();
+            List<String> mListUrl = new ArrayList<>();
+            while ((line = reader.readLine()) != null) {
+//                if (preLine != null && (
+//                        (preLine.contains("checkUrl url") && line.contains("checkUrl url"))
+//                        || (preLine.contains("checkUrl list url") && line.contains("checkUrl list url")))) {
+//                    mList.remove(mList.size() -1);
+//                    preLine = line;
+//                    continue;
+//                }
+//                preLine = line;
+                try {
+                    String[] arr = line.split(" ");
+                    time = arr[0];
+                    mList.add(time);
+                    mListUrl.add(arr[1]);
+                } catch (Throwable e) {e.printStackTrace();}
+            }
+            if (mList.size() > 0) {
+                int total = 0;
+                int len  = mList.size();
+                Random random = new Random();
+                for (int i = 1; i < len; i= i + 2) {
+                    int v = random.nextInt(1000000) + 1;
+                    int v2 = random.nextInt(1000000) + 1;
+//                    System.out.println(v + mList.get(i) + v2);
+                    System.out.println(v + mListUrl.get(i) + v2);
+//                    System.out.println(v);
+//                    System.out.println(mList.get(i));
+                }
+
+            } else {
+                System.out.println("数据解析失败");
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        } finally {
+            closeQuietly(reader);
+        }
     }
 
     private static void handleData() {
